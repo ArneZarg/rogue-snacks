@@ -27,6 +27,9 @@
         line-height: normal;
         text-align:center;
     }
+    .{{ section.id }} .product-slider-text{
+        padding-bottom:30px;
+    }
     @media(min-width:750px){
         .{{ section.id }}{
             padding-top:{{ section.settings.d_padding_top }}px;
@@ -40,10 +43,13 @@
         .{{ section.id }} p{
             text-align:left;
         }
+        .{{ section.id }} .product-slider-text{
+            padding-bottom:50px;
+        }
     }
 </style>
 <section class="{{ section.id }}">
-    <div class="page-container-body-wide">
+    <div class="page-container-body-wide"> 
         <div class="product-slider-text">
             <h2>{{ section.settings.title }}</h2>
             <p>{{ section.settings.subtitle }}</p>
