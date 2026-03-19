@@ -1,1 +1,179 @@
-{"sections":{"hero_jVaWmY":{"type":"hero","blocks":{"image_qwerWJ":{"type":"image","name":"t:names.image","settings":{"image":"shopify:\/\/shop_images\/Rogue_Protein_Snacks_copy.svg","link":"","image_ratio":"adapt","width":"custom","custom_width":54,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"custom_liquid_LWGkLR":{"type":"custom-liquid","name":"t:names.custom_liquid","settings":{"custom_liquid":"<style>                                                                                                                                                            \n    .klaviyo-form-WHY9a2 {\n      min-height: 240px;                                                                                                                                             \n      opacity: 0; \n      transition: opacity 0.4s ease-in;\n    }\n    .klaviyo-form-WHY9a2:not(:empty) {\n      opacity: 1;\n    }\n  <\/style>\n  <div class=\"klaviyo-form-WHY9a2\"><\/div>"},"blocks":{}},"ai_gen_block_8056acc_tUztnf":{"type":"ai_gen_block_8056acc","settings":{"tiktok_link":"https:\/\/www.tiktok.com\/@roguesnacks?_r=1&_t=ZP-94TKX8xu93H","tiktok_text":"Follow on TikTok","tiktok_bg_color":"#000000","tiktok_text_color":"#ffffff","tiktok_hover_bg_color":"#333333","tiktok_hover_text_color":"#ffffff","instagram_link":"https:\/\/www.instagram.com\/roguesnacks\/","instagram_text":"Follow on Instagram","instagram_bg_color":"#e4405f","instagram_text_color":"#ffffff","instagram_hover_bg_color":"#c13584","instagram_hover_text_color":"#ffffff","button_padding":16,"border_radius":14,"gap":16,"font_size":16,"icon_size":24,"desktop_width_percent":100},"blocks":{}}},"block_order":["image_qwerWJ","custom_liquid_LWGkLR","ai_gen_block_8056acc_tUztnf"],"name":"t:names.hero","settings":{"media_type_1":"image","image_1":"shopify:\/\/shop_images\/blurred_cookie_can_6a0c87e2-2bab-410f-8a90-dc8b2df6f3a4.png","media_type_2":"image","stack_media_on_mobile":false,"custom_mobile_media":false,"media_type_1_mobile":"image","media_type_2_mobile":"image","link":"","open_in_new_tab":false,"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"space-between","vertical_alignment":"flex-end","align_baseline":true,"horizontal_alignment_flex_direction_column":"center","vertical_alignment_flex_direction_column":"center","gap":24,"section_width":"page-width","section_height":"custom","section_height_custom":96,"color_scheme":"scheme-6","toggle_overlay":true,"overlay_color":"#12121266","overlay_style":"solid","gradient_direction":"to bottom","blurred_reflection":false,"reflection_opacity":75,"padding-block-start":100,"padding-block-end":72}},"17731058756c6f27c1":{"type":"_blocks","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":12,"section_width":"page-width","section_height":"","section_height_custom":50,"color_scheme":"","background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","padding-block-start":0,"padding-block-end":0}}},"order":["hero_jVaWmY","17731058756c6f27c1"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_jVaWmY": {
+      "type": "hero",
+      "blocks": {
+        "image_qwerWJ": {
+          "type": "image",
+          "name": "t:names.image",
+          "settings": {
+            "image": "shopify://shop_images/Rogue_Protein_Snacks_copy.svg",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 54,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "custom_liquid_LWGkLR": {
+          "type": "custom-liquid",
+          "name": "t:names.custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>                                                                                                                                                            \n    .klaviyo-form-WHY9a2 {\n      min-height: 240px;                                                                                                                                             \n      opacity: 0; \n      transition: opacity 0.4s ease-in;\n    }\n    .klaviyo-form-WHY9a2:not(:empty) {\n      opacity: 1;\n    }\n  </style>\n  <div class=\"klaviyo-form-WHY9a2\"></div>"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8056acc_tUztnf": {
+          "type": "ai_gen_block_8056acc",
+          "settings": {
+            "tiktok_link": "https://www.tiktok.com/@roguesnacks?_r=1&_t=ZP-94TKX8xu93H",
+            "tiktok_text": "Follow on TikTok",
+            "tiktok_bg_color": "#000000",
+            "tiktok_text_color": "#ffffff",
+            "tiktok_hover_bg_color": "#333333",
+            "tiktok_hover_text_color": "#ffffff",
+            "instagram_link": "https://www.instagram.com/roguesnacks/",
+            "instagram_text": "Follow on Instagram",
+            "instagram_bg_color": "#e4405f",
+            "instagram_text_color": "#ffffff",
+            "instagram_hover_bg_color": "#c13584",
+            "instagram_hover_text_color": "#ffffff",
+            "button_padding": 16,
+            "border_radius": 14,
+            "gap": 16,
+            "font_size": 16,
+            "icon_size": 24,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "image_qwerWJ",
+        "custom_liquid_LWGkLR",
+        "ai_gen_block_8056acc_tUztnf"
+      ],
+      "disabled": true,
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/blurred_cookie_can_6a0c87e2-2bab-410f-8a90-dc8b2df6f3a4.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-end",
+        "align_baseline": true,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "custom",
+        "section_height_custom": 96,
+        "color_scheme": "scheme-6",
+        "toggle_overlay": true,
+        "overlay_color": "#12121266",
+        "overlay_style": "solid",
+        "gradient_direction": "to bottom",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 100,
+        "padding-block-end": 72
+      }
+    },
+    "17731058756c6f27c1": {
+      "type": "_blocks",
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "product_slider_4RV6cc": {
+      "type": "product-slider",
+      "blocks": {
+        "product_qtxb7w": {
+          "type": "product",
+          "settings": {
+            "product": "chocolate-chip-cookie-can"
+          }
+        },
+        "product_KgXdiA": {
+          "type": "product",
+          "settings": {
+            "product": "buffalo-chicken-wing"
+          }
+        }
+      },
+      "block_order": [
+        "product_qtxb7w",
+        "product_KgXdiA"
+      ],
+      "name": "Product Slider",
+      "settings": {
+        "title": "GO ROGUE. EAT THEM ALL.",
+        "subtitle": "Protein snacks that hit like junk food — without the junk.",
+        "bg_color": "#ffffff",
+        "text_color": "#151414",
+        "d_padding_top": 90,
+        "d_padding_bottom": 180,
+        "m_padding_top": 90,
+        "m_padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "hero_jVaWmY",
+    "17731058756c6f27c1",
+    "product_slider_4RV6cc"
+  ]
+}

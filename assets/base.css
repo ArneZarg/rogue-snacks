@@ -4945,3 +4945,41 @@ product-recommendations:has([data-has-recommendations='false']) {
     translate: 0px var(--atc-destination, 0px);
   }
 }
+
+/* Additional Styles */
+.page-container-body-wide{
+  width:100%;
+  max-width:1900px;
+  padding:0px 20px;
+  margin:0 auto;
+}
+@media(min-width:750px){
+  .page-container-body-wide{
+    padding:0px 90px;
+  }
+}
+
+/* Button Components */
+.rogue-component-btn{
+  display:flex;
+  padding:13px 0;
+  flex-direction:column;
+  align-items: center;
+  text-align:center;
+  justify-content: center;
+}
+.rogue-component-btn.rogue-btn-yellow{
+  border-radius: 38.5px;
+  border: 2px solid #000;
+  background: #FDBE1C;
+  box-shadow: 0 2px 0 0 #000;
+}
+.rogue-component-btn span{
+  font-weight:bold;
+}
+.rogue-component-btn.rogue-btn-white{
+  border-radius: 38.5px;
+  border: 2px solid #000;
+  background: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 2px 0 0 #000;
+}

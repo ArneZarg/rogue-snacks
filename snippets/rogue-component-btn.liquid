@@ -1,0 +1,22 @@
+{%- liquid
+    if color != ""
+        assign background_color = color
+    else
+        assign background_color = "white"
+    endif
+
+    if variant_id
+        assign variant_id = variant_id
+    else
+        assign variant_id = product.first_available_variant
+    endif
+-%}
+{% if tag == 'a' %}
+    <a {% if product %}href="{{product.url}}"{% endif %} class="rogue-component-btn rogue-btn-{{ color }}" {%- if additional_styles != "" -%}style="{{ additional_styles }}"{%- endif -%}>
+        <span>{{ text }}</span>
+    </a>
+{% elsif tag == 'button' %}
+    <button class="rogue-component-btn rogue-btn-{{ color }}" {% if add_to_cart and product %}data-add data-product-id="{{ product.id }}" data-variant-id="{{  }}"{% endif %}  {%- if additional_styles != "" -%}style="{{ additional_styles }}"{%- endif -%}>
+        <span>{{ text }}</span>
+    </button>
+{% endif %}

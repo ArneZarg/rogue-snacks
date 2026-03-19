@@ -1,11 +1,77 @@
 <style>
     .{{ section.id }}{
+        padding-top:{{ section.settings.m_padding_top }}px;
+        padding-bottom:{{ section.settings.m_padding_bottom }}px;
+        background:{{ section.settings.bg_color }};
+    }
+    .{{ section.id }} h2,
+    .{{ section.id }} p{
+        color:{{ section.settings.text_color }};
+    }
+    .{{ section.id }} h2{
+        color: #1D1D1D;
+        text-align: center;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 37px; /* 105.714% */
+        letter-spacing: -0.7px;
+        text-transform: uppercase;
+        margin-bottom:20px;
+    }
+    .{{ section.id }} p{
+        color: #232323;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-align:center;
+    }
+    @media(min-width:750px){
+        .{{ section.id }}{
+            padding-top:{{ section.settings.d_padding_top }}px;
+            padding-bottom:{{ section.settings.d_padding_bottom }}px;
+        }
+        .{{ section.id }} h2{
+            font-size: 50px;
+            letter-spacing:-1px;
+            text-align:left;
+        }
+        .{{ section.id }} p{
+            text-align:left;
+        }
     }
 </style>
-<div class="{{ section.id }}">
-    <div class="page-container">
+<section class="{{ section.id }}">
+    <div class="page-container-body-wide">
+        <div class="product-slider-text">
+            <h2>{{ section.settings.title }}</h2>
+            <p>{{ section.settings.subtitle }}</p>
+        </div>
+        <div class="swiper product-slider">
+            <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                    <div class="swiper-slide">
+                        {% render 'rogue-product-card' product:block.settings.product %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-</div>
+</section>
+<script>
+    const product_slider = new Swiper('.{{ section.id }} .product-slider',{
+        loop:false,
+        slidesPerView:1,
+        spaceBetween:10,
+        breakpoints:{
+            750:{
+                slidesPerView:4,
+                spaceBetween:25
+            }
+        }
+    })
+</script>
 {% schema %}
 {
     "presets": [
@@ -14,6 +80,10 @@
         }
     ],
     "settings": [
+        {
+            "type":"header",
+            "content": "Text"
+        },
         {
             "type": "text",
             "id": "title",
@@ -25,6 +95,66 @@
             "id": "subtitle",
             "label": "Subtitle",
             "default":"Protein snacks that hit like junk food — without the junk."
+        },
+        {
+            "type":"header",
+            "content": "Background and Colours"
+        },
+        {
+            "type": "color",
+            "id":"bg_color",
+            "label": "Background Color",
+            "default":"#FFFFFF"
+        },
+        {
+            "type": "color",
+            "id":"text_color",
+            "label": "Text Color",
+            "default":"#151414"
+        },
+        {
+            "type":"header",
+            "content": "Padding"
+        },
+        {
+            "type": "range",
+            "id": "d_padding_top",
+            "default":90,
+            "label": "Padding Top (Desktop)",
+            "min": 20,
+            "max": 200,
+            "step": 10,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "d_padding_bottom",
+            "default":180,
+            "label": "Padding Bottom  (Desktop)",
+            "min": 20,
+            "max": 200,
+            "step": 10,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "m_padding_top",
+            "default":90,
+            "label": "Padding Top (Mobile)",
+            "min": 20,
+            "max": 100,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "m_padding_bottom",
+            "default":50,
+            "label": "Padding Bottom  (Mobile)",
+            "min": 20,
+            "max": 100,
+            "step": 5,
+            "unit": "px"
         }
     ],
     "blocks": [

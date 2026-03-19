@@ -1,0 +1,45 @@
+<style>
+    .rogue-product-card{
+        border-radius:25px;
+        padding:40px 22px;
+    }
+    .rogue-card-column{
+        gap:25px;
+        display:flex;
+        flex-direction:column;
+    }
+    .rogue-product-card-buttons{
+        gap:10px;
+        display:flex;
+        flex-direction:column;
+    }
+</style>
+<div class="rogue-product-card">
+    <div class="rogue-card-column">
+        <div class="card-text">
+            <div class="product-type">8-Pack</div>
+            <div class="product-title">{{ product.title }}</div>
+        </div>
+        <div class="card-img">
+            <img src="{{ product.featured_image | image_url }}">
+        </div>
+        <div class="rogue-product-card-buttons">
+            {% render 'rogue-component-btn'
+                tag:'button',
+                text:'Add to Cart',
+                color:'yellow',
+                additional_styles:'width:100%;font-size:17px;'
+                add_to_cart:true,
+                product:product,
+            %}
+            {% render 'rogue-component-btn'
+                tag:'a',
+                text:'View Product',
+                color:'white',
+                additional_styles:'width:100%;font-size:17px;',
+                add_to_cart:false,
+                product:product
+            %}
+        </div>
+    </div>
+</div>
