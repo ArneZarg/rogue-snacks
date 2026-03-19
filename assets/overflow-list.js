@@ -105,7 +105,7 @@ export class OverflowList extends DeclarativeShadowElement {
       list,
       placeholder,
     };
-
+    
     // Add event listener for reflow requests
     this.addEventListener(
       'reflow',
@@ -258,6 +258,7 @@ export class OverflowList extends DeclarativeShadowElement {
    */
   #reflowItems = (listHeight = 0, lastVisibleElement = null) => {
     const { defaultSlot, overflowSlot, moreSlot, list, placeholder } = this.#refs;
+
 
     this.#unobserveChanges();
 

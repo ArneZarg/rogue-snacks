@@ -1,0 +1,45 @@
+<style>
+    .{{ section.id }}{
+    }
+</style>
+<div class="{{ section.id }}">
+    <div class="page-container">
+    </div>
+</div>
+{% schema %}
+{
+    "presets": [
+        {
+            "name":"Product Slider"
+        }
+    ],
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default":"GO ROGUE. EAT THEM ALL.",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default":"Protein snacks that hit like junk food — without the junk."
+        }
+    ],
+    "blocks": [
+        {
+            "type": "product",
+            "name": "Product",
+            "limit": 5,
+            "settings": [
+                {
+                    "type": "product",
+                    "label":"Product",
+                    "id": "product"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
