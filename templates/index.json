@@ -147,6 +147,12 @@
             "product": "bundle-page"
           }
         },
+        "product_8jKKwd": {
+          "type": "product",
+          "settings": {
+            "product": "buffalo-chicken-wing"
+          }
+        },
         "product_qtxb7w": {
           "type": "product",
           "settings": {
@@ -168,8 +174,7 @@
       },
       "block_order": [
         "product_J9w9YV",
-        "product_GxEacb",
-        "product_8PhD3W",
+        "product_8jKKwd",
         "product_qtxb7w",
         "product_zLaPKA",
         "product_7A3wpj"
