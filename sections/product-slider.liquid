@@ -29,6 +29,22 @@
     }
     .{{ section.id }} .product-slider-text{
         padding-bottom:30px;
+        max-width: 300px;
+        margin: auto;
+    }
+    .{{ section.id }} .yum-img{
+        width:70px;
+        margin:0 auto;
+    }
+    .{{ section.id }} .yum-img.desk-yum{
+        display:none;
+    }
+    .{{ section.id }} .product-slider-arrows{
+        display:none;
+    }
+    .{{ section.id }} .rogue-button-prev,
+    .{{ section.id }} .rogue-button-next{
+        cursor:pointer;
     }
     @media(min-width:750px){
         .{{ section.id }}{
@@ -45,12 +61,35 @@
         }
         .{{ section.id }} .product-slider-text{
             padding-bottom:50px;
+            max-width:unset;
+            display: flex;
+            justify-content: space-between;
+        }
+        .{{ section.id }} .yum-img{
+            margin:unset;
+            display:none;
+        }
+        .{{ section.id }} h2{
+            position:relative;
+            width:max-content;
+        }
+        .{{ section.id }} .yum-img.desk-yum{
+            display:block;
+            position:absolute;
+            right: -110px;
+            top: -35px;
+            width: 110px;
+        }
+        .{{ section.id }} .product-slider-arrows{
+            display: flex;
+            gap: 30px;
+            align-items: center;
         }
     }
-    .product-slider .swiper-slide{
+    .{{ section.id }} .product-slider .swiper-slide{
         height:auto;
     }
-    .product-slider .rogue-product-card{
+    .{{ section.id }} .product-slider .rogue-product-card{
         height:100% !important;
         display:flex;
         flex-direction:column;
@@ -59,8 +98,26 @@
 <section class="{{ section.id }}">
     <div class="page-container-body-wide"> 
         <div class="product-slider-text">
-            <h2>{{ section.settings.title }}</h2>
-            <p>{{ section.settings.subtitle }}</p>
+            <div class="product-text-box">
+                <div class="yum-img">
+                    <img src="https://cdn.shopify.com/s/files/1/0972/8933/9200/files/yum_chip.png?v=1774408217">
+                </div>
+                <h2>
+                    {{ section.settings.title }}
+                    <div class="yum-img desk-yum">
+                        <img src="https://cdn.shopify.com/s/files/1/0972/8933/9200/files/yum_chip.png?v=1774408217">
+                    </div>
+                </h2>
+                <p>{{ section.settings.subtitle }}</p>
+            </div>
+            <div class="product-slider-arrows">
+                <div class="rogue-button-prev">
+                    {% render 'arrow-prev' %}
+                </div>
+                <div class="rogue-button-next">
+                    {% render 'arrow-next' %}
+                </div>
+            </div>
         </div>
         <div class="swiper product-slider">
             <div class="swiper-wrapper">
@@ -83,6 +140,10 @@
                 slidesPerView:3.75,
                 spaceBetween:25
             }
+        },
+        navigation:{
+            nextEl:'.rogue-button-next',
+            prevEl:'.rogue-button-prev'
         }
     })
 </script>
