@@ -141,22 +141,43 @@
     "product_slider_4RV6cc": {
       "type": "product-slider",
       "blocks": {
+        "product_AdkjP4": {
+          "type": "product",
+          "settings": {
+            "product": "bundle-page"
+          }
+        },
+        "product_i3pDRn": {
+          "type": "product",
+          "settings": {
+            "product": "buffalo-chicken-wing"
+          }
+        },
         "product_qtxb7w": {
           "type": "product",
           "settings": {
             "product": "chocolate-chip-cookie-can"
           }
         },
-        "product_KgXdiA": {
+        "product_zLaPKA": {
           "type": "product",
           "settings": {
-            "product": "buffalo-chicken-wing"
+            "product": "spicy-chicken-sandwich"
+          }
+        },
+        "product_7A3wpj": {
+          "type": "product",
+          "settings": {
+            "product": "churro-pack"
           }
         }
       },
       "block_order": [
+        "product_AdkjP4",
+        "product_i3pDRn",
         "product_qtxb7w",
-        "product_KgXdiA"
+        "product_zLaPKA",
+        "product_7A3wpj"
       ],
       "name": "Product Slider",
       "settings": {
@@ -169,11 +190,90 @@
         "m_padding_top": 90,
         "m_padding_bottom": 50
       }
+    },
+    "table_section_pNwnaH": {
+      "type": "table-section",
+      "blocks": {
+        "comparison_row_LRVmEc": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "BOLD FLAVORS",
+            "rogue_value": "yes",
+            "protein_brands_value": "no",
+            "common_snack_value": "no"
+          }
+        },
+        "comparison_row_R4kkwm": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "PROTEIN",
+            "rogue_value": "yes",
+            "protein_brands_value": "yes",
+            "common_snack_value": "no"
+          }
+        },
+        "comparison_row_6ffyk8": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "ACTIVE PROBIOTICS",
+            "rogue_value": "yes",
+            "protein_brands_value": "no",
+            "common_snack_value": "no"
+          }
+        },
+        "comparison_row_XkJPKC": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "NO SEED OILS",
+            "rogue_value": "yes",
+            "protein_brands_value": "no",
+            "common_snack_value": "no"
+          }
+        },
+        "comparison_row_DDYFVL": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "NO ARTIFICIAL INGREDIENTS",
+            "rogue_value": "yes",
+            "protein_brands_value": "no",
+            "common_snack_value": "no"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_LRVmEc",
+        "comparison_row_R4kkwm",
+        "comparison_row_6ffyk8",
+        "comparison_row_XkJPKC",
+        "comparison_row_DDYFVL"
+      ],
+      "name": "Table Section",
+      "settings": {
+        "padding_top_mobile": 70,
+        "padding_bottom_mobile": 70,
+        "margin_top_mobile": 100,
+        "margin_bottom_mobile": 100,
+        "padding_top_desktop": 95,
+        "padding_bottom_desktop": 215,
+        "margin_top_desktop": 100,
+        "margin_bottom_desktop": 100,
+        "background": "#faf2dd",
+        "text_color": "#151414",
+        "button_type": "yellow",
+        "title": "Built Different.",
+        "subtitle": "See the difference, us VS. them.",
+        "button_txt": "Shop All Flavors",
+        "button_link": "shopify://collections",
+        "col_1_heading": "ROGUE",
+        "col_2_heading": "\"PROTEIN SNACK BRANDS\"",
+        "col_3_heading": "COMMON SNACK BRANDS"
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
     "17731058756c6f27c1",
-    "product_slider_4RV6cc"
+    "product_slider_4RV6cc",
+    "table_section_pNwnaH"
   ]
 }

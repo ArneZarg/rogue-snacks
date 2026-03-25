@@ -1,0 +1,413 @@
+<style>
+    .{{ section.id }}.table-section{
+        background:{{ section.settings.background }};
+        padding-top:{{ section.settings.padding_top_mobile }}px;
+        padding-bottom:{{ section.settings.padding_bottom_mobile }}px;
+        margin-top:{{ section.settings.margin_top_mobile }}px;
+        margin-bottom:{{ section.settings.margin_bottom_mobile }}px;
+        
+    }
+    .{{ section.id }}.table-section .hot-chicken-pic{
+        position:absolute;
+        top:-{{section.settings.padding_top_mobile | plus:100}}px;
+        left:0;
+        width:120px;
+    }
+    .{{ section.id }}.table-section .chicken-chips-pick{
+            position: absolute;
+            top: -{{section.settings.padding_top_mobile | plus:75 }}px;
+            left: 160px;
+            width: 70px;
+            transform: rotate(90deg);
+    }
+    .{{ section.id }}.table-section .cookie-pic{
+        position: absolute;
+        bottom: -{{section.settings.padding_bottom_mobile | plus:80 }}px;
+        right: 0px;
+        width: 137px;
+        transform:rotate(90deg);
+    }
+    .{{ section.id }}.table-section .cookie-chips-pic{
+        position: absolute;
+        bottom: -{{section.settings.padding_bottom_mobile | plus:80 }}px;
+        right:150px;
+        width:120px;
+        transform:rotate(90deg);
+    }
+    .{{ section.id }}.table-section .table-section-row{
+        flex-wrap:wrap;
+        position:relative;
+    }
+    .{{ section.id }}.table-section .table-section-text{
+        gap:20px;
+        max-width: 320px;
+        margin: 0 auto 70px;
+    }
+    .{{ section.id }}.table-section h2{
+        color: #151414;
+        text-align: center;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 45px; /* 90% */
+        letter-spacing: -1px;
+        text-transform: uppercase;
+        margin:0;
+    }
+    .{{ section.id }}.table-section p{
+        color: #232323;
+        font-family: "Space Grotesk";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom:5px;
+        text-align:center;
+    }
+    .{{ section.id }}.table-section .churro-pic,
+    .{{section.id }}.table-section .churro-chips-pic,
+    .{{section.id}}.table-section .chicken-wing-pic,
+    .{{section.id}}.table-section .chicken-wing-chips-pic{
+        display:none;
+    }
+    @media(min-width:1200px){
+        .{{ section.id }}.table-section{
+            padding-top:{{ section.settings.padding_top_desktop }}px;
+            padding-bottom:{{ section.settings.padding_bottom_desktop }}px;
+            margin-top:{{ section.settings.margin_top_desktop }}px;
+            margin-bottom:{{ section.settings.margin_bottom_desktop }}px;
+        }
+        .{{ section.id }}.table-section .hot-chicken-pic{
+            position:absolute;
+            top:-{{section.settings.padding_top_desktop | plus:200}}px;
+            left:0;
+            width:230px;
+        }
+        .{{ section.id }}.table-section .chicken-chips-pick{
+            position: absolute;
+            top: -{{section.settings.padding_top_desktop | plus:150 }}px;
+            left: 300px;
+            width: 120px;
+            transform: rotate(90deg);
+        }
+        .{{ section.id }}.table-section .cookie-pic{
+            position: absolute;
+            bottom: -{{section.settings.padding_bottom_desktop | plus:80 }}px;
+            right:unset;
+            left:0;
+            width: 200px;
+            transform:rotate(0deg);
+        }
+        .{{ section.id }}.table-section .cookie-chips-pic{
+            position: absolute;
+            bottom: -{{section.settings.padding_bottom_desktop | plus:100 }}px;
+            left:215px;
+            right:unset;
+            width:175px;
+            transform:rotate(-90deg);
+        }
+        .{{ section.id }}.table-section .churro-pic{
+            position:absolute;
+            display:block;
+            right:0;
+            top:-{{ section.settings.padding_top_desktop | plus:150 }}px;
+        }
+        .{{ section.id }}.table-section .churro-chips-pic{
+            position:absolute;
+            display:block;
+            right:100px;
+            top:-{{ section.settings.padding_top_desktop | plus:80 }}px;
+        }
+        .{{ section.id }}.table-section .chicken-wing-pic{
+            position:absolute;
+            display:block;
+            right:0;
+            bottom:-{{section.settings.padding_bottom_desktop | plus:100 }}px;
+        }
+        .{{ section.id }}.table-section .chicken-wing-chips-pic{
+            position:absolute;
+            display:block;
+            right:245px;
+            bottom: -{{section.settings.padding_bottom_desktop | plus:100 }}px;
+            width:122px;
+            transform:rotate(90deg);
+        }
+        .{{ section.id }}.table-section h2{
+            color: #151414;
+            text-align: left;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 45px; /* 90% */
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin:0;
+        }
+        .{{ section.id }}.table-section p{
+            color: #232323;
+            font-family: "Space Grotesk";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin-bottom:5px;
+            text-align:left;
+        }
+        .{{ section.id }}.table-section .table-section-text{
+            max-width:unset;
+            margin:0;
+        }
+        .{{ section.id }}.table-section .table-section-row{
+            justify-content:space-between;
+            flex-wrap:nowrap;
+        }
+        .{{ section.id }}.table-section .table-container{
+            width:62%;
+        }
+    }
+</style>
+<section class="{{section.id}} table-section">
+    <div class="page-container">
+        <div class="table-section-row rogue-flex rogue-row rogue-align-center">
+            {% render 'floating-food' %}
+            <div class="table-section-text rogue-flex rogue-col">
+                <h2>
+                    {{ section.settings.title }}
+                </h2>
+                <div>
+                    <p>{{ section.settings.subtitle }}</p>
+                </div>
+                <div class="table-btn">
+                    {% render 'rogue-component-btn'
+                        tag:'a',
+                        text:section.settings.button_txt,
+                        color:section.settings.button_type,
+                        additional_styles:'width:100%;font-size:20px;font-weight:bold;box-shadow: -3px 4px 0 0 #000;text-transform:uppercase;',
+                        add_to_cart:false,
+                        product:'',
+                        url:section.settings.button_link
+                    %}
+                </div>
+            </div>
+            <div class="table-container rogue-flex rogue-col">
+                {% render 'rogue-table', section:section %}
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+    "presets": [
+        {
+            "name": "Table Section",
+            "settings": {}
+        }
+    ],
+    "settings": [
+        {
+            "type": "header",
+            "content":"Margin and Padding"
+        },
+        {
+            "type": "number",
+            "id":"padding_top_mobile",
+            "label": "Padding Top Mobile",
+            "default":70
+        },
+        {
+            "type": "number",
+            "id":"padding_bottom_mobile",
+            "label": "Padding Bottom Mobile",
+            "default":70
+        },
+        {
+            "type": "number",
+            "id":"margin_top_mobile",
+            "label": "Margin Mobile",
+            "default":100
+        },
+        {
+            "type": "number",
+            "id":"margin_bottom_mobile",
+            "label": "Margin Bottom Mobile",
+            "default":100
+        },
+        {
+            "type":"number",
+            "id":"padding_top_desktop",
+            "label": "Padding Top Desktop",
+            "default":95
+        },
+        {
+            "type":"number",
+            "id":"padding_bottom_desktop",
+            "label": "Padding Bottom Desktop",
+            "default":215
+        },
+        {
+            "type": "number",
+            "id": "margin_top_desktop",
+            "label": "Margin Top Desktop",
+            "default":100
+        },
+        {
+            "type": "number",
+            "id": "margin_bottom_desktop",
+            "label": "Margin Bottom Desktop",
+            "default":100
+        },
+        {
+            "type":"header",
+            "content": "Style"
+        },
+        {
+            "type": "color",
+            "id": "background",
+            "label": "Background",
+            "default":"#FAF2DD"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default":"#151414"
+        },
+        {
+            "type": "radio",
+            "id": "button_type",
+            "label": "Button Type",
+            "options": [
+                {
+                    "label": "Yellow",
+                    "value": "yellow"
+                },
+                {
+                    "label": "White",
+                    "value": "white"
+                }
+            ],
+            "default":"yellow"
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default":"Built Different."
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default":"See the difference, us VS. them."
+        },
+        {
+            "type":"text",
+            "id": "button_txt",
+            "label": "Button Text",
+            "default":"Shop All Flavors"
+        },
+        {
+            "type": "header",
+            "content": "Button Link"
+        },
+        {
+            "type": "url",
+            "label":"Button Link",
+            "id": "button_link"
+        },
+        {
+            "type": "header",
+            "content":"Table Columns"
+        },
+        {
+            "type": "text",
+            "id": "col_1_heading",
+            "label": "Column 1 heading",
+            "default": "ROGUE"
+        },
+        {
+            "type": "text",
+            "id": "col_2_heading",
+            "label": "Column 2 heading",
+            "default": "\"PROTEIN SNACK BRANDS\""
+        },
+        {
+            "type": "text",
+            "id": "col_3_heading",
+            "label": "Column 3 heading",
+            "default": "COMMON SNACK BRANDS"
+        },
+        {
+            "type": "image_picker",
+            "id": "top_left_image",
+            "label": "Top left image"
+        }
+    ],
+    "blocks": [
+    {
+      "type": "comparison_row",
+      "name": "Comparison row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "row_label",
+          "label": "Row label",
+          "default": "BOLD FLAVORS"
+        },
+        {
+          "type": "select",
+          "id": "rogue_value",
+          "label": "ROGUE",
+          "default": "yes",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "protein_brands_value",
+          "label": "Protein snack brands",
+          "default": "no",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "common_snack_value",
+          "label": "Common snack brands",
+          "default": "yes",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

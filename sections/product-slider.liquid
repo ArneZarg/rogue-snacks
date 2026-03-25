@@ -47,6 +47,14 @@
             padding-bottom:50px;
         }
     }
+    .product-slider .swiper-slide{
+        height:auto;
+    }
+    .product-slider .rogue-product-card{
+        height:100% !important;
+        display:flex;
+        flex-direction:column;
+    }
 </style>
 <section class="{{ section.id }}">
     <div class="page-container-body-wide"> 
@@ -72,7 +80,7 @@
         spaceBetween:10,
         breakpoints:{
             750:{
-                slidesPerView:4,
+                slidesPerView:3.75,
                 spaceBetween:25
             }
         }

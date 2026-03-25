@@ -4953,12 +4953,29 @@ product-recommendations:has([data-has-recommendations='false']) {
   padding:0px 20px;
   margin:0 auto;
 }
+.page-container{
+  width:100%;
+  max-width:1700px;
+  padding:0 20px;
+  margin:0 auto;
+}
 @media(min-width:750px){
   .page-container-body-wide{
     padding:0px 90px;
   }
 }
-
+.rogue-flex{
+  display: flex;
+}
+.rogue-col{
+  flex-direction: column;
+}
+.rogue-row{
+  flex-direction: row;
+}
+.rogue-align-center{
+  align-items: center;
+}
 /* Button Components */
 .rogue-component-btn{
   display:flex;

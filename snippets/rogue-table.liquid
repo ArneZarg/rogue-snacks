@@ -1,0 +1,325 @@
+{% style %}
+.comparison-table-section {
+  background: #ece6d8;
+  padding: 0 0 28px;
+}
+.comparison-table-section svg{
+    width:35px;
+}
+.comparison-table-section .page-width,
+.comparison-table-section.page-width {
+  max-width: 390px;
+  margin: 0 auto;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+}
+
+/* top content */
+.comparison-table-heading-wrap {
+  text-align: center;
+  padding-top: 28px;
+}
+
+.comparison-table-heading {
+  margin: 0;
+  color: #111;
+  text-align: center;
+  font-size: 58px;
+  line-height: 0.92;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1.5px;
+}
+
+.comparison-table-subheading {
+  margin: 14px 0 0;
+  color: #222;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.comparison-table-button-wrap {
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 58px;
+}
+
+.comparison-table-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 292px;
+  min-height: 56px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: #f6bf1f;
+  color: #111;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 900;
+  border: 3px solid #111;
+  box-shadow: 0 4px 0 #111;
+  box-sizing: border-box;
+}
+
+.comparison-table-button:hover {
+  color: #111;
+}
+
+/* table */
+.comparison-table {
+  width: 100%;
+}
+
+.comparison-table__row {
+  display: grid;
+  grid-template-columns: 1.45fr .95fr .95fr .95fr;
+  align-items: stretch;
+}
+
+.comparison-table__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  padding: 10px 8px;
+  border-right: 1px solid rgba(17, 17, 17, 0.55);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.55);
+  color: #111;
+  text-align: center;
+  line-height: 1.1;
+  box-sizing: border-box;
+  font-size:12px;
+}
+
+.comparison-table__cell:last-child {
+  border-right: 0;
+}
+
+.comparison-table__row:last-child .comparison-table__cell {
+  border-bottom: 0;
+}
+
+.comparison-table__cell--corner,
+.comparison-table__cell--label {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.comparison-table__row--header .comparison-table__cell {
+  min-height: 56px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.comparison-table__cell--label {
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -.2px;
+  padding-left: 0;
+}
+
+.comparison-table__cell--heading {
+  font-size: 10px;
+  line-height: 1.05;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -.15px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.comparison-table__cell--value {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.comparison-table__corner-image {
+  max-width: 38px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.comparison-table__logo {
+  max-width: 72px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.comparison-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.comparison-icon img,
+.comparison-icon svg {
+  width: 21px;
+  height: 21px;
+  display: block;
+}
+
+/* slightly larger mobile / small tablet */
+@media screen and (min-width: 480px) {
+  .comparison-table-section .page-width,
+  .comparison-table-section.page-width {
+    max-width: 420px;
+  }
+
+  .comparison-table-heading {
+    font-size: 64px;
+  }
+
+  .comparison-table-button {
+    min-width: 310px;
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 750px) {
+  .comparison-table-section {
+    padding-bottom: 42px;
+  }
+  .comparison-table__cell{
+    font-size:22px;
+    font-weight:bold;
+
+  }
+  .comparison-table-section .page-width,
+  .comparison-table-section.page-width {
+    max-width: 860px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .comparison-table-heading-wrap {
+    padding-top: 48px;
+  }
+
+  .comparison-table-heading {
+    font-size: 78px;
+    line-height: 0.92;
+    letter-spacing: -2px;
+  }
+
+  .comparison-table-subheading {
+    font-size: 22px;
+    margin-top: 18px;
+  }
+
+  .comparison-table-button-wrap {
+    margin-top: 26px;
+    margin-bottom: 70px;
+  }
+
+  .comparison-table-button {
+    min-width: 370px;
+    min-height: 66px;
+    font-size: 19px;
+    padding: 16px 34px;
+    border-width: 4px;
+    box-shadow: 0 5px 0 #111;
+  }
+
+  .comparison-table__row {
+    grid-template-columns: 1.55fr 1fr 1fr 1fr;
+  }
+
+  .comparison-table__cell {
+    min-height: 120px;
+    padding: 16px 14px;
+  }
+
+  .comparison-table__row--header .comparison-table__cell {
+    min-height: 84px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .comparison-table__cell--label {
+    font-size: 27px;
+    line-height: 1.12;
+    padding-left: 0;
+  }
+
+  .comparison-table__cell--heading {
+    font-size: 21px;
+    line-height: 1.02;
+  }
+
+  .comparison-table__corner-image {
+    max-width: 64px;
+  }
+
+  .comparison-table__logo {
+    max-width: 120px;
+  }
+
+  .comparison-icon img,
+  .comparison-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+{% endstyle %}
+<div class="comparison-table">
+  <div class="comparison-table__header comparison-table__row">
+    <div class="comparison-table__cell comparison-table__cell--label">
+      {% if section.settings.top_left_image != blank %}
+        <img
+          src="{{ section.settings.top_left_image | image_url: width: 120 }}"
+          alt=""
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+
+    <div class="comparison-table__cell">{{ section.settings.col_1_heading }}</div>
+    <div class="comparison-table__cell">{{ section.settings.col_2_heading }}</div>
+    <div class="comparison-table__cell">{{ section.settings.col_3_heading }}</div>
+  </div>
+
+  {% for block in section.blocks %}
+    <div class="comparison-table__row" {{ block.shopify_attributes }}>
+      <div class="comparison-table__cell comparison-table__cell--label">
+        {{ block.settings.row_label }}
+      </div>
+
+      <div class="comparison-table__cell">
+        {% if block.settings.rogue_value == 'yes' %}
+          <span class="comparison-icon comparison-icon--yes">{% render 'rogue-green-check' %}</span>
+        {% else %}
+          <span class="comparison-icon comparison-icon--no">{% render 'rogue-red-x' %}</span>
+        {% endif %}
+      </div>
+
+      <div class="comparison-table__cell">
+        {% if block.settings.protein_brands_value == 'yes' %}
+          <span class="comparison-icon comparison-icon--yes">{% render 'rogue-green-check' %}</span>
+        {% else %}
+          <span class="comparison-icon comparison-icon--no">{% render 'rogue-red-x' %}</span>
+        {% endif %}
+      </div>
+
+      <div class="comparison-table__cell">
+        {% if block.settings.common_snack_value == 'yes' %}
+          <span class="comparison-icon comparison-icon--yes">{% render 'rogue-green-check' %}</span>
+        {% else %}
+          <span class="comparison-icon comparison-icon--no">{% render 'rogue-red-x' %}</span>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>

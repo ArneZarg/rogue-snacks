@@ -12,7 +12,7 @@
     endif
 -%}
 {% if tag == 'a' %}
-    <a {% if product %}href="{{product.url}}"{% endif %} class="rogue-component-btn rogue-btn-{{ color }}" {%- if additional_styles != "" -%}style="{{ additional_styles }}"{%- endif -%}>
+    <a {% if url %}href="{{url}}"{% endif %} class="rogue-component-btn rogue-btn-{{ color }}" {%- if additional_styles != "" -%}style="{{ additional_styles }}"{%- endif -%}>
         <span>{{ text }}</span>
     </a>
 {% elsif tag == 'button' %}
