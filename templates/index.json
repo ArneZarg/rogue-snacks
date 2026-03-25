@@ -141,6 +141,24 @@
     "product_slider_4RV6cc": {
       "type": "product-slider",
       "blocks": {
+        "product_J9w9YV": {
+          "type": "product",
+          "settings": {
+            "product": "bundle-page"
+          }
+        },
+        "product_GxEacb": {
+          "type": "product",
+          "settings": {
+            "product": "spicy-chicken-sandwich"
+          }
+        },
+        "product_8PhD3W": {
+          "type": "product",
+          "settings": {
+            "product": "churro-pack"
+          }
+        },
         "product_qtxb7w": {
           "type": "product",
           "settings": {
@@ -155,6 +173,9 @@
         }
       },
       "block_order": [
+        "product_J9w9YV",
+        "product_GxEacb",
+        "product_8PhD3W",
         "product_qtxb7w",
         "product_KgXdiA"
       ],
