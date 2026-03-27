@@ -4,23 +4,23 @@
         padding-bottom:{{ section.settings.m_padding_bottom }}px;
         background:{{ section.settings.bg_color }};
     }
-    .{{ section.id }} h2,
-    .{{ section.id }} p{
-        color:{{ section.settings.text_color }};
-    }
     .{{ section.id }} h2{
-        color: #1D1D1D;
+        color:{{ section.settings.text_color }};
         text-align: center;
         font-size: 35px;
         font-style: normal;
         font-weight: 900;
-        line-height: 37px; /* 105.714% */
+        line-height: 37px;
         letter-spacing: -0.7px;
         text-transform: uppercase;
         margin-bottom:20px;
+        position:relative;
+        width:fit-content;
+        margin-left:auto;
+        margin-right:auto;
     }
     .{{ section.id }} p{
-        color: #232323;
+        color:{{ section.settings.text_color }};
         font-size: 17px;
         font-style: normal;
         font-weight: 500;
@@ -32,11 +32,11 @@
         max-width: 300px;
         margin: auto;
     }
-    .{{ section.id }} .yum-img{
+    .{{ section.id }} .accent-img{
         width:70px;
         margin:0 auto;
     }
-    .{{ section.id }} .yum-img.desk-yum{
+    .{{ section.id }} .accent-img.desk-accent{
         display:none;
     }
     .{{ section.id }} .product-slider-arrows{
@@ -55,6 +55,8 @@
             font-size: 50px;
             letter-spacing:-1px;
             text-align:left;
+            margin-left:0;
+            margin-right:0;
         }
         .{{ section.id }} p{
             text-align:left;
@@ -65,15 +67,11 @@
             display: flex;
             justify-content: space-between;
         }
-        .{{ section.id }} .yum-img{
+        .{{ section.id }} .accent-img{
             margin:unset;
             display:none;
         }
-        .{{ section.id }} h2{
-            position:relative;
-            width:max-content;
-        }
-        .{{ section.id }} .yum-img.desk-yum{
+        .{{ section.id }} .accent-img.desk-accent{
             display:block;
             position:absolute;
             right: -110px;
@@ -93,67 +91,75 @@
         height:auto;
     }
     .{{ section.id }} .product-slider .rogue-product-card{
-        height:100% !important;
+        height:100%;
         display:flex;
         flex-direction:column;
     }
 </style>
 <section class="{{ section.id }}">
-    <div class="">
-        <div class="page-container-body-wide "> 
-            <div class="product-slider-text">
-                <div class="product-text-box">
-                    <div class="yum-img">
-                        <img src="https://cdn.shopify.com/s/files/1/0972/8933/9200/files/yum_chip.png?v=1774408217">
+    <div class="page-container-body-wide">
+        <div class="product-slider-text">
+            <div class="product-text-box">
+                {% if section.settings.accent_image != blank %}
+                    <div class="accent-img">
+                        <img src="{{ section.settings.accent_image | image_url: width: 140 }}" alt="{{ section.settings.accent_image.alt | escape }}" width="70" height="70" loading="lazy">
                     </div>
-                    <h2>
-                        {{ section.settings.title }}
-                        <div class="yum-img desk-yum">
-                            <img src="https://cdn.shopify.com/s/files/1/0972/8933/9200/files/yum_chip.png?v=1774408217">
-                        </div>
-                    </h2>
-                    <p>{{ section.settings.subtitle }}</p>
+                {% endif %}
+                <h2>
+                    {{ section.settings.title }}
+                    {% if section.settings.accent_image != blank %}
+                        <span class="accent-img desk-accent">
+                            <img src="{{ section.settings.accent_image | image_url: width: 220 }}" alt="{{ section.settings.accent_image.alt | escape }}" width="110" height="110" loading="lazy">
+                        </span>
+                    {% endif %}
+                </h2>
+                <p>{{ section.settings.subtitle }}</p>
+            </div>
+            <div class="product-slider-arrows">
+                <div class="rogue-button-prev">
+                    {% render 'arrow-prev' %}
                 </div>
-                <div class="product-slider-arrows">
-                    <div class="rogue-button-prev">
-                        {% render 'arrow-prev' %}
-                    </div>
-                    <div class="rogue-button-next">
-                        {% render 'arrow-next' %}
-                    </div>
+                <div class="rogue-button-next">
+                    {% render 'arrow-next' %}
                 </div>
             </div>
         </div>
-        <div class="page-container-body-wide full-width-slider">
-            <div class="swiper product-slider">
-                <div class="swiper-wrapper">
-                    {% for block in section.blocks %}
-                        <div class="swiper-slide">
-                            {% render 'rogue-product-card' product:block.settings.product %}
-                        </div>
-                    {% endfor %}
-                </div>
+    </div>
+    <div class="page-container-body-wide full-width-slider">
+        <div class="swiper product-slider">
+            <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                    <div class="swiper-slide">
+                        {% if forloop.first %}
+                            {% render 'rogue-product-card' product:block.settings.product, card_image:block.settings.product_image, card_background:'linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)' %}
+                        {% else %}
+                            {% render 'rogue-product-card' product:block.settings.product, card_image:block.settings.product_image %}
+                        {% endif %}
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </section>
 <script>
-    const product_slider = new Swiper('.{{ section.id }} .product-slider',{
-        loop:false,
-        slidesPerView:1,
-        spaceBetween:10,
-        breakpoints:{
-            750:{
-                slidesPerView:3.5,
-                spaceBetween:25,
-                slidesOffsetAfter:90
+    {
+        const slider = new Swiper('.{{ section.id }} .product-slider',{
+            loop:false,
+            slidesPerView:1,
+            spaceBetween:10,
+            breakpoints:{
+                750:{
+                    slidesPerView:3.5,
+                    spaceBetween:25,
+                    slidesOffsetAfter:90
+                }
+            },
+            navigation:{
+                nextEl:'.{{ section.id }} .rogue-button-next',
+                prevEl:'.{{ section.id }} .rogue-button-prev'
             }
-        },
-        navigation:{
-            nextEl:'.{{ section.id }} .rogue-button-next',
-            prevEl:'.{{ section.id }} .rogue-button-prev'
-        }
-    })
+        });
+    }
 </script>
 {% schema %}
 {
@@ -181,6 +187,16 @@
         },
         {
             "type":"header",
+            "content": "Images"
+        },
+        {
+            "type": "image_picker",
+            "id": "accent_image",
+            "label": "Accent Image",
+            "info": "Decorative image shown near the title (e.g. chip illustration)"
+        },
+        {
+            "type":"header",
             "content": "Background and Colours"
         },
         {
@@ -193,7 +209,7 @@
             "type": "color",
             "id":"text_color",
             "label": "Text Color",
-            "default":"#151414"
+            "default":"#1D1D1D"
         },
         {
             "type":"header",
@@ -250,6 +266,12 @@
                     "type": "product",
                     "label":"Product",
                     "id": "product"
+                },
+                {
+                    "type": "image_picker",
+                    "label": "Product Image",
+                    "id": "product_image",
+                    "info": "Overrides the default product featured image"
                 }
             ]
         }
