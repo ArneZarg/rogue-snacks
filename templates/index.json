@@ -11,9 +11,100 @@
   "sections": {
     "homepage_hero_main": {
       "type": "homepage-hero",
-      "blocks": {},
-      "block_order": [],
-      "settings": {}
+      "blocks": {
+        "badge_nDmKMh": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/Layer_1_af99ba29-ba12-40b7-8412-cdb998a127c8.png",
+            "label": "Badge"
+          }
+        },
+        "badge_AmpJNc": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/Group_1_3896912f-3c26-467f-a74b-536efd99e858.png",
+            "label": "Badge"
+          }
+        },
+        "badge_zbhyUz": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/Layer_1_1_fdb1bb0b-affe-4dd0-9931-be73736dd381.png",
+            "label": "Badge"
+          }
+        },
+        "badge_DeBR9y": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/Layer_1_2_780e1bba-ea87-42f7-81d2-7ddc78d0eb71.png",
+            "label": "Badge"
+          }
+        }
+      },
+      "block_order": [
+        "badge_nDmKMh",
+        "badge_AmpJNc",
+        "badge_zbhyUz",
+        "badge_DeBR9y"
+      ],
+      "settings": {
+        "enable_sticky": false,
+        "show_rating": true,
+        "rating_value": "4.8",
+        "rating_text": "4.8 · Average Rating",
+        "heading": "REAL PROTEIN. REAL FLAVOR. ZERO JUNK OILS.",
+        "subtext": "High-protein chips & puffs that satisfy cravings and help you hit your macros.",
+        "button_text": "GO ROGUE",
+        "button_link": "",
+        "product_image": "shopify://shop_images/Component_1_b4ab0a76-d9e8-4d5c-a427-1451886d5a66.png",
+        "content_bg_color": "#ffffff",
+        "content_bg_color_end": "#faf2dd",
+        "heading_color": "#1d1d1d",
+        "text_color": "#333333",
+        "star_color": "#1d1d1d",
+        "button_bg_color": "#fdbe1c",
+        "button_text_color": "#1d1d1d",
+        "button_border_color": "#1d1d1d",
+        "gradient_start": "#f5a623",
+        "gradient_end": "#e85d04",
+        "gradient_direction": "135deg"
+      }
+    },
+    "homepage_marquee_main": {
+      "type": "homepage-marquee",
+      "blocks": {
+        "text_1": {
+          "type": "text_item",
+          "settings": {
+            "text": "Real Protein"
+          }
+        },
+        "text_2": {
+          "type": "text_item",
+          "settings": {
+            "text": "Max Flavor"
+          }
+        },
+        "text_3": {
+          "type": "text_item",
+          "settings": {
+            "text": "Zero Seed Oils"
+          }
+        }
+      },
+      "block_order": [
+        "text_1",
+        "text_2",
+        "text_3"
+      ],
+      "settings": {
+        "bg_color": "#1d1d1d",
+        "text_color": "#ffffff",
+        "font_size": 35,
+        "font_size_mobile": 20,
+        "speed": 20,
+        "padding_y": 12
+      }
     },
     "hero_jVaWmY": {
       "type": "hero",
@@ -150,31 +241,37 @@
         "product_J9w9YV": {
           "type": "product",
           "settings": {
-            "product": "bundle-page"
+            "product": "bundle-page",
+            "product_image": "shopify://shop_images/Group_1538232871.png",
+            "card_background": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
           }
         },
         "product_8jKKwd": {
           "type": "product",
           "settings": {
-            "product": "buffalo-chicken-wing"
+            "product": "buffalo-chicken-wing",
+            "card_background": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)"
           }
         },
         "product_qtxb7w": {
           "type": "product",
           "settings": {
-            "product": "chocolate-chip-cookie-can"
+            "product": "chocolate-chip-cookie-can",
+            "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
           }
         },
         "product_zLaPKA": {
           "type": "product",
           "settings": {
-            "product": "spicy-chicken-sandwich"
+            "product": "spicy-chicken-sandwich",
+            "card_background": "linear-gradient(100deg, #FF0005 6.65%, #FF9294 96.35%)"
           }
         },
         "product_7A3wpj": {
           "type": "product",
           "settings": {
-            "product": "churro-pack"
+            "product": "churro-pack",
+            "card_background": ""
           }
         }
       },
@@ -196,25 +293,6 @@
         "m_padding_top": 90,
         "m_padding_bottom": 50
       }
-    },
-    "homepage_marquee_main": {
-      "type": "homepage-marquee",
-      "blocks": {
-        "text_1": {
-          "type": "text_item",
-          "settings": { "text": "Real Protein" }
-        },
-        "text_2": {
-          "type": "text_item",
-          "settings": { "text": "Max Flavor" }
-        },
-        "text_3": {
-          "type": "text_item",
-          "settings": { "text": "Zero Seed Oils" }
-        }
-      },
-      "block_order": ["text_1", "text_2", "text_3"],
-      "settings": {}
     },
     "table_section_pNwnaH": {
       "type": "table-section",
@@ -290,8 +368,10 @@
         "button_txt": "Shop All Flavors",
         "button_link": "shopify://collections",
         "col_1_heading": "ROGUE",
+        "col_1_heading_image": "shopify://shop_images/Rogue_Protein_Snacks_1_1.png",
         "col_2_heading": "\"PROTEIN SNACK BRANDS\"",
-        "col_3_heading": "COMMON SNACK BRANDS"
+        "col_3_heading": "COMMON SNACK BRANDS",
+        "top_left_image": "shopify://shop_images/CookieChips_3.png"
       }
     }
   },
