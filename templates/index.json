@@ -9,6 +9,12 @@
  */
 {
   "sections": {
+    "homepage_hero_main": {
+      "type": "homepage-hero",
+      "blocks": {},
+      "block_order": [],
+      "settings": {}
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -191,6 +197,25 @@
         "m_padding_bottom": 50
       }
     },
+    "homepage_marquee_main": {
+      "type": "homepage-marquee",
+      "blocks": {
+        "text_1": {
+          "type": "text_item",
+          "settings": { "text": "Real Protein" }
+        },
+        "text_2": {
+          "type": "text_item",
+          "settings": { "text": "Max Flavor" }
+        },
+        "text_3": {
+          "type": "text_item",
+          "settings": { "text": "Zero Seed Oils" }
+        }
+      },
+      "block_order": ["text_1", "text_2", "text_3"],
+      "settings": {}
+    },
     "table_section_pNwnaH": {
       "type": "table-section",
       "blocks": {
@@ -271,6 +296,8 @@
     }
   },
   "order": [
+    "homepage_hero_main",
+    "homepage_marquee_main",
     "hero_jVaWmY",
     "17731058756c6f27c1",
     "product_slider_4RV6cc",
