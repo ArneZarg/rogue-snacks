@@ -4,6 +4,15 @@
         padding-bottom:{{ section.settings.m_padding_bottom }}px;
         background:{{ section.settings.bg_color }};
     }
+    .{{ section.id }} h2,
+    .{{ section.id }} .product-title,
+    .{{ section.id }} .rogue-component-btn span{
+        font-family: "Venice Blvd", sans-serif;
+    }
+    .{{ section.id }} .product-text-box p,
+    .{{ section.id }} .product-type{
+        font-family: var(--font-paragraph--family), sans-serif;
+    }
     .{{ section.id }} h2{
         color:{{ section.settings.text_color }};
         text-align: center;
@@ -130,11 +139,7 @@
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}
                     <div class="swiper-slide">
-                        {% if forloop.first %}
-                            {% render 'rogue-product-card' product:block.settings.product, card_image:block.settings.product_image, card_background:'linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)' %}
-                        {% else %}
-                            {% render 'rogue-product-card' product:block.settings.product, card_image:block.settings.product_image %}
-                        {% endif %}
+                        {% render 'rogue-product-card' product:block.settings.product, card_image:block.settings.product_image, card_background:block.settings.card_background %}
                     </div>
                 {% endfor %}
             </div>
@@ -145,10 +150,15 @@
     {
         const slider = new Swiper('.{{ section.id }} .product-slider',{
             loop:false,
-            slidesPerView:1,
+            slidesPerView:1.3,
             spaceBetween:10,
             breakpoints:{
                 750:{
+                    slidesPerView:2.5,
+                    spaceBetween:20,
+                    slidesOffsetAfter:60
+                },
+                990:{
                     slidesPerView:3.5,
                     spaceBetween:25,
                     slidesOffsetAfter:90
@@ -272,6 +282,12 @@
                     "label": "Product Image",
                     "id": "product_image",
                     "info": "Overrides the default product featured image"
+                },
+                {
+                    "type": "text",
+                    "label": "Card Background",
+                    "id": "card_background",
+                    "info": "CSS background value (e.g. #FF0000 or linear-gradient(...))"
                 }
             ]
         }
