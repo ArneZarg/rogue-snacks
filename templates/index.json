@@ -286,9 +286,10 @@
       "settings": {
         "title": "GO ROGUE. EAT THEM ALL.",
         "subtitle": "Protein snacks that hit like junk food — without the junk.",
+        "accent_image": "shopify://shop_images/yum_chip.png",
         "bg_color": "#ffffff",
         "text_color": "#151414",
-        "d_padding_top": 90,
+        "d_padding_top": 40,
         "d_padding_bottom": 180,
         "m_padding_top": 90,
         "m_padding_bottom": 50
@@ -373,6 +374,222 @@
         "col_3_heading": "COMMON SNACK BRANDS",
         "top_left_image": "shopify://shop_images/CookieChips_3.png"
       }
+    },
+    "homepage_reviews_brrfrc": {
+      "type": "homepage-reviews",
+      "blocks": {
+        "review_9HkXrj": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "The Best Snack",
+            "review_text": "I bought these expecting another chalky protein snack. These actually taste like real junk food. The churro flavor is insane.",
+            "reviewer_name": "Jack Doe",
+            "reviewer_initials": "JD",
+            "avatar_color": "#f26b2d"
+          }
+        },
+        "review_weLtLr": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "I can't get enough!",
+            "review_text": "Finally a protein snack that doesn't feel like punishment. Crunchy, flavorful, and actually keeps me full.",
+            "reviewer_name": "Victor Martinez",
+            "reviewer_initials": "VM",
+            "avatar_color": "#9b5fcf"
+          }
+        },
+        "review_9FbNHt": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "Can't stop eating them",
+            "review_text": "High protein, no seed oils, and they actually taste good. This is what protein snacks should be. I just ordered another variety pack!",
+            "reviewer_name": "Isabelle Orange",
+            "reviewer_initials": "IO",
+            "avatar_color": "#2dae6e"
+          }
+        },
+        "review_EdY9y3": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "They taste fire!",
+            "review_text": "I bought these expecting another chalky protein snack. These actually taste like real junk food. The churro flavor is insane.",
+            "reviewer_name": "Jack Doe",
+            "reviewer_initials": "JD",
+            "avatar_color": "#9b5fcf"
+          }
+        },
+        "review_pRXnhR": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "My favorite is the Churros",
+            "review_text": "Finally a protein snack that doesn't feel like punishment. Crunchy, flavorful, and actually keeps me full.",
+            "reviewer_name": "Victor Martinez",
+            "reviewer_initials": "VM",
+            "avatar_color": "#e04040"
+          }
+        },
+        "review_nGUVnA": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "Love them",
+            "review_text": "High protein, no seed oils, and they actually taste good. This is what protein snacks should be. I just ordered another variety pack!",
+            "reviewer_name": "Jack Doe",
+            "reviewer_initials": "IO",
+            "avatar_color": "#2dae6e"
+          }
+        }
+      },
+      "block_order": [
+        "review_9HkXrj",
+        "review_weLtLr",
+        "review_9FbNHt",
+        "review_EdY9y3",
+        "review_pRXnhR",
+        "review_nGUVnA"
+      ],
+      "name": "Homepage Reviews",
+      "settings": {
+        "heading": "REAL PEOPLE. GONE ROGUE.",
+        "subtext": "Thousands have already ditched boring protein snacks.",
+        "show_rating": true,
+        "rating_value": "4.8",
+        "rating_text": "4.8 • Average Rating",
+        "bg_color": "#ffffff",
+        "heading_color": "#1d1d1d",
+        "text_color": "#555555",
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "homepage_multi_variety_pack_6MbyCU": {
+      "type": "homepage-multi-variety-pack",
+      "blocks": {
+        "variety_pack_HX74nb": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "bundle-page",
+            "title": "Rogue Multi-Variety Pack",
+            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "image": "shopify://shop_images/Group_1538232796.png",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
+        "variety_pack_fbJMFh": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "",
+            "title": "Rogue Multi-Variety Pack",
+            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
+        "variety_pack_Rfnk86": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "",
+            "title": "Rogue Multi-Variety Pack",
+            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
+        "variety_pack_qwKVLM": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "",
+            "title": "Rogue Multi-Variety Pack",
+            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
+        "variety_pack_9z6XQt": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "bundle-page",
+            "title": "Rogue Multi-Variety Pack",
+            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        }
+      },
+      "block_order": [
+        "variety_pack_HX74nb",
+        "variety_pack_fbJMFh",
+        "variety_pack_Rfnk86",
+        "variety_pack_qwKVLM",
+        "variety_pack_9z6XQt"
+      ],
+      "name": "Multi Variety Pack",
+      "settings": {
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 50,
+        "margin_top_mobile": 60,
+        "margin_bottom_mobile": 60,
+        "padding_top_desktop": 70,
+        "padding_bottom_desktop": 70,
+        "margin_top_desktop": 80,
+        "margin_bottom_desktop": 80
+      }
+    },
+    "homepage_newsletter_BXEAMF": {
+      "type": "homepage-newsletter",
+      "name": "Homepage Newsletter",
+      "settings": {
+        "heading": "Stay Connected With Rogue.",
+        "subtext": "Be the first to hear about new flavors, exclusive drops, and special discounts.",
+        "input_placeholder": "Email Address",
+        "button_label": "Keep Me Updated",
+        "success_message": "Thanks for subscribing!",
+        "products_image": "shopify://shop_images/Group_1538232793.png",
+        "products_image_mobile": "shopify://shop_images/Group_1538232793_2.png",
+        "form_side_image": "shopify://shop_images/Group_1538232793_1.png",
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 48
+      }
     }
   },
   "order": [
@@ -381,6 +598,9 @@
     "hero_jVaWmY",
     "17731058756c6f27c1",
     "product_slider_4RV6cc",
-    "table_section_pNwnaH"
+    "table_section_pNwnaH",
+    "homepage_reviews_brrfrc",
+    "homepage_multi_variety_pack_6MbyCU",
+    "homepage_newsletter_BXEAMF"
   ]
 }
