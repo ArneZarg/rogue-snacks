@@ -250,6 +250,7 @@
           "type": "product",
           "settings": {
             "product": "buffalo-chicken-wing",
+            "product_image": "shopify://shop_images/Group_1538232873.png",
             "card_background": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)"
           }
         },
@@ -257,6 +258,7 @@
           "type": "product",
           "settings": {
             "product": "chocolate-chip-cookie-can",
+            "product_image": "shopify://shop_images/Group_1538232874.png",
             "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
           }
         },
@@ -264,6 +266,7 @@
           "type": "product",
           "settings": {
             "product": "spicy-chicken-sandwich",
+            "product_image": "shopify://shop_images/Group_1538232875_1.png",
             "card_background": "linear-gradient(100deg, #FF0005 6.65%, #FF9294 96.35%)"
           }
         },
@@ -271,7 +274,8 @@
           "type": "product",
           "settings": {
             "product": "churro-pack",
-            "card_background": ""
+            "product_image": "shopify://shop_images/Group_1538232876.png",
+            "card_background": "linear-gradient(117deg, #4640A6 28.82%, #7961F2 97.13%);"
           }
         }
       },

@@ -6,95 +6,102 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
-    "section": {
-      "type": "section",
+    "rogue_collection_mQCdeD": {
+      "type": "rogue-collection",
       "blocks": {
-        "text_tqQTNE": {
-          "type": "text",
-          "name": "Title",
+        "badge_xikewf": {
+          "type": "badge",
           "settings": {
-            "text": "<h1>{{ closest.collection.title }}</h1>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "badge_image": "shopify://shop_images/Layer_1_3.png",
+            "badge_label": ""
+          }
         },
-        "text_twGGkJ": {
-          "type": "text",
-          "name": "Description",
+        "badge_CX6dLr": {
+          "type": "badge",
           "settings": {
-            "text": "{{ closest.collection.description }}",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "badge_image": "shopify://shop_images/Group_1538232745_574426ab-bed9-44cf-94fa-939ae964a8b3.png",
+            "badge_label": ""
+          }
+        },
+        "badge_hi4xBr": {
+          "type": "badge",
+          "settings": {
+            "badge_image": "shopify://shop_images/Layer_1_4_e6d3a9df-21a6-4715-8207-999da3050e31.png",
+            "badge_label": ""
+          }
+        },
+        "badge_wnMFDm": {
+          "type": "badge",
+          "settings": {
+            "badge_image": "shopify://shop_images/Group_2_ac6cfce4-46c4-4ed8-a8d9-7cecc5ae28d7.png",
+            "badge_label": ""
+          }
+        },
+        "product_QWEy3Q": {
+          "type": "product",
+          "settings": {
+            "product": "bundle-page",
+            "product_image": "shopify://shop_images/Group_1538232871.png",
+            "card_background": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
+          }
+        },
+        "product_pyWJJz": {
+          "type": "product",
+          "settings": {
+            "product": "buffalo-chicken-wing",
+            "product_image": "shopify://shop_images/Group_1538232873.png",
+            "card_background": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)"
+          }
+        },
+        "product_Cje3zP": {
+          "type": "product",
+          "settings": {
+            "product": "chocolate-chip-cookie-can",
+            "product_image": "shopify://shop_images/Group_1538232874.png",
+            "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
+          }
+        },
+        "product_EfgmV3": {
+          "type": "product",
+          "settings": {
+            "product": "spicy-chicken-sandwich-can",
+            "product_image": "shopify://shop_images/Group_1538232875_1.png",
+            "card_background": "linear-gradient(100deg, #FF0005 6.65%, #FF9294 96.35%)"
+          }
+        },
+        "product_VhEcy9": {
+          "type": "product",
+          "settings": {
+            "product": "churro-pack",
+            "product_image": "shopify://shop_images/Group_1538232876.png",
+            "card_background": "linear-gradient(117deg, #4640A6 28.82%, #7961F2 97.13%);"
+          }
         }
       },
       "block_order": [
-        "text_tqQTNE",
-        "text_twGGkJ"
+        "badge_xikewf",
+        "badge_CX6dLr",
+        "badge_hi4xBr",
+        "badge_wnMFDm",
+        "product_QWEy3Q",
+        "product_pyWJJz",
+        "product_Cje3zP",
+        "product_EfgmV3",
+        "product_VhEcy9"
       ],
-      "name": "Collection heading",
+      "name": "Rogue Collection",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-1",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "title": "Shop all ROGUE Flavors.",
+        "bg_color_from": "#FFFFFF",
+        "bg_color_to": "#FAF2DD",
+        "text_color": "#1D1D1D",
+        "d_padding_top": 60,
+        "d_padding_bottom": 90,
+        "m_padding_top": 40,
+        "m_padding_bottom": 50
       }
     },
     "main": {
@@ -210,10 +217,13 @@
           ]
         }
       },
+      "disabled": true,
       "settings": {
         "layout_type": "grid",
         "product_card_size": "medium",
         "mobile_product_card_size": "small",
+        "enable_infinite_scroll": true,
+        "products_per_page": 24,
         "product_grid_width": "centered",
         "full_width_on_mobile": true,
         "columns_gap_horizontal": 16,
@@ -222,12 +232,12 @@
         "padding-inline-end": 0,
         "color_scheme": "scheme-1",
         "padding-block-start": 0,
-        "padding-block-end": 32
+        "padding-block-end": 64
       }
     }
   },
   "order": [
-    "section",
+    "rogue_collection_mQCdeD",
     "main"
   ]
 }
