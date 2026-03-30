@@ -1,0 +1,648 @@
+<style>
+    .{{ section.id }}.multi-variety-pack{
+        position:relative;
+        padding-top:{{ section.settings.padding_top_mobile }}px;
+        padding-bottom:{{ section.settings.padding_bottom_mobile }}px;
+        margin-top:{{ section.settings.margin_top_mobile }}px;
+        margin-bottom:{{ section.settings.margin_bottom_mobile }}px;
+    }
+    .{{ section.id }} .mvp-bg{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        z-index:0;
+    }
+
+    /* Slide container */
+    .{{ section.id }} .mvp-slides{
+        position:relative;
+        overflow:hidden;
+        width:100%;
+    }
+    .{{ section.id }} .mvp-track{
+        display:flex;
+        transition:transform 0.4s ease;
+        width:100%;
+    }
+    .{{ section.id }} .mvp-slide{
+        width:100%;
+        min-width:100%;
+        flex-shrink:0;
+        box-sizing:border-box;
+    }
+
+    /* Layout */
+    .{{ section.id }} .mvp-slide-inner{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:30px;
+        padding:0 10px;
+        box-sizing:border-box;
+    }
+
+    /* Product images grid */
+    .{{ section.id }} .mvp-images{
+        position:relative;
+        width:280px;
+        height:280px;
+        flex-shrink:0;
+    }
+    .{{ section.id }} .mvp-images-bg{
+        position:absolute;
+        inset:-20%;
+        background:radial-gradient(ellipse at center, rgba(100,80,220,0.6) 0%, transparent 70%);
+        border-radius:50%;
+    }
+    .{{ section.id }} .mvp-product-image{
+        position:relative;
+        width:100%;
+        height:100%;
+        object-fit:contain;
+        z-index:1;
+    }
+
+    /* Content area */
+    .{{ section.id }} .mvp-content{
+        display:flex;
+        flex-direction:column;
+        gap:16px;
+        text-align:center;
+        width:100%;
+    }
+    .{{ section.id }} .mvp-title{
+        color:#fff;
+        font-family:"Venice Blvd", sans-serif;
+        font-size:36px;
+        font-weight:900;
+        line-height:42px;
+        letter-spacing:-0.9px;
+        text-transform:uppercase;
+        margin:0;
+    }
+    .{{ section.id }} .mvp-description{
+        color:#fff;
+        font-family:"Space Grotesk", sans-serif;
+        font-size:15px;
+        font-weight:500;
+        line-height:23px;
+        letter-spacing:-0.16px;
+        margin:0;
+    }
+
+    /* Actions row */
+    .{{ section.id }} .mvp-actions{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+        width:100%;
+    }
+
+    /* Variant selector */
+    .{{ section.id }} .mvp-variant-select{
+        position:relative;
+        width:100%;
+    }
+    .{{ section.id }} .mvp-variant-select select{
+        width:100%;
+        height:62px;
+        padding:0 50px 0 30px;
+        background:#fff;
+        border:2px solid #000;
+        border-radius:40px;
+        font-family:"Space Grotesk", sans-serif;
+        font-size:18px;
+        font-weight:500;
+        letter-spacing:-0.18px;
+        color:#000;
+        appearance:none;
+        -webkit-appearance:none;
+        cursor:pointer;
+    }
+    .{{ section.id }} .mvp-variant-select .mvp-select-arrow{
+        position:absolute;
+        right:30px;
+        top:50%;
+        transform:translateY(-50%);
+        pointer-events:none;
+        width:16px;
+        height:8px;
+    }
+
+    /* Buy button */
+    .{{ section.id }} .mvp-buy-btn{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        width:100%;
+        height:60px;
+        padding:0 30px;
+        background:#FDBE1C;
+        border:3px solid #000;
+        border-radius:38.5px;
+        box-shadow:-3px 4px 0 0 #000;
+        cursor:pointer;
+        text-transform:uppercase;
+        font-family:"Venice Blvd", sans-serif;
+        font-size:20px;
+        font-weight:900;
+        color:#1d1d1d;
+    }
+    .{{ section.id }} .mvp-buy-btn:hover{
+        opacity:0.9;
+    }
+    .{{ section.id }} .mvp-buy-btn .mvp-price-compare{
+        text-decoration:line-through;
+        color:#A31212;
+        font-family:"Venice Blvd", sans-serif;
+        font-weight:600;
+    }
+    .{{ section.id }} .mvp-buy-btn .mvp-price{
+        font-family:"Venice Blvd", sans-serif;
+        font-weight:600;
+    }
+
+    /* Divider */
+    .{{ section.id }} .mvp-divider{
+        width:100%;
+        height:1px;
+        background:rgba(255,255,255,0.3);
+        margin:10px 0;
+    }
+
+    /* Benefits grid */
+    .{{ section.id }} .mvp-benefits{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:10px 20px;
+        width:100%;
+        margin-bottom:30px;
+    }
+    .{{ section.id }} .mvp-benefit{
+        display:flex;
+        align-items:center;
+        gap:8px;
+        text-align:left;
+    }
+    .{{ section.id }} .mvp-benefit-check{
+        width:23px;
+        height:23px;
+        flex-shrink:0;
+    }
+    .{{ section.id }} .mvp-benefit-check svg{
+        width:100%;
+        height:100%;
+    }
+    .{{ section.id }} .mvp-benefit-text{
+        color:#fff;
+        font-family:"Space Grotesk", sans-serif;
+        font-size:14px;
+        font-weight:700;
+        letter-spacing:-0.36px;
+        text-transform:uppercase;
+        line-height:1.2;
+    }
+
+    /* Top wave – mobile only */
+    .{{ section.id }} .mvp-wave-top{
+        position:absolute;
+        top:-1px;
+        left:0;
+        width:100%;
+        height:40px;
+        z-index:1;
+    }
+    @media(min-width:990px){
+        .{{ section.id }} .mvp-wave-top{
+            display:none;
+        }
+    }
+
+    /* Navigation arrows */
+    .{{ section.id }} .mvp-nav{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        position:absolute;
+        top:50%;
+        left:15px;
+        right:15px;
+        transform:translateY(-50%);
+        pointer-events:none;
+        z-index:2;
+    }
+    .{{ section.id }} .mvp-nav-btn{
+        width:40px;
+        height:40px;
+        border-radius:50%;
+        border:2px solid #fff;
+        background:transparent;
+        cursor:pointer;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        pointer-events:auto;
+        transition:background 0.2s;
+    }
+    .{{ section.id }} .mvp-nav-btn:hover{
+        background:rgba(255,255,255,0.15);
+    }
+    .{{ section.id }} .mvp-nav-btn svg{
+        width:10px;
+        height:16px;
+        fill:none;
+        stroke:#fff;
+        stroke-width:2;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+    }
+
+    @media(min-width:990px){
+        .{{ section.id }}.multi-variety-pack{
+            padding-top:{{ section.settings.padding_top_desktop }}px;
+            padding-bottom:{{ section.settings.padding_bottom_desktop }}px;
+            margin-top:{{ section.settings.margin_top_desktop }}px;
+            margin-bottom:{{ section.settings.margin_bottom_desktop }}px;
+        }
+        .{{ section.id }} .mvp-slide-inner{
+            flex-direction:row;
+            align-items:center;
+            gap:40px;
+            max-width: 1200px;
+        margin: 0 auto;
+        }
+        .{{ section.id }} .mvp-images{
+            width:30%;
+            height:auto;
+            aspect-ratio:1;
+            flex-shrink:0;
+        }
+        .{{ section.id }} .mvp-content{
+            text-align:left;
+            flex:1;
+            min-width:0;
+        }
+        .{{ section.id }} .mvp-title{
+            font-size:45px;
+            line-height:42px;
+        }
+        .{{ section.id }} .mvp-description{
+            font-size:16px;
+        }
+        .{{ section.id }} .mvp-actions{
+            flex-direction:row;
+            gap:16px;
+        }
+        .{{ section.id }} .mvp-variant-select{
+            width:275px;
+            flex-shrink:0;
+        }
+        .{{ section.id }} .mvp-buy-btn{
+            flex:1;
+        }
+        .{{ section.id }} .mvp-benefits{
+            grid-template-columns:1fr 1fr 1fr;
+            gap:12px 30px;
+            margin-bottom:0;
+        }
+        .{{ section.id }} .mvp-benefit-text{
+            font-size:16px;
+        }
+        .{{ section.id }} .mvp-nav{
+            left:30px;
+            right:30px;
+        }
+        .{{ section.id }} .mvp-nav-btn{
+            width:50px;
+            height:50px;
+        }
+    }
+</style>
+
+<section class="{{ section.id }} multi-variety-pack">
+    <svg class="mvp-wave-top" viewBox="0 0 410 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(180deg);">
+        <path d="M0 40V8C30 2 80 0 130 0C200 0 250 12 310 12C360 12 390 6 410 2V40H0Z" fill="white"/>
+    </svg>
+    <svg class="mvp-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1778 741" fill="none" preserveAspectRatio="none">
+        <path d="M1778 720C1747.69 727 1660.42 741 1553.76 741C1420.44 741 1130.16 715 936.905 715C743.653 715 584.241 732 413.82 732C277.484 732 81.1332 724 0 720V0H1778V720Z" fill="url(#mvp-grad-{{ section.id }})"/>
+        <defs>
+            <linearGradient id="mvp-grad-{{ section.id }}" x1="1714.5" y1="741" x2="1562.4" y2="-241.803" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6E00FF"/>
+                <stop offset="1" stop-color="#0077FF"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <div class="page-container" style="position:relative;z-index:1;">
+        <div class="mvp-slides">
+            <div class="mvp-track" data-mvp-track>
+                {% for block in section.blocks %}
+                    {% assign product = block.settings.product %}
+                    <div class="mvp-slide" {{ block.shopify_attributes }}>
+                        <div class="mvp-slide-inner">
+                            {%- comment -%} Product images grid {%- endcomment -%}
+                            <div class="mvp-images">
+                                <div class="mvp-images-bg"></div>
+                                {% if block.settings.image %}
+                                    <img class="mvp-product-image" src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.image.alt | default: product.title }}" loading="lazy" width="800" height="800">
+                                {% endif %}
+                            </div>
+
+                            {%- comment -%} Content area {%- endcomment -%}
+                            <div class="mvp-content">
+                                <h2 class="mvp-title">{{ block.settings.title | default: product.title }}</h2>
+                                <p class="mvp-description">{{ block.settings.description }}</p>
+
+                                {% if product %}
+                                    <div class="mvp-actions">
+                                        {% if product.variants.size > 1 %}
+                                            <div class="mvp-variant-select">
+                                                <select data-mvp-variant-select data-product-url="{{ product.url }}.js">
+                                                    {% for variant in product.variants %}
+                                                        <option
+                                                            value="{{ variant.id }}"
+                                                            data-price="{{ variant.price | money }}"
+                                                            data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                                                            {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+                                                        >
+                                                            {{ variant.title }}
+                                                        </option>
+                                                    {% endfor %}
+                                                </select>
+                                                <span class="mvp-select-arrow">
+                                                    <svg viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1 1L8 7L15 1" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        {% endif %}
+
+                                        {% assign current_variant = product.selected_or_first_available_variant %}
+                                        <button
+                                            class="mvp-buy-btn"
+                                            data-add-to-cart
+                                            data-product-id="{{ product.id }}"
+                                            data-variant-id="{{ current_variant.id }}"
+                                            data-mvp-buy-btn
+                                        >
+                                            <span>{{ block.settings.button_text | default: 'Buy Now' }}</span>
+                                            <span>
+                                                {% if current_variant.compare_at_price > current_variant.price %}
+                                                    <span class="mvp-price-compare" data-mvp-compare-price>{{ current_variant.compare_at_price | money }}</span>
+                                                {% endif %}
+                                                <span class="mvp-price" data-mvp-price>{{ current_variant.price | money }}</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                {% else %}
+                                    <div class="mvp-actions">
+                                        {% render 'rogue-component-btn',
+                                            tag: 'a',
+                                            text: block.settings.button_text | default: 'Buy Now',
+                                            color: 'yellow',
+                                            additional_styles: 'width:100%;font-size:20px;font-weight:bold;box-shadow:-3px 4px 0 0 #000;text-transform:uppercase;',
+                                            url: block.settings.button_link
+                                        %}
+                                    </div>
+                                {% endif %}
+
+                                <div class="mvp-divider"></div>
+
+                                {%- comment -%} Benefits {%- endcomment -%}
+                                <div class="mvp-benefits">
+                                    {% for i in (1..6) %}
+                                        {% assign benefit_key = 'benefit_' | append: i %}
+                                        {% assign benefit_text = block.settings[benefit_key] %}
+                                        {% if benefit_text != blank %}
+                                            <div class="mvp-benefit">
+                                                <span class="mvp-benefit-check">
+                                                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.9" d="M11.5 0C17.8513 0 23 5.14873 23 11.5C23 17.8513 17.8513 23 11.5 23C5.14873 23 0 17.8513 0 11.5C0 5.14873 5.14873 0 11.5 0ZM17.8906 6.57031C17.285 6.00511 16.3358 6.03798 15.7705 6.64355L9.71094 13.1348L7.23047 10.4766C6.6653 9.87114 5.71596 9.83839 5.11035 10.4033C4.50481 10.9685 4.47209 11.9178 5.03711 12.5234L8.61523 16.3574C8.89889 16.661 9.2964 16.834 9.71191 16.834C10.1274 16.8338 10.5251 16.6612 10.8086 16.3574L17.9639 8.69043C18.5289 8.08489 18.4959 7.13555 17.8906 6.57031Z" fill="white"/>
+                                                    </svg>
+                                                </span>
+                                                <span class="mvp-benefit-text">{{ benefit_text }}</span>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if section.blocks.size > 1 %}
+            <div class="mvp-nav">
+                <button class="mvp-nav-btn" data-mvp-prev aria-label="Previous">
+                    <svg viewBox="0 0 10 16"><path d="M9 1L1 8L9 15"/></svg>
+                </button>
+                <button class="mvp-nav-btn" data-mvp-next aria-label="Next">
+                    <svg viewBox="0 0 10 16"><path d="M1 1L9 8L1 15"/></svg>
+                </button>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+    (function(){
+        const section = document.querySelector('.{{ section.id }}');
+        if(!section) return;
+
+        const track = section.querySelector('[data-mvp-track]');
+        const slides = track ? track.querySelectorAll('.mvp-slide') : [];
+        const prevBtn = section.querySelector('[data-mvp-prev]');
+        const nextBtn = section.querySelector('[data-mvp-next]');
+        let current = 0;
+
+        function goTo(index){
+            if(!track || slides.length === 0) return;
+            current = ((index % slides.length) + slides.length) % slides.length;
+            track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        }
+
+        if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+        if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+
+        /* Variant select → update button price & variant ID */
+        section.querySelectorAll('[data-mvp-variant-select]').forEach(function(select){
+            select.addEventListener('change', function(){
+                var opt = select.options[select.selectedIndex];
+                var slide = select.closest('.mvp-slide');
+                var btn = slide.querySelector('[data-mvp-buy-btn]');
+                if(btn){
+                    btn.setAttribute('data-variant-id', opt.value);
+                    var priceEl = btn.querySelector('[data-mvp-price]');
+                    var compareEl = btn.querySelector('[data-mvp-compare-price]');
+                    if(priceEl) priceEl.textContent = opt.dataset.price;
+                    if(compareEl){
+                        if(opt.dataset.comparePrice){
+                            compareEl.textContent = opt.dataset.comparePrice;
+                            compareEl.style.display = '';
+                        } else {
+                            compareEl.style.display = 'none';
+                        }
+                    }
+                }
+            });
+        });
+    })();
+</script>
+
+{% schema %}
+{
+    "name": "Multi Variety Pack",
+    "tag": "section",
+    "class": "multi-variety-pack-section",
+    "presets": [
+        {
+            "name": "Multi Variety Pack",
+            "blocks": [
+                {
+                    "type": "variety_pack"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "number",
+            "id": "padding_top_mobile",
+            "label": "Padding Top (Mobile)",
+            "default": 50
+        },
+        {
+            "type": "number",
+            "id": "padding_bottom_mobile",
+            "label": "Padding Bottom (Mobile)",
+            "default": 50
+        },
+        {
+            "type": "number",
+            "id": "margin_top_mobile",
+            "label": "Margin Top (Mobile)",
+            "default": 60
+        },
+        {
+            "type": "number",
+            "id": "margin_bottom_mobile",
+            "label": "Margin Bottom (Mobile)",
+            "default": 60
+        },
+        {
+            "type": "number",
+            "id": "padding_top_desktop",
+            "label": "Padding Top (Desktop)",
+            "default": 70
+        },
+        {
+            "type": "number",
+            "id": "padding_bottom_desktop",
+            "label": "Padding Bottom (Desktop)",
+            "default": 70
+        },
+        {
+            "type": "number",
+            "id": "margin_top_desktop",
+            "label": "Margin Top (Desktop)",
+            "default": 80
+        },
+        {
+            "type": "number",
+            "id": "margin_bottom_desktop",
+            "label": "Margin Bottom (Desktop)",
+            "default": 80
+        }
+    ],
+    "blocks": [
+        {
+            "type": "variety_pack",
+            "name": "Variety Pack",
+            "settings": [
+                {
+                    "type": "product",
+                    "id": "product",
+                    "label": "Product"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Rogue Multi-Variety Pack"
+                },
+                {
+                    "type": "textarea",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness."
+                },
+                {
+                    "type": "text",
+                    "id": "button_text",
+                    "label": "Button Text",
+                    "default": "Buy Now"
+                },
+                {
+                    "type": "url",
+                    "id": "button_link",
+                    "label": "Button Link (if no product)"
+                },
+                {
+                    "type": "header",
+                    "content": "Product Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Product Image"
+                },
+                {
+                    "type": "header",
+                    "content": "Benefits"
+                },
+                {
+                    "type": "text",
+                    "id": "benefit_1",
+                    "label": "Benefit 1",
+                    "default": "High Protein"
+                },
+                {
+                    "type": "text",
+                    "id": "benefit_2",
+                    "label": "Benefit 2",
+                    "default": "1 Billion Active Probiotics"
+                },
+                {
+                    "type": "text",
+                    "id": "benefit_3",
+                    "label": "Benefit 3",
+                    "default": "Fights Cravings"
+                },
+                {
+                    "type": "text",
+                    "id": "benefit_4",
+                    "label": "Benefit 4",
+                    "default": "No Artificial Sugars"
+                },
+                {
+                    "type": "text",
+                    "id": "benefit_5",
+                    "label": "Benefit 5",
+                    "default": "No Artificial Ingredients"
+                },
+                {
+                    "type": "text",
+                    "id": "benefit_6",
+                    "label": "Benefit 6",
+                    "default": "No Seed Oils"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

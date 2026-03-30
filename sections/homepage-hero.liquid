@@ -166,8 +166,8 @@
     /* Desktop */
     @media (min-width: 750px) {
         .homepage-hero.{{ section.id }} {
-            min-height: 100vh;
-            min-height: 100svh;
+            height: calc(100dvh - var(--header-group-height, 0px) - var(--homepage-marquee-height, 0px));
+            min-height: 500px;
         }
         .homepage-hero__inner.{{ section.id }} {
             flex-direction: row;

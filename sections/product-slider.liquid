@@ -93,8 +93,15 @@
             align-items: center;
         }
         .{{ section.id }} .full-width-slider {
-            padding-right:0;
+            padding-left:90px;
         }
+    }
+    .{{ section.id }} .full-width-slider{
+        padding-left:20px;
+        overflow:visible;
+    }
+    .{{ section.id }} .product-slider{
+        overflow:visible;
     }
     .{{ section.id }} .product-slider .swiper-slide{
         height:auto;
@@ -134,7 +141,7 @@
             </div>
         </div>
     </div>
-    <div class="page-container-body-wide full-width-slider">
+    <div class="full-width-slider">
         <div class="swiper product-slider">
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}

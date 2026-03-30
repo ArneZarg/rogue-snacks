@@ -1,0 +1,377 @@
+<style>
+    .homepage-newsletter.{{ section.id }} {
+        background: linear-gradient(180deg, #ffffff 0%, #ffe8ab 100%);
+        padding: {{ section.settings.padding_top_mobile }}px 20px {{ section.settings.padding_bottom_mobile }}px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .homepage-newsletter__inner.{{ section.id }} {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .homepage-newsletter__heading.{{ section.id }} {
+        font-family: 'Venice Blvd', sans-serif;
+        font-size: 38px;
+        font-weight: 900;
+        font-style: normal;
+        line-height: 0.9;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        text-align: center;
+        color: #151414;
+        margin: 0;
+    }
+
+    .homepage-newsletter__subtext.{{ section.id }} {
+        font-family: var(--font-paragraph--family), sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: normal;
+        text-align: center;
+        color: #232323;
+        margin: 0;
+        max-width: 560px;
+    }
+
+    .homepage-newsletter__form-wrap.{{ section.id }} {
+        background: #ffedbc;
+        border-radius: 20px;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .homepage-newsletter__form.{{ section.id }} {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .homepage-newsletter__input.{{ section.id }} {
+        -webkit-appearance: none;
+        appearance: none;
+        display: block;
+        background: #ffffff;
+        border: 2px solid #000000;
+        border-radius: 10px;
+        padding: 17px 20px;
+        line-height: 1.2;
+        font-family: var(--font-paragraph--family), sans-serif;
+        font-size: 17px;
+        font-weight: 500;
+        color: #232323;
+        width: 100%;
+        box-sizing: border-box;
+        outline: none;
+        flex: 1;
+        min-width: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .homepage-newsletter__input.{{ section.id }}::placeholder {
+        color: #888;
+    }
+
+    .homepage-newsletter__btn.{{ section.id }} {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fdbe1c;
+        border: 3px solid #000000;
+        border-radius: 38px;
+        box-shadow: -3px 4px 0px 0px #000000;
+        box-sizing: border-box;
+        padding: 17px 32px;
+        line-height: 1;
+        font-family: 'Venice Blvd', sans-serif;
+        font-size: 18px;
+        font-weight: 900;
+        font-style: normal;
+        text-transform: uppercase;
+        color: #1d1d1d;
+        cursor: pointer;
+        white-space: nowrap;
+        width: 100%;
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+        flex-shrink: 0;
+    }
+
+    .homepage-newsletter__btn.{{ section.id }}:hover {
+        transform: translate(-1px, 2px);
+        box-shadow: -2px 2px 0px 0px #000000;
+    }
+
+    .homepage-newsletter__connect.{{ section.id }} {
+        display: none;
+        position: absolute;
+       left: -75px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 80px;
+    }
+
+    .homepage-newsletter__connect-img.{{ section.id }} {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .homepage-newsletter__products.{{ section.id }} {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        pointer-events: none;
+    }
+
+    .homepage-newsletter__products-img.{{ section.id }} {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    .homepage-newsletter__products--mobile.{{ section.id }} {
+        display: flex;
+    }
+
+    .homepage-newsletter__products--desktop.{{ section.id }} {
+        display: none;
+    }
+
+    @media (min-width: 750px) {
+        .homepage-newsletter__products--mobile.{{ section.id }} {
+            display: none;
+        }
+
+        .homepage-newsletter__products--desktop.{{ section.id }} {
+            display: flex;
+        }
+    }
+
+    @media (min-width: 750px) {
+        .homepage-newsletter.{{ section.id }} {
+            padding: {{ section.settings.padding_top }}px 80px {{ section.settings.padding_bottom }}px;
+        }
+
+        .homepage-newsletter__heading.{{ section.id }} {
+            font-size: 50px;
+        }
+
+        .homepage-newsletter__form.{{ section.id }} {
+            flex-direction: row;
+            gap: 16px;
+        }
+
+        .homepage-newsletter__input.{{ section.id }} {
+            padding: 19px 20px;
+        }
+
+        .homepage-newsletter__btn.{{ section.id }} {
+            padding: 19px 32px;
+            width: auto;
+        }
+
+        .homepage-newsletter__connect.{{ section.id }} {
+            display: block;
+        }
+    }
+</style>
+
+<section class="homepage-newsletter {{ section.id }}" data-section-id="{{ section.id }}">
+
+    <div class="homepage-newsletter__inner {{ section.id }}">
+
+        <h2 class="homepage-newsletter__heading {{ section.id }}">{{ section.settings.heading }}</h2>
+
+        {%- if section.settings.subtext != blank -%}
+            <p class="homepage-newsletter__subtext {{ section.id }}">{{ section.settings.subtext }}</p>
+        {%- endif -%}
+
+        <div class="homepage-newsletter__form-wrap {{ section.id }}">
+
+            {%- if section.settings.form_side_image != blank -%}
+                <div class="homepage-newsletter__connect {{ section.id }}">
+                    <img
+                        class="homepage-newsletter__connect-img {{ section.id }}"
+                        src="{{ section.settings.form_side_image | image_url: width: 160 }}"
+                        alt="{{ section.settings.form_side_image.alt | escape }}"
+                        loading="lazy"
+                    >
+                </div>
+            {%- endif -%}
+
+            {%- form 'customer', id: 'newsletter-form-{{ section.id }}' -%}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <div class="homepage-newsletter__form {{ section.id }}">
+                    <input
+                        class="homepage-newsletter__input {{ section.id }}"
+                        type="email"
+                        name="contact[email]"
+                        id="newsletter-email-{{ section.id }}"
+                        placeholder="{{ section.settings.input_placeholder | default: 'Email Address' }}"
+                        required
+                        autocomplete="email"
+                    >
+                    <button type="submit" class="homepage-newsletter__btn {{ section.id }}">
+                        {{ section.settings.button_label | default: 'Keep Me Updated' }}
+                    </button>
+                </div>
+                {%- if form.posted_successfully? -%}
+                    <p style="margin-top:12px;text-align:center;font-family:var(--font-paragraph--family);font-size:15px;color:#232323;">
+                        {{ section.settings.success_message | default: "Thanks for subscribing!" }}
+                    </p>
+                {%- endif -%}
+            {%- endform -%}
+
+        </div>
+
+        {%- if section.settings.products_image_mobile != blank -%}
+            <div class="homepage-newsletter__products {{ section.id }} homepage-newsletter__products--mobile {{ section.id }}">
+                <img
+                    class="homepage-newsletter__products-img {{ section.id }}"
+                    src="{{ section.settings.products_image_mobile | image_url: width: 800 }}"
+                    alt="{{ section.settings.products_image_mobile.alt | escape }}"
+                    width="{{ section.settings.products_image_mobile.width }}"
+                    height="{{ section.settings.products_image_mobile.height }}"
+                    loading="lazy"
+                >
+            </div>
+        {%- endif -%}
+
+        {%- if section.settings.products_image != blank -%}
+            <div class="homepage-newsletter__products {{ section.id }} homepage-newsletter__products--desktop {{ section.id }}">
+                <img
+                    class="homepage-newsletter__products-img {{ section.id }}"
+                    src="{{ section.settings.products_image | image_url: width: 1200 }}"
+                    alt="{{ section.settings.products_image.alt | escape }}"
+                    width="{{ section.settings.products_image.width }}"
+                    height="{{ section.settings.products_image.height }}"
+                    loading="lazy"
+                >
+            </div>
+        {%- endif -%}
+
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Homepage Newsletter",
+    "tag": "section",
+    "class": "homepage-newsletter-section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Content"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Stay Connected With Rogue."
+        },
+        {
+            "type": "text",
+            "id": "subtext",
+            "label": "Subtext",
+            "default": "Be the first to hear about new flavors, exclusive drops, and special discounts."
+        },
+        {
+            "type": "text",
+            "id": "input_placeholder",
+            "label": "Input placeholder",
+            "default": "Email Address"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "Keep Me Updated"
+        },
+        {
+            "type": "text",
+            "id": "success_message",
+            "label": "Success message",
+            "default": "Thanks for subscribing!"
+        },
+        {
+            "type": "header",
+            "content": "Images"
+        },
+        {
+            "type": "image_picker",
+            "id": "products_image",
+            "label": "Products image — desktop"
+        },
+        {
+            "type": "image_picker",
+            "id": "products_image_mobile",
+            "label": "Products image — mobile"
+        },
+        {
+            "type": "image_picker",
+            "id": "form_side_image",
+            "label": "Form side image (left of input field)"
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "label": "Padding top (desktop)",
+            "min": 40,
+            "max": 160,
+            "step": 8,
+            "unit": "px",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "Padding bottom (desktop)",
+            "min": 40,
+            "max": 160,
+            "step": 8,
+            "unit": "px",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mobile",
+            "label": "Padding top (mobile)",
+            "min": 24,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "default": 48
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mobile",
+            "label": "Padding bottom (mobile)",
+            "min": 24,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "default": 48
+        }
+    ],
+    "presets": [
+        {
+            "name": "Homepage Newsletter"
+        }
+    ]
+}
+{% endschema %}
