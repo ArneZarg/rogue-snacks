@@ -1,0 +1,520 @@
+<style>
+  .custom-footer {
+    position: relative;
+    color: #fff;
+    font-family: 'Space Grotesk', var(--font-paragraph--family), sans-serif;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .custom-footer-section {
+    background: transparent !important;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .custom-footer__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .custom-footer__bg--desktop {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .custom-footer__bg--desktop {
+      display: block;
+    }
+    .custom-footer__bg--mobile {
+      display: none;
+    }
+  }
+
+  .custom-footer__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 19px 40px;
+  }
+
+  /* Divider lines */
+  .custom-footer__divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* --- Mobile layout (default) --- */
+  .custom-footer__top-row {
+    display: contents;
+  }
+
+  .custom-footer__bottom-row {
+    display: contents;
+  }
+
+  .custom-footer__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Mobile order: logo, copyright, divider, nav, divider, social */
+  .custom-footer__logo-wrap {
+    order: 1;
+    text-align: center;
+    padding: 60px 0 20px;
+  }
+
+  .custom-footer__logo {
+    max-width: 360px;
+    width: 88%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .custom-footer__logo-text {
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+    display: block;
+  }
+
+  .custom-footer__copyright {
+    order: 2;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.26px;
+    text-transform: uppercase;
+    line-height: 27px;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  .custom-footer__copyright a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .custom-footer__divider--top {
+    order: 3;
+  }
+
+  .custom-footer__nav {
+    order: 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 20px;
+    padding: 25px 0;
+  }
+
+  .custom-footer__nav-column {
+    display: contents;
+  }
+
+  .custom-footer__nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 27px;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease;
+  }
+
+  .custom-footer__nav a:hover {
+    opacity: 0.7;
+  }
+
+  .custom-footer__nav a[data-bold="true"] {
+    font-weight: 700;
+  }
+
+  .custom-footer__divider--bottom {
+    order: 5;
+  }
+
+  .custom-footer__social {
+    order: 6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-top: 30px;
+  }
+
+  .custom-footer__social-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.28px;
+    text-transform: uppercase;
+    line-height: 27px;
+  }
+
+  .custom-footer__social-icons {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+  }
+
+  .custom-footer__social-icons a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+  }
+
+  .custom-footer__social-icons a:hover {
+    opacity: 0.7;
+  }
+
+  .custom-footer__social-icons svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+
+  /* --- Desktop layout --- */
+  @media screen and (min-width: 750px) {
+    .custom-footer__inner {
+      padding: 0 3.5% 40px;
+      display: block;
+      max-width: none;
+    }
+
+    .custom-footer__top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-bottom: 50px;
+    }
+
+    .custom-footer__bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .custom-footer__logo-wrap {
+      text-align: left;
+      padding: 116px 0 0;
+      flex-shrink: 0;
+      width: 32.8%;
+    }
+
+    .custom-footer__logo {
+      width: 100%;
+      max-width: 583px;
+      margin: 0;
+    }
+
+    .custom-footer__nav {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 160px;
+      padding: 147px 0 0;
+      justify-content: flex-end;
+    }
+
+    .custom-footer__nav-column {
+      display: flex;
+      flex-direction: column;
+      gap: 46px;
+    }
+
+    .custom-footer__nav a {
+      font-size: 14px;
+      letter-spacing: -0.28px;
+    }
+
+    .custom-footer__social {
+      order: 1;
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+      padding-top: 0;
+    }
+
+    .custom-footer__social-label {
+      margin-right: 0;
+    }
+
+    .custom-footer__social-icons {
+      gap: 40px;
+    }
+
+    .custom-footer__social-icons svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .custom-footer__copyright {
+      order: 2;
+      text-align: right;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.28px;
+      padding-bottom: 0;
+    }
+
+    .custom-footer__divider {
+      display: none;
+    }
+  }
+
+  /* Scale down nav gap on smaller desktops */
+  @media screen and (min-width: 750px) and (max-width: 1200px) {
+    .custom-footer__nav {
+      gap: 60px;
+    }
+  }
+</style>
+
+<footer class="custom-footer">
+  {%- comment -%} Full background SVG with wave top and grain texture {%- endcomment -%}
+  {%- comment -%} Desktop background SVG {%- endcomment -%}
+  <svg class="custom-footer__bg custom-footer__bg--desktop" viewBox="0 0 1778 506" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_n_footer_desktop_{{ section.id }})">
+      <path d="M224.237 0C357.557 0 647.843 51.9746 841.095 51.9746C1034.35 51.9746 1193.76 17.3252 1364.18 17.3252C1500.52 17.3252 1696.87 34.3754 1778 42.9004V506H0V40.5273C30.306 27.0182 117.582 4.12314e-05 224.237 0Z" fill="{{ section.settings.background_color }}"/>
+    </g>
+    <defs>
+      <filter id="filter0_n_footer_desktop_{{ section.id }}" x="0" y="0" width="1778" height="506" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="7726"/>
+        <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise"/>
+        <feComponentTransfer in="alphaNoise" result="coloredNoise1">
+          <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        </feComponentTransfer>
+        <feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped"/>
+        <feFlood flood-color="rgba(156, 156, 156, 0.25)" result="color1Flood"/>
+        <feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1"/>
+        <feMerge result="effect1_noise_footer_desktop_{{ section.id }}">
+          <feMergeNode in="shape"/>
+          <feMergeNode in="color1"/>
+        </feMerge>
+      </filter>
+    </defs>
+  </svg>
+
+  {%- comment -%} Mobile background SVG {%- endcomment -%}
+  <svg class="custom-footer__bg custom-footer__bg--mobile" viewBox="0 0 410 711" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_n_footer_mobile_{{ section.id }})">
+      <path d="M51.708 0C82.4509 0 149.39 16.8183 193.953 16.8184C238.516 16.8184 275.276 5.60652 314.574 5.60645C346.013 5.60645 391.291 11.1233 410 13.8818V711H0V13.1143C6.9884 8.74291 27.1138 7.23219e-05 51.708 0Z" fill="{{ section.settings.background_color }}"/>
+    </g>
+    <defs>
+      <filter id="filter0_n_footer_mobile_{{ section.id }}" x="0" y="0" width="410" height="711" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="7726"/>
+        <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise"/>
+        <feComponentTransfer in="alphaNoise" result="coloredNoise1">
+          <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        </feComponentTransfer>
+        <feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped"/>
+        <feFlood flood-color="rgba(156, 156, 156, 0.25)" result="color1Flood"/>
+        <feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1"/>
+        <feMerge result="effect1_noise_footer_mobile_{{ section.id }}">
+          <feMergeNode in="shape"/>
+          <feMergeNode in="color1"/>
+        </feMerge>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="custom-footer__inner">
+    {%- comment -%}
+      Mobile order (via CSS flex order):
+        1. Logo (centered)
+        2. Copyright (centered)
+        3. Divider line
+        4. Nav links (2 columns)
+        5. Divider line
+        6. Social icons (centered)
+      Desktop: wrapped in top-row / bottom-row divs (hidden on mobile, shown on desktop)
+    {%- endcomment -%}
+
+    {%- comment -%} === Desktop layout wrappers === {%- endcomment -%}
+    <div class="custom-footer__top-row">
+      <div class="custom-footer__logo-wrap">
+        {%- if section.settings.logo != blank -%}
+          <img
+            class="custom-footer__logo"
+            src="{{ section.settings.logo | image_url: width: 760 }}"
+            alt="{{ section.settings.logo.alt | default: shop.name }}"
+            width="{{ section.settings.logo.width }}"
+            height="{{ section.settings.logo.height }}"
+            loading="lazy"
+          >
+        {%- else -%}
+          <span class="custom-footer__logo-text">{{ shop.name }}</span>
+        {%- endif -%}
+      </div>
+
+      <nav class="custom-footer__nav" aria-label="Footer navigation">
+        {%- comment -%}
+          Mobile: all links in a flat 2-column grid
+          Desktop: 3 separate columns via .custom-footer__nav-column
+        {%- endcomment -%}
+        {%- if section.settings.menu_1 != blank -%}
+          {%- assign menu_1 = linklists[section.settings.menu_1] -%}
+          <div class="custom-footer__nav-column">
+            {%- for link in menu_1.links -%}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.menu_2 != blank -%}
+          {%- assign menu_2 = linklists[section.settings.menu_2] -%}
+          <div class="custom-footer__nav-column">
+            {%- for link in menu_2.links -%}
+              <a href="{{ link.url }}" data-bold="true">{{ link.title }}</a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.menu_3 != blank -%}
+          {%- assign menu_3 = linklists[section.settings.menu_3] -%}
+          <div class="custom-footer__nav-column">
+            {%- for link in menu_3.links -%}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </nav>
+    </div>
+
+    <div class="custom-footer__divider custom-footer__divider--top"></div>
+
+    <div class="custom-footer__bottom-row">
+      <div class="custom-footer__social">
+        <span class="custom-footer__social-label">Follow us</span>
+        <div class="custom-footer__social-icons">
+          {%- if section.settings.youtube_url != blank -%}
+            <a href="{{ section.settings.youtube_url }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.543 6.498C22 8.28 22 12 22 12s0 3.72-.457 5.502c-.254.985-.997 1.76-1.938 2.022C17.896 20 12 20 12 20s-5.893 0-7.605-.476c-.945-.266-1.687-1.04-1.938-2.022C2 15.72 2 12 2 12s0-3.72.457-5.502c.254-.985.997-1.76 1.938-2.022C6.107 4 12 4 12 4s5.896 0 7.605.476c.945.266 1.687 1.04 1.938 2.022ZM10 15.5l6-3.5-6-3.5v7Z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069ZM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0Zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881Z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.tiktok_url != blank -%}
+            <a href="{{ section.settings.tiktok_url }}" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.525 2h3.29s-.188 4.213 4.554 4.522v3.254s-2.537.155-4.555-1.39l.033 6.728A6.088 6.088 0 1 1 9.856 9.07h.849v3.343a2.758 2.758 0 1 0 1.942 2.646L12.525 2Z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="custom-footer__copyright">
+        &copy; {{ 'now' | date: '%Y' }}, {{ shop.name }}
+        {%- if section.settings.show_powered_by -%}
+          <span>. Powered by Shopify</span>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="custom-footer__divider custom-footer__divider--bottom"></div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "tag": "section",
+  "class": "custom-footer-section",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer logo"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#151414"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu column 1",
+      "info": "First navigation column (e.g. Home, Contact Us, About Us)"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu column 2",
+      "info": "Second navigation column (e.g. Shop All Flavors, Refund Policy)"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_3",
+      "label": "Menu column 3",
+      "info": "Third navigation column (e.g. Privacy Policy, Terms & Conditions)"
+    },
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "header",
+      "content": "Copyright"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_powered_by",
+      "label": "Show Powered by Shopify",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer"
+    }
+  ]
+}
+{% endschema %}

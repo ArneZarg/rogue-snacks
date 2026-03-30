@@ -291,7 +291,7 @@
         "text_color": "#151414",
         "d_padding_top": 40,
         "d_padding_bottom": 180,
-        "m_padding_top": 90,
+        "m_padding_top": 40,
         "m_padding_bottom": 50
       }
     },
@@ -586,9 +586,9 @@
         "products_image_mobile": "shopify://shop_images/Group_1538232793_2.png",
         "form_side_image": "shopify://shop_images/Group_1538232793_1.png",
         "padding_top": 40,
-        "padding_bottom": 80,
+        "padding_bottom": -296,
         "padding_top_mobile": 24,
-        "padding_bottom_mobile": 48
+        "padding_bottom_mobile": -300
       }
     }
   },
