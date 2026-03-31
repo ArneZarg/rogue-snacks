@@ -7,7 +7,7 @@
     .{{ section.id }} h2,
     .{{ section.id }} .product-title,
     .{{ section.id }} .rogue-component-btn span{
-        font-family: "Venice Blvd", sans-serif;
+        font-family: "venice-blvd", sans-serif;
     }
     .{{ section.id }} .product-type{
         font-family: var(--font-paragraph--family), sans-serif;
@@ -24,22 +24,37 @@
         letter-spacing: -0.7px;
         text-transform: uppercase;
         margin-bottom: 20px;
+        text-align: center;
     }
     .{{ section.id }} .rogue-collection-badges{
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 15px;
         align-items: center;
         margin-bottom: 30px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .{{ section.id }} .rogue-collection-badges::-webkit-scrollbar{
+        display: none;
     }
     .{{ section.id }} .rogue-badge{
         display: flex;
         align-items: center;
         gap: 10px;
+        flex-shrink: 0;
     }
     .{{ section.id }} .rogue-badge img{
         width: auto;
-        height: 55px;
+        height: auto;
+    }
+    .{{ section.id }} .rogue-badges-end-image{
+        display: none;
+    }
+    .{{ section.id }} .rogue-badges-end-image img{
+        width: auto;
+        height: clamp(40px, 12vw, 55px);
     }
     .{{ section.id }} .rogue-badge-divider{
         display: none;
@@ -55,6 +70,16 @@
         flex-direction: column;
     }
 
+    .{{ section.id }} .rogue-collection-bottom-image{
+        display: block;
+        text-align: center;
+        margin-top: 30px;
+    }
+    .{{ section.id }} .rogue-collection-bottom-image img{
+        max-width: 100%;
+        height: auto;
+    }
+
     @media(min-width:750px){
         .{{ section.id }}{
             padding-top:{{ section.settings.d_padding_top }}px;
@@ -64,17 +89,20 @@
             font-size: 45px;
             line-height: 40px;
             letter-spacing: -0.9px;
+            text-align: left;
         }
         .{{ section.id }} .rogue-collection-badges{
             flex-wrap: nowrap;
             gap: 0;
             margin-bottom: 40px;
+            overflow-x: visible;
         }
         .{{ section.id }} .rogue-badge{
             gap: 12px;
+            flex-shrink: 1;
         }
         .{{ section.id }} .rogue-badge img{
-            height: 65px;
+            height: auto;
         }
         .{{ section.id }} .rogue-badge-divider{
             display: block;
@@ -83,11 +111,20 @@
             background: #1d1d1d;
             opacity: 0.2;
             margin: 0 30px;
-            flex-shrink: 0;
+        }
+        .{{ section.id }} .rogue-badges-end-image{
+            display: block;
+            margin-left: auto;
+        }
+        .{{ section.id }} .rogue-badges-end-image img{
+            height: clamp(84px, 7vw, 109px);
         }
         .{{ section.id }} .rogue-collection-grid{
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
+        }
+        .{{ section.id }} .rogue-collection-bottom-image{
+            display: none;
         }
     }
 </style>
@@ -112,6 +149,12 @@
                             {% endif %}
                         </div>
                     {% endfor %}
+
+                    {% if section.settings.badges_end_image != blank %}
+                        <div class="rogue-badges-end-image">
+                            <img src="{{ section.settings.badges_end_image | image_url: height: 130 }}" alt="{{ section.settings.badges_end_image_alt | escape }}" loading="lazy" width="{{ section.settings.badges_end_image.width }}" height="{{ section.settings.badges_end_image.height }}">
+                        </div>
+                    {% endif %}
                 </div>
             {% endif %}
         </div>
@@ -129,6 +172,12 @@
                 {% endif %}
             {% endfor %}
         </div>
+
+        {% if section.settings.bottom_image_mobile != blank %}
+            <div class="rogue-collection-bottom-image">
+                <img src="{{ section.settings.bottom_image_mobile | image_url: width: 800 }}" alt="{{ section.settings.bottom_image_alt | escape }}" loading="lazy" width="{{ section.settings.bottom_image_mobile.width }}" height="{{ section.settings.bottom_image_mobile.height }}">
+            </div>
+        {% endif %}
     </div>
 </section>
 
@@ -175,6 +224,35 @@
         },
         {
             "type": "header",
+            "content": "Badges End Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "badges_end_image",
+            "label": "End Image",
+            "info": "Displayed on the far right of the badges row"
+        },
+        {
+            "type": "text",
+            "id": "badges_end_image_alt",
+            "label": "End Image Alt Text"
+        },
+        {
+            "type": "header",
+            "content": "Bottom Image (Mobile Only)"
+        },
+        {
+            "type": "image_picker",
+            "id": "bottom_image_mobile",
+            "label": "Bottom Image"
+        },
+        {
+            "type": "text",
+            "id": "bottom_image_alt",
+            "label": "Bottom Image Alt Text"
+        },
+        {
+            "type": "header",
             "content": "Padding"
         },
         {
@@ -212,7 +290,7 @@
             "id": "m_padding_bottom",
             "default": 50,
             "label": "Padding Bottom (Mobile)",
-            "min": 20,
+            "min": -100,
             "max": 100,
             "step": 5,
             "unit": "px"

@@ -496,7 +496,7 @@
         "variety_pack_fbJMFh": {
           "type": "variety_pack",
           "settings": {
-            "product": "",
+            "product": "buffalo-chicken-wing",
             "title": "Rogue Multi-Variety Pack",
             "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
             "button_text": "Buy Now",
@@ -512,7 +512,7 @@
         "variety_pack_Rfnk86": {
           "type": "variety_pack",
           "settings": {
-            "product": "",
+            "product": "chocolate-chip-cookie-can",
             "title": "Rogue Multi-Variety Pack",
             "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
             "button_text": "Buy Now",
@@ -528,7 +528,7 @@
         "variety_pack_qwKVLM": {
           "type": "variety_pack",
           "settings": {
-            "product": "",
+            "product": "churro-can",
             "title": "Rogue Multi-Variety Pack",
             "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
             "button_text": "Buy Now",
@@ -544,7 +544,7 @@
         "variety_pack_9z6XQt": {
           "type": "variety_pack",
           "settings": {
-            "product": "bundle-page",
+            "product": "churro-pack",
             "title": "Rogue Multi-Variety Pack",
             "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
             "button_text": "Buy Now",

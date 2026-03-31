@@ -95,13 +95,17 @@
       "name": "Rogue Collection",
       "settings": {
         "title": "Shop all ROGUE Flavors.",
-        "bg_color_from": "#FFFFFF",
-        "bg_color_to": "#FAF2DD",
-        "text_color": "#1D1D1D",
+        "bg_color_from": "#ffffff",
+        "bg_color_to": "#faf2dd",
+        "text_color": "#1d1d1d",
+        "badges_end_image": "shopify://shop_images/yum_chip.png",
+        "badges_end_image_alt": "",
+        "bottom_image_mobile": "shopify://shop_images/Group_1538232793_2.png",
+        "bottom_image_alt": "",
         "d_padding_top": 60,
         "d_padding_bottom": 90,
         "m_padding_top": 40,
-        "m_padding_bottom": 50
+        "m_padding_bottom": -50
       }
     },
     "main": {
