@@ -476,6 +476,23 @@
     "homepage_multi_variety_pack_6MbyCU": {
       "type": "homepage-multi-variety-pack",
       "blocks": {
+        "variety_pack_9z6XQt": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "churro-pack",
+            "title": "Rogue Multi-Variety Pack",
+            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "image": "shopify://shop_images/rogue_can_animation_1.png",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
         "variety_pack_HX74nb": {
           "type": "variety_pack",
           "settings": {
@@ -540,30 +557,14 @@
             "benefit_5": "No Artificial Ingredients",
             "benefit_6": "No Seed Oils"
           }
-        },
-        "variety_pack_9z6XQt": {
-          "type": "variety_pack",
-          "settings": {
-            "product": "churro-pack",
-            "title": "Rogue Multi-Variety Pack",
-            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
-            "button_text": "Buy Now",
-            "button_link": "",
-            "benefit_1": "High Protein",
-            "benefit_2": "1 Billion Active Probiotics",
-            "benefit_3": "Fights Cravings",
-            "benefit_4": "No Artificial Sugars",
-            "benefit_5": "No Artificial Ingredients",
-            "benefit_6": "No Seed Oils"
-          }
         }
       },
       "block_order": [
+        "variety_pack_9z6XQt",
         "variety_pack_HX74nb",
         "variety_pack_fbJMFh",
         "variety_pack_Rfnk86",
-        "variety_pack_qwKVLM",
-        "variety_pack_9z6XQt"
+        "variety_pack_qwKVLM"
       ],
       "name": "Multi Variety Pack",
       "settings": {
@@ -590,9 +591,9 @@
         "products_image_mobile": "shopify://shop_images/Group_1538232793_2.png",
         "form_side_image": "shopify://shop_images/Group_1538232793_1.png",
         "padding_top": 40,
-        "padding_bottom": -296,
+        "padding_bottom": -288,
         "padding_top_mobile": 24,
-        "padding_bottom_mobile": -300
+        "padding_bottom_mobile": -304
       }
     }
   },
