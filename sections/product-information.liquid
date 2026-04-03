@@ -23,7 +23,7 @@
 {% capture additional_blocks %}
   {% content_for 'blocks' %}
 {% endcapture %}
-
+{% render 'rogue-product-styles' %}
 {% if section.settings.enable_sticky_add_to_cart %}
   {% liquid
     assign current_variant = product.selected_or_first_available_variant
