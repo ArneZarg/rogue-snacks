@@ -1,0 +1,88 @@
+<style>
+    .{{ section.id }} .reviews-section{
+        padding-top:{{ section.settings.padding_top_mobile }}px;
+        padding-bottom:{{ section.settings.padding_bottom_mobile }}px;
+        margin-bottom:{{ section.settings.margin_bottom_mobile }}px;
+        margin-top:{{ section.settings.margin_top_mobile }}px;
+    }
+</style>
+<section class="{{ section.id }} reviews-section">
+</section>
+{% schema %}
+{
+    "presets": [{
+        "name": "Reviews Section",
+        "settings": {}
+    }],
+    "settings": [
+        {
+            "type": "header",
+            "content":"Margin and Padding"
+        },
+        {
+            "type": "number",
+            "id":"padding_top_mobile",
+            "label": "Padding Top Mobile",
+            "default":70
+        },
+        {
+            "type": "number",
+            "id":"padding_bottom_mobile",
+            "label": "Padding Bottom Mobile",
+            "default":70
+        },
+        {
+            "type": "number",
+            "id":"margin_top_mobile",
+            "label": "Margin Mobile",
+            "default":100
+        },
+        {
+            "type": "number",
+            "id":"margin_bottom_mobile",
+            "label": "Margin Bottom Mobile",
+            "default":100
+        },
+        {
+            "type":"number",
+            "id":"padding_top_desktop",
+            "label": "Padding Top Desktop",
+            "default":95
+        },
+        {
+            "type":"number",
+            "id":"padding_bottom_desktop",
+            "label": "Padding Bottom Desktop",
+            "default":215
+        },
+        {
+            "type": "number",
+            "id": "margin_top_desktop",
+            "label": "Margin Top Desktop",
+            "default":100
+        },
+        {
+            "type": "number",
+            "id": "margin_bottom_desktop",
+            "label": "Margin Bottom Desktop",
+            "default":100
+        },
+        {
+            "type": "header",
+            "content": "text"
+        },
+        {
+            "type": "text",
+            "default":"Real People. Gone Rogue.",
+            "id":"title",
+            "label":"Title"
+        },
+        {
+            "type":"text",
+            "default":"Thousands have already ditched boring protein snacks.",
+            "id": "subtitle",
+            "label": "Subtitle"
+        }
+    ]
+}
+{% endschema %}
