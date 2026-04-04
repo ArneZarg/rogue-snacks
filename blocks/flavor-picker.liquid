@@ -1,12 +1,18 @@
 {% style %}
   .rogue-flavor-picker .flavor-links{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
   }
-  .rogue-flavor-picker .flavor-links > *:last-child:nth-child(odd){
-    grid-column:1 / -1;
+  @media(max-width:748px){
+    .rogue-flavor-picker .flavor-links{
+        grid-template-columns:repeat(2,1fr);
+    }
+    .rogue-flavor-picker .flavor-links > *:last-child:nth-child(odd){
+        grid-column:1 / -1;
+    }
   }
+  
   .rogue-flavor-picker .flavor-link{
     width:100%;
     display: flex;

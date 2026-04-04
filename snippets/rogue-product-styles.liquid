@@ -17,6 +17,72 @@
     }
     .product-desc{
         margin: 0 0;
-
     }
+    .variant-option--buttons legend{
+        color: #FFF;
+        font-family: "Space Grotesk";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 23px; /* 143.75% */
+        letter-spacing: -0.16px;
+    }
+    label.variant-option__button-label{
+        border-radius: 66px;
+        border: 1px solid #FFF !important;
+        background: rgba(255, 255, 255, 0.15);
+    }
+    .variant-option__button-label:has(input:checked) {
+  background: #fff !important;
+  color: #000 !important;
+}
+.variant-option__button-label input:checked + .variant-option__button-label__pill,
+.variant-option__button-label input:checked ~ .variant-option__button-label__text {
+  color: #000;
+}
+
+.variant-option__button-label input:checked {
+  /* won't affect parent, so we fake it */
+}
+
+.variant-option__button-label input:checked ~ * {
+  color: #000;
+}
+
+.variant-option__button-label input:checked {
+  accent-color: #000;
+}
+/* selected state */
+.variant-option__button-label:has(input:checked),
+.variant-option__button-label[data-current-checked="true"] {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff;
+}
+.variant-option__button-label__pill {
+  display: none !important;
+}
+.variant-option-text{
+color: #000;
+font-family: "Space Grotesk";
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 23px; /* 191.667% */
+letter-spacing: -0.12px;
+}
+@media(min-width:1200px){
+    .product-information__grid.product-information--media-left{
+        padding-right:162px
+    }
+    media-gallery.spacing-style.sticky-content.media-gallery--carousel.media-gallery--extend{
+        border-right:2px solid #000;
+    }
+    slideshow-slide.product-media-container.constrain-height.media-fit-cover.product-media-container--image.product-media-container--zoomable.product-media-container--tallest{
+        border-bottom:2px solid #000;
+    }
+}
+.variant-option__button-label:not(.variant-option__button-label--has-swatch):before, .variant-option__button-label:has([data-option-available=false]):not(.variant-option__button-label--has-swatch):after{
+    content:unset !important;
+}
 </style>

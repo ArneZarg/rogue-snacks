@@ -166,6 +166,132 @@
       }
     }
   }
+  /* make the media gallery layout predictable */
+media-gallery slideshow-component {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  grid-template-rows: auto auto;
+  row-gap: 12px;
+  align-items: center;
+}
+
+/* main image takes full width */
+media-gallery slideshow-container {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+/* thumbnails sit in the middle column */
+media-gallery slideshow-controls[thumbnails] {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* keep thumbs centered */
+media-gallery .slideshow-controls__thumbnails-container {
+  width: 100%;
+}
+
+media-gallery .slideshow-controls__thumbnails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* arrows live in the SAME row as thumbnails */
+media-gallery slideshow-arrows {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  align-items: center;
+  pointer-events: none;
+  position: static;
+  inset: auto;
+  height: auto;
+}
+
+/* reset previous absolute positioning */
+media-gallery slideshow-arrows .slideshow-control {
+  position: static;
+  transform: none;
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+button.slideshow-control.button.button-unstyled.slideshow-controls__thumbnail{
+  outline:none;
+  border:2px solid transparent;
+}
+button.slideshow-control.button.button-unstyled.slideshow-controls__thumbnail[aria-selected="true"]{
+  border: 2px solid #000;
+}
+media-gallery slideshow-arrows{
+  padding:0 15px;
+}
+@media(min-width:951px){
+  media-gallery slideshow-arrows .slideshow-control{
+    width:42px;
+    height:42px;
+  }
+  media-gallery slideshow-arrows{
+    padding:0 25px;
+  }
+}
+/* put arrows on the sides */
+media-gallery slideshow-arrows .slideshow-control--previous {
+  grid-column: 1;
+  justify-self: center;
+}
+
+media-gallery slideshow-arrows .slideshow-control--next {
+  grid-column: 3;
+  justify-self: center;
+}
+
+/* make the chevrons point left/right */
+media-gallery slideshow-arrows .slideshow-control--previous svg {
+  
+}
+
+media-gallery slideshow-arrows .slideshow-control--next svg {
+  
+}
+
+media-gallery slideshow-arrows .slideshow-control svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+}
+
+/* optional */
+media-gallery slideshow-arrows .slideshow-control:hover,
+media-gallery slideshow-arrows .slideshow-control:focus-visible {
+  background: #fff;
+  color: #111;
+  border-color: #111;
+}
+.media-gallery--carousel slideshow-arrows .slideshow-control{
+  padding:0 !important;
+}
 {% endstylesheet %}
 
 {% schema %}

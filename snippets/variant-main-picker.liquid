@@ -62,7 +62,11 @@
             {{ option_id_attribute }}
           >
             <legend>
-              {{ product_option.name | escape -}}
+              {% if product_option.name == "Pack Size" %}
+                Quantity
+              {% else %}
+                {{ product_option.name | escape -}}
+              {% endif %}
               {%- if variant_style == 'swatch' -%}
                 <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
               {%- endif %}
@@ -127,6 +131,9 @@
                     data-key="variant-option-text"
                   >
                     {{- product_option_value | escape -}}
+                    {% if product_option_value.variant %}
+                      • {{ product_option_value.variant.price | money }}
+                    {% endif %}
                   </span>
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
