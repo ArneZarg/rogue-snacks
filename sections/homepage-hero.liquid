@@ -55,7 +55,7 @@
     .homepage-hero__heading.{{ section.id }} {
         color: #151414;
         font-family: 'venice-blvd', sans-serif;
-        font-size: 50px;
+        font-size: 32px;
         font-style: normal;
         font-weight: 900;
         line-height: 45px;
@@ -95,6 +95,7 @@
         transition: opacity 0.2s ease;
         margin-bottom: 30px;
         width: 100%;
+        max-width: 450px;
     }
     .homepage-hero__cta.{{ section.id }}:hover {
         opacity: 0.85;
@@ -273,7 +274,7 @@
                     </div>
                 {% endif %}
 
-                <h1 class="homepage-hero__heading {{ section.id }}">{{ section.settings.heading }}</h1>
+                <h1 class="homepage-hero__heading {{ section.id }}">{{ section.settings.heading | split: '. ' | join: '.<br>' }}</h1>
 
                 {% if section.settings.subtext != blank %}
                     <p class="homepage-hero__subtext {{ section.id }}">{{ section.settings.subtext }}</p>

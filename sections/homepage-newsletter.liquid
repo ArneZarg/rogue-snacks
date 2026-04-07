@@ -2,6 +2,7 @@
     .homepage-newsletter.{{ section.id }} {
         background: linear-gradient(180deg, #ffffff 0%, #ffe8ab 100%);
         padding: {{ section.settings.padding_top_mobile }}px 20px {{ section.settings.padding_bottom_mobile }}px;
+        margin-bottom
         position: relative;
         overflow: hidden;
     }
@@ -167,7 +168,8 @@
 
     @media (min-width: 750px) {
         .homepage-newsletter.{{ section.id }} {
-            padding: {{ section.settings.padding_top }}px 80px {{ section.settings.padding_bottom }}px;
+            padding: {{ section.settings.padding_top }}px 80px;
+            margin-bottom: {{ section.settings.padding_bottom }}px;
         }
 
         .homepage-newsletter__heading.{{ section.id }} {

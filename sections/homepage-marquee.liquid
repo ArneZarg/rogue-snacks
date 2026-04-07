@@ -53,13 +53,13 @@
     }
     @keyframes marquee-scroll-{{ section.id }} {
         0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        100% { transform: translateX(-25%); }
     }
 </style>
 
 <section class="homepage-marquee {{ section.id }}" data-section-id="{{ section.id }}">
     <div class="homepage-marquee__track {{ section.id }}" aria-hidden="true">
-        {%- for i in (1..2) -%}
+        {%- for i in (1..4) -%}
             <div class="homepage-marquee__items {{ section.id }}">
                 {%- for block in section.blocks -%}
                     <div class="homepage-marquee__item {{ section.id }}" {{ block.shopify_attributes }}>
