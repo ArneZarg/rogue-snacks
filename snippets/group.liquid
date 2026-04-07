@@ -22,6 +22,7 @@
     {% if settings.inherit_color_scheme == false %} color-{{ settings.color_scheme }}{% endif %}
     {% if settings.use_product_gradient %} group-block--product-gradient{% endif %}
     {{ class }}
+    {{ settings.additional_class }}
   "
   style="
     {% render 'border-override', settings: settings %}

@@ -51,7 +51,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 28,
+            "gap": 18,
             "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "scheme-1",
@@ -72,8 +72,9 @@
               "type": "group",
               "name": "Header",
               "settings": {
-                "content_direction": "row",
+                "content_direction": "column",
                 "vertical_on_mobile": false,
+                "additional_class": "data-price-reviews",
                 "horizontal_alignment": "space-between",
                 "vertical_alignment": "center",
                 "align_baseline": false,
@@ -120,7 +121,7 @@
                 "price_EUzm9g": {
                   "type": "price",
                   "settings": {
-                    "show_sale_price_first": true,
+                    "show_sale_price_first": false,
                     "show_installments": false,
                     "show_tax_info": false,
                     "type_preset": "paragraph",
@@ -151,12 +152,19 @@
               "settings": {},
               "blocks": {}
             },
+            "pills_WnG7BW": {
+              "type": "pills",
+              "name": "Pills",
+              "settings": {},
+              "blocks": {}
+            },
             "group_YCgVLP": {
               "type": "group",
               "name": "t:names.group",
               "settings": {
                 "content_direction": "column",
                 "vertical_on_mobile": true,
+                "additional_class": "",
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
@@ -215,6 +223,32 @@
                   },
                   "blocks": {}
                 },
+                "rogue_subscribe_save_8CMT7p": {
+                  "type": "rogue-subscribe-save",
+                  "name": "Rogue Subscribe",
+                  "settings": {},
+                  "blocks": {}
+                },
+                "skio_subscriptions_yc_s20_app_block_y7BgCr": {
+                  "type": "shopify://apps/skio-subscriptions-yc-s20/blocks/app-block/de50f7a4-0bb0-4d4c-84e2-c03dce83436d",
+                  "settings": {
+                    "form_id": "BuyButtons-ProductForm-{{ section.id }}",
+                    "start_onetime": "true",
+                    "onetime_first": "false",
+                    "default_subscription": "",
+                    "group_border_radius": 5,
+                    "group_border_shadow": true,
+                    "group_border_selected_color": "#000000",
+                    "onetime_title": "Single Purchase",
+                    "subscription_title": "Subscribe & Save 10%",
+                    "prepaid_title": "Prepaid",
+                    "discount_format": "percent",
+                    "discount_style": "bubble",
+                    "discount_prefix": "Save",
+                    "discount_suffix": "",
+                    "discount_color": "#0fa573"
+                  }
+                },
                 "buy_buttons_pxwGjR": {
                   "type": "buy-buttons",
                   "settings": {
@@ -254,6 +288,8 @@
               "block_order": [
                 "flavor_picker_nRqWef",
                 "variant_picker_UtiEHB",
+                "rogue_subscribe_save_8CMT7p",
+                "skio_subscriptions_yc_s20_app_block_y7BgCr",
                 "buy_buttons_pxwGjR"
               ]
             },
@@ -328,6 +364,7 @@
           "block_order": [
             "group_icgrde",
             "short_description_tNgfzc",
+            "pills_WnG7BW",
             "group_YCgVLP",
             "text_FHExEx",
             "divider_VJhene",

@@ -2,7 +2,7 @@
   .rogue-flavor-picker .flavor-links{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:30px;
+    gap:10px;
   }
   @media(max-width:748px){
     .rogue-flavor-picker .flavor-links{
@@ -22,12 +22,15 @@
     background: rgba(255, 255, 255, 0.15);
     padding:8px;
     gap:9px;
+    span{
+        color:#fff;
+    }
   }
   .rogue-flavor-picker .flavor-link.selected-flav{
     
     background:#fff;
     span{
-        color:#000 !important;
+        color:#000;
     }
   }
   .rogue-flavor-picker .flavor-link img{

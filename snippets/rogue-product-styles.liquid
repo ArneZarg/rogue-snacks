@@ -17,6 +17,25 @@
     }
     .product-desc{
         margin: 0 0;
+        color: #212121;
+        font-family: "Space Grotesk";
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 19px; /* 146.154% */
+        letter-spacing: -0.13px;
+    }
+    @media(min-width:750px){
+        .product-desc{
+            margin: 0 0;
+            color: #212121;
+            font-family: "Space Grotesk";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 19px; /* 146.154% */
+            letter-spacing: -0.13px;
+        }
     }
     .variant-option--buttons legend{
         color: #FFF;
@@ -84,5 +103,138 @@ letter-spacing: -0.12px;
 }
 .variant-option__button-label:not(.variant-option__button-label--has-swatch):before, .variant-option__button-label:has([data-option-available=false]):not(.variant-option__button-label--has-swatch):after{
     content:unset !important;
+    
+}
+.variant-option__button-label[data-current-checked="false"] {
+    
+}
+span.variant-option__button-label__text{
+        color:#fff;
+    }
+span.variant-option__button-label__text{
+    font-size:12px;
+}
+button.shopify-payment-button__button.shopify-payment-button__button--unbranded{
+    border-radius:38.5px;
+    color: #FFF;
+font-family: "venice-blvd", sans-serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+text-transform: uppercase;
+}
+span.add-to-cart-text{
+    text-transform:uppercase;
+    color: #1D1D1D;
+font-family: "venice-blvd", sans-serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+text-transform: uppercase;
+}
+.hardcoded--reviews {
+    display: flex;
+    color: #151515;
+    font-family: "Space Grotesk";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    align-items:center;
+    gap:5px;
+}
+.data-price-reviews .group-block-content.layout-panel-flex.layout-panel-flex--column {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    align-items:center;
+}
+@media(min-width:750px){
+    .data-price-reviews .group-block-content.layout-panel-flex.layout-panel-flex--column {
+        flex-direction:column;
+        justify-content:flex-start;
+        align-items:flex-start;
+    }
+}
+product-price.text-block.text-block--align-left.rte.text-left.paragraph.spacing-style{
+    width:fit-content;
+}
+span.price{
+    color: #1D1D1D;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    text-transform: uppercase;
+    font-family: "venice-blvd", sans-serif;
+}
+.compare-at-price{
+    color: #8F8F8F;
+    font-family: "venice-blvd", sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -0.4px;
+text-decoration-line: line-through;
+text-transform: uppercase;
+}
+@media(min-width:750px){
+    .compare-at-price{
+        color: #8F8F8F;
+        font-family: "venice-blvd", sans-serif;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.4px;
+        text-decoration-line: line-through;
+        text-transform: uppercase;
+    }
+    span.price{
+        color: #1D1D1D;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        letter-spacing: -0.4px;
+        text-transform: uppercase;
+        font-family: "venice-blvd", sans-serif;
+    }
+}
+.product-highlights{
+        color: #1D1D1D;
+    font-family: "venice-blvd", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    text-transform: uppercase;
+}
+.variant-option__button-label{
+    position:relative;
+    overflow-y:unset;
+    padding:6px 10px;
+}
+.best-value{
+    position:absolute;
+    z-index:2;
+    border-radius: 40px;
+background: #FD761C;
+color: #000;
+font-family: "Space Grotesk";
+font-size: 10px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: -0.1px;
+text-transform: uppercase;
+padding:3px 7px;
+top:-15px;
 }
 </style>

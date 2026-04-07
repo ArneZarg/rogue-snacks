@@ -5002,3 +5002,6 @@ product-recommendations:has([data-has-recommendations='false']) {
   background: rgba(255, 255, 255, 0.90);
   box-shadow: 0 2px 0 0 #000;
 }
+h1,h2,h3,h4,h5{
+  font-family:"venice-blvd", sans-serif;
+}
