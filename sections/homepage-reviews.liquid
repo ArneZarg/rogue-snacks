@@ -1,0 +1,635 @@
+<style>
+    .homepage-reviews.{{ section.id }} {
+        background: {{ section.settings.bg_color }};
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+        overflow: hidden;
+    }
+
+    /* Header */
+    .homepage-reviews__header.{{ section.id }} {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .homepage-reviews__heading.{{ section.id }} {
+        font-family: 'venice-blvd', sans-serif;
+        font-size: 42px;
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+        color: {{ section.settings.heading_color }};
+        margin: 0 0 12px;
+    }
+    .homepage-reviews__subtext.{{ section.id }} {
+        font-size: 15px;
+        font-weight: 400;
+        color: {{ section.settings.text_color }};
+        margin: 0 0 20px;
+        line-height: 1.5;
+    }
+
+    /* Rating badge */
+    .homepage-reviews__rating-badge.{{ section.id }} {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid #D0BB8F;
+        border-radius: 50px;
+        padding: 8px 18px;
+        background: linear-gradient(180deg, #FFF 0%, #FFFAEC 100%);
+    }
+    .homepage-reviews__rating-stars.{{ section.id }} {
+        display: flex;
+        gap: 2px;
+    }
+    .homepage-reviews__rating-stars.{{ section.id }} svg {
+        width: 16px;
+        height: 16px;
+    }
+    .homepage-reviews__rating-text.{{ section.id }} {
+        font-size: 13px;
+        font-weight: 600;
+        color: {{ section.settings.heading_color }};
+        letter-spacing: 0.01em;
+    }
+
+    /* Container */
+    .homepage-reviews__container.{{ section.id }} {
+        max-width: 1290px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* ── Mobile slider ── */
+    .homepage-reviews__slider.{{ section.id }} {
+        overflow: visible;
+    }
+    .homepage-reviews__track.{{ section.id }} {
+        display: flex;
+        gap: 16px;
+        transition: transform 0.4s ease;
+        align-items: stretch;
+    }
+    .homepage-reviews__slide.{{ section.id }} {
+        flex-shrink: 0;
+        box-sizing: border-box;
+    }
+    @media (max-width: 749px) {
+        .homepage-reviews__slide.{{ section.id }} {
+            width: calc((100vw - 40px) / 1.3);
+            min-width: calc((100vw - 40px) / 1.3);
+            max-width: calc((100vw - 40px) / 1.3);
+        }
+    }
+
+    /* Nav row */
+    .homepage-reviews__nav.{{ section.id }} {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        gap: 12px;
+    }
+    .homepage-reviews__nav-btn.{{ section.id }} {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid #D0BB8F;
+        background: linear-gradient(180deg, #FFF 0%, #FFFAEC 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: opacity 0.2s ease;
+    }
+    .homepage-reviews__nav-btn.{{ section.id }}:disabled {
+        opacity: 0.35;
+        cursor: default;
+    }
+    .homepage-reviews__nav-btn.{{ section.id }} svg {
+        width: 18px;
+        height: 18px;
+    }
+    /* Card */
+    .homepage-reviews__card.{{ section.id }} {
+        background: linear-gradient(180deg, #FFF 0%, #FFFAEC 100%);
+        border: 1px solid #D0BB8F;
+        border-radius: 20px;
+        padding: 22px 22px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .homepage-reviews__card-stars.{{ section.id }} {
+        display: flex;
+        gap: 3px;
+    }
+    .homepage-reviews__card-stars.{{ section.id }} svg {
+        width: 18px;
+        height: 18px;
+    }
+    .homepage-reviews__card-title.{{ section.id }} {
+        font-size: 17px;
+        font-weight: 700;
+        color: {{ section.settings.heading_color }};
+        margin: 0;
+        line-height: 1.3;
+    }
+    .homepage-reviews__card-body.{{ section.id }} {
+        font-size: 14px;
+        font-weight: 400;
+        color: {{ section.settings.text_color }};
+        line-height: 1.6;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    /* Reviewer */
+    .homepage-reviews__reviewer.{{ section.id }} {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 4px;
+    }
+    .homepage-reviews__avatar.{{ section.id }} {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: #ffffff;
+        flex-shrink: 0;
+        letter-spacing: 0.02em;
+    }
+    .homepage-reviews__reviewer-info.{{ section.id }} {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    .homepage-reviews__reviewer-name.{{ section.id }} {
+        font-size: 14px;
+        font-weight: 700;
+        color: {{ section.settings.heading_color }};
+        line-height: 1.2;
+    }
+    .homepage-reviews__verified.{{ section.id }} {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        font-weight: 400;
+        color: #888888;
+        line-height: 1;
+    }
+    .homepage-reviews__verified.{{ section.id }} svg {
+        width: 13px;
+        height: 13px;
+        flex-shrink: 0;
+    }
+
+    /* Desktop — switch to static grid, hide slider nav */
+    @media (min-width: 750px) {
+        .homepage-reviews.{{ section.id }} {
+            padding-top: {{ section.settings.padding_top_desktop }}px;
+            padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+        }
+        .homepage-reviews__heading.{{ section.id }} {
+            font-size: 60px;
+        }
+        /* Disable slider behaviour */
+        .homepage-reviews__slider.{{ section.id }} {
+            overflow: visible;
+        }
+        .homepage-reviews__track.{{ section.id }} {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            transform: none !important;
+            transition: none;
+        }
+        .homepage-reviews__slide.{{ section.id }} {
+            min-width: 0;
+        }
+        .homepage-reviews__nav.{{ section.id }} {
+            display: none;
+        }
+    }
+</style>
+
+<section class="homepage-reviews {{ section.id }}" data-section-id="{{ section.id }}">
+    <div class="homepage-reviews__container {{ section.id }}">
+
+        <!-- Header -->
+        <div class="homepage-reviews__header {{ section.id }}">
+            {% if section.settings.heading != blank %}
+                <h2 class="homepage-reviews__heading {{ section.id }}">{{ section.settings.heading }}</h2>
+            {% endif %}
+            {% if section.settings.subtext != blank %}
+                <p class="homepage-reviews__subtext {{ section.id }}">{{ section.settings.subtext }}</p>
+            {% endif %}
+
+            {% if section.settings.show_rating %}
+                <div class="homepage-reviews__rating-badge {{ section.id }}">
+                    <div class="homepage-reviews__rating-stars {{ section.id }}">
+                        {% assign full_stars = section.settings.rating_value | floor %}
+                        {% assign has_half = section.settings.rating_value | minus: full_stars %}
+                        {% assign half_star_index = full_stars | plus: 1 %}
+                        {% for i in (1..5) %}
+                            {% if i <= full_stars %}
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#FDBE1C" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            {% elsif i == half_star_index and has_half > 0 %}
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <defs><clipPath id="reviews-half-{{ section.id }}"><rect x="0" y="0" width="12" height="24"/></clipPath></defs>
+                                    <path fill="#ccc" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    <path fill="#FDBE1C" clip-path="url(#reviews-half-{{ section.id }})" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            {% else %}
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ccc" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <span class="homepage-reviews__rating-text {{ section.id }}">{{ section.settings.rating_text }}</span>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Reviews -->
+        {% if section.blocks.size > 0 %}
+            <div class="homepage-reviews__slider {{ section.id }}" data-reviews-slider="{{ section.id }}">
+                <div class="homepage-reviews__track {{ section.id }}" data-reviews-track="{{ section.id }}">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'review' %}
+                            <div class="homepage-reviews__slide {{ section.id }}" data-reviews-slide>
+                                <div class="homepage-reviews__card {{ section.id }}" {{ block.shopify_attributes }}>
+                                    <!-- Stars -->
+                                    <div class="homepage-reviews__card-stars {{ section.id }}">
+                                        {% assign block_stars = block.settings.stars | default: 5 %}
+                                        {% for i in (1..5) %}
+                                            {% if i <= block_stars %}
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#FDBE1C" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                            {% else %}
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ccc" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                    <!-- Title -->
+                                    {% if block.settings.title != blank %}
+                                        <p class="homepage-reviews__card-title {{ section.id }}">{{ block.settings.title }}</p>
+                                    {% endif %}
+
+                                    <!-- Body -->
+                                    {% if block.settings.review_text != blank %}
+                                        <p class="homepage-reviews__card-body {{ section.id }}">"{{ block.settings.review_text }}"</p>
+                                    {% endif %}
+
+                                    <!-- Reviewer -->
+                                    <div class="homepage-reviews__reviewer {{ section.id }}">
+                                        <div
+                                            class="homepage-reviews__avatar {{ section.id }}"
+                                            style="background-color: {{ block.settings.avatar_color }};"
+                                            aria-hidden="true"
+                                        >
+                                            {{ block.settings.reviewer_initials | upcase }}
+                                        </div>
+                                        <div class="homepage-reviews__reviewer-info {{ section.id }}">
+                                            <span class="homepage-reviews__reviewer-name {{ section.id }}">{{ block.settings.reviewer_name }}</span>
+                                            <span class="homepage-reviews__verified {{ section.id }}">
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="12" cy="12" r="10" fill="#6B7280"/>
+                                                    <path d="M8 12l2.5 2.5L16 9" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                Verified Customer
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Mobile nav (prev · dots · next) -->
+            <div class="homepage-reviews__nav {{ section.id }}" data-reviews-nav="{{ section.id }}">
+                <button
+                    class="homepage-reviews__nav-btn {{ section.id }}"
+                    data-reviews-prev="{{ section.id }}"
+                    aria-label="Previous review"
+                    disabled
+                >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18l-6-6 6-6" stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+
+                <button
+                    class="homepage-reviews__nav-btn {{ section.id }}"
+                    data-reviews-next="{{ section.id }}"
+                    aria-label="Next review"
+                >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18l6-6-6-6" stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        {% endif %}
+
+    </div>
+</section>
+
+<script>
+(function() {
+    var sectionId = '{{ section.id }}';
+    var slider    = document.querySelector('[data-reviews-slider="' + sectionId + '"]');
+    var track     = document.querySelector('[data-reviews-track="' + sectionId + '"]');
+    var prevBtn   = document.querySelector('[data-reviews-prev="' + sectionId + '"]');
+    var nextBtn   = document.querySelector('[data-reviews-next="' + sectionId + '"]');
+    var slides    = document.querySelectorAll('[data-reviews-slide]');
+
+    if (!track || !slides.length) return;
+
+    var current = 0;
+    var total   = slides.length;
+    var gap     = 16;
+
+    function isMobile() {
+        return window.innerWidth < 750;
+    }
+
+function goTo(index) {
+        if (!isMobile()) return;
+        current = Math.max(0, Math.min(index, total - 1));
+        var slideW = slides[0].offsetWidth + gap;
+        track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
+        if (prevBtn) prevBtn.disabled = current === 0;
+        if (nextBtn) nextBtn.disabled = current === total - 1;
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+    // Touch swipe
+    var touchStartX = 0;
+    track.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+        if (!isMobile()) return;
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+
+    window.addEventListener('resize', function() {
+        if (!isMobile()) {
+            track.style.transform = '';
+        } else {
+            goTo(current);
+        }
+    }, { passive: true });
+
+    // Init
+    goTo(0);
+})();
+</script>
+
+{% schema %}
+{
+    "name": "Homepage Reviews",
+    "tag": "section",
+    "class": "homepage-reviews-section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Header"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "REAL PEOPLE. GONE ROGUE."
+        },
+        {
+            "type": "text",
+            "id": "subtext",
+            "label": "Subtext",
+            "default": "Thousands have already ditched boring protein snacks."
+        },
+        {
+            "type": "header",
+            "content": "Rating Badge"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_rating",
+            "label": "Show rating badge",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "rating_value",
+            "label": "Rating value (e.g. 4.8)",
+            "default": "4.8"
+        },
+        {
+            "type": "text",
+            "id": "rating_text",
+            "label": "Rating badge text",
+            "default": "4.8 \u2022 Average Rating"
+        },
+        {
+            "type": "header",
+            "content": "Colors"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Section background",
+            "default": "#FFFFFF"
+        },
+        {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading / name color",
+            "default": "#1D1D1D"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Body text color",
+            "default": "#555555"
+        },
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "range",
+            "id": "padding_top_desktop",
+            "label": "Padding top (desktop)",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_desktop",
+            "label": "Padding bottom (desktop)",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mobile",
+            "label": "Padding top (mobile)",
+            "min": 0,
+            "max": 120,
+            "step": 4,
+            "unit": "px",
+            "default": 60
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mobile",
+            "label": "Padding bottom (mobile)",
+            "min": 0,
+            "max": 120,
+            "step": 4,
+            "unit": "px",
+            "default": 60
+        }
+    ],
+    "blocks": [
+        {
+            "type": "review",
+            "name": "Review",
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "stars",
+                    "label": "Star rating",
+                    "min": 1,
+                    "max": 5,
+                    "step": 1,
+                    "default": 5
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Review title",
+                    "default": "The Best Snack"
+                },
+                {
+                    "type": "textarea",
+                    "id": "review_text",
+                    "label": "Review text",
+                    "default": "I bought these expecting another chalky protein snack. These actually taste like real junk food. The churro flavor is insane."
+                },
+                {
+                    "type": "text",
+                    "id": "reviewer_name",
+                    "label": "Reviewer name",
+                    "default": "Jack Doe"
+                },
+                {
+                    "type": "text",
+                    "id": "reviewer_initials",
+                    "label": "Reviewer initials (2 letters)",
+                    "default": "JD"
+                },
+                {
+                    "type": "color",
+                    "id": "avatar_color",
+                    "label": "Avatar background color",
+                    "default": "#F26B2D"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Homepage Reviews",
+            "blocks": [
+                {
+                    "type": "review",
+                    "settings": {
+                        "stars": 5,
+                        "title": "The Best Snack",
+                        "review_text": "I bought these expecting another chalky protein snack. These actually taste like real junk food. The churro flavor is insane.",
+                        "reviewer_name": "Jack Doe",
+                        "reviewer_initials": "JD",
+                        "avatar_color": "#F26B2D"
+                    }
+                },
+                {
+                    "type": "review",
+                    "settings": {
+                        "stars": 5,
+                        "title": "I can't get enough!",
+                        "review_text": "Finally a protein snack that doesn't feel like punishment. Crunchy, flavorful, and actually keeps me full.",
+                        "reviewer_name": "Victor Martinez",
+                        "reviewer_initials": "VM",
+                        "avatar_color": "#9B5FCF"
+                    }
+                },
+                {
+                    "type": "review",
+                    "settings": {
+                        "stars": 5,
+                        "title": "Can't stop eating them",
+                        "review_text": "High protein, no seed oils, and they actually taste good. This is what protein snacks should be. I just ordered another variety pack!",
+                        "reviewer_name": "Isabelle Orange",
+                        "reviewer_initials": "IO",
+                        "avatar_color": "#2DAE6E"
+                    }
+                },
+                {
+                    "type": "review",
+                    "settings": {
+                        "stars": 5,
+                        "title": "They taste fire!",
+                        "review_text": "I bought these expecting another chalky protein snack. These actually taste like real junk food. The churro flavor is insane.",
+                        "reviewer_name": "Jack Doe",
+                        "reviewer_initials": "JD",
+                        "avatar_color": "#9B5FCF"
+                    }
+                },
+                {
+                    "type": "review",
+                    "settings": {
+                        "stars": 5,
+                        "title": "My favorite is the Churros",
+                        "review_text": "Finally a protein snack that doesn't feel like punishment. Crunchy, flavorful, and actually keeps me full.",
+                        "reviewer_name": "Victor Martinez",
+                        "reviewer_initials": "VM",
+                        "avatar_color": "#E04040"
+                    }
+                },
+                {
+                    "type": "review",
+                    "settings": {
+                        "stars": 5,
+                        "title": "Love them",
+                        "review_text": "High protein, no seed oils, and they actually taste good. This is what protein snacks should be. I just ordered another variety pack!",
+                        "reviewer_name": "Jack Doe",
+                        "reviewer_initials": "IO",
+                        "avatar_color": "#2DAE6E"
+                    }
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
