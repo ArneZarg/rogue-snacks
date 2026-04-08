@@ -78,7 +78,7 @@
     {% if show_compare_price %}
       <span role="group">
         <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
-        <span class="compare-at-price">{{- compare_at_price -}}</span>
+        <span class="compare-at-price">{{- product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros -}}</span>
       </span>
     {% endif %}
     <span role="group">
@@ -90,7 +90,7 @@
     {% if show_sale_price_first == false and show_compare_price %}
       <span role="group">
         <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
-        <span class="compare-at-price">{{- compare_at_price -}}</span>
+        <span class="compare-at-price">{{- product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros -}}</span>
       </span>
     {% endif %}
 
@@ -106,7 +106,7 @@
     {% if show_sale_price_first == true and show_compare_price %}
       <span role="group">
         <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
-        <span class="compare-at-price">{{- compare_at_price -}}</span>
+        <span class="compare-at-price">{{- product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros -}}</span>
       </span>
     {% endif %}
   {% endif %}

@@ -58,6 +58,9 @@
           </span>
         </span>
       </span>
+      <span class="prices">
+        <span class="compare-at-price">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</span> <span class="price">{{ product.selected_or_first_available_variant.price | money}}</span>
+      </span>
     </span>
     {% comment %} checkmark burst markup {% endcomment %}
     <span class="add-to-cart__added">
