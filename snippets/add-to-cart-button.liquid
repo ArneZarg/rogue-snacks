@@ -31,24 +31,25 @@
     name="add"
     ref="addToCartButton"
     on:click="/handleClick"
-    class="button {{ class }}"
+    class="button rogue-component-btn rogue-btn-yellow {{ class }}"
     {% if data_testid %}
       data-testid="{{ data_testid }}"
     {% endif %}
     {% unless can_add_to_cart %}
       disabled
     {% endunless %}
+    
   >
     <span
       class="add-to-cart-text"
     >
       {% if can_add_to_cart %}
-        <span
+        {% comment %} <span
           aria-hidden="true"
           class="svg-wrapper add-to-cart-icon"
         >
           {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
-        </span>
+        </span> {% endcomment %}
       {% endif %}
       <span class="add-to-cart-text__content{% if icon_only_on_mobile %} is-visually-hidden-mobile{% endif %}">
         <span>
@@ -56,6 +57,9 @@
             {{- add_to_cart_text | default: default_add_to_cart_text -}}
           </span>
         </span>
+      </span>
+      <span class="prices">
+        <span class="compare-at-price">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</span> <span class="price">{{ product.selected_or_first_available_variant.price | money}}</span>
       </span>
     </span>
     {% comment %} checkmark burst markup {% endcomment %}

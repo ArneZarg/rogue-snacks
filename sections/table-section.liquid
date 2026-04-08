@@ -39,6 +39,11 @@
         mask-size:100% 100%;
         -webkit-mask-size:100% 100%;
     }
+    .{{ section.id }}.table-section h2,
+    .{{ section.id }}.table-section p,
+    .{{ section.id }}.table-section *{
+        color:{{ section.settings.text_color }};
+    }
     .{{ section.id }}.table-section .hot-chicken-pic{
         position:absolute;
         top:-{{section.settings.padding_top_mobile | plus:100}}px;
@@ -77,7 +82,6 @@
         margin: 0 auto 70px;
     }
     .{{ section.id }}.table-section h2{
-        color: #151414;
         text-align: center;
         font-family:"venice-blvd", sans-serif;
         font-size: 50px;
@@ -183,7 +187,6 @@
             transform:rotate(90deg);
         }
         .{{ section.id }}.table-section h2{
-            color: #151414;
             text-align: left;
             font-family:"venice-blvd", sans-serif;
             font-size: 50px;

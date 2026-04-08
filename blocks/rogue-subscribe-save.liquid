@@ -1,0 +1,24 @@
+{% for group in product.selling_plan_groups %}
+  {% for plan in group.selling_plans %}
+    {% for adj in plan.price_adjustments %}
+      {% if adj.value_type == 'percentage' %}
+        Save {{ adj.value }}%
+      {% elsif adj.value_type == 'fixed_amount' %}
+        Save {{ adj.value | money }}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
+<div id="subscribe-{{ closest.product.id }}"> 
+    <div class="">
+
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Rogue Subscribe",
+    "presets": [{
+        "name": "Rogue Subscribe"
+    }]
+}
+{% endschema %}

@@ -23,7 +23,17 @@
         {{- closest.product.title }}
       </a>
     </div>
+    <div class="product-highlights">
+      {% for highlight in closest.product.metafields.custom.highlights.value %}
+        <span>{{ highlight }}</span>
+        {% unless forloop.last %}
+          <span>&#xb7;</span>
+        {% endunless %}
+      {% endfor %}
+    </div>
+    <h1 class="product-title">{{ closest.product.title }}</h1>
     {% content_for 'blocks' %}
+    
   {% endcapture %}
 
   {% render 'group', children: children, settings: block_settings, shopify_attributes: block.shopify_attributes %}

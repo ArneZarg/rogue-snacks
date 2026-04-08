@@ -20,12 +20,19 @@
     spacing-style
     size-style
     {% if settings.inherit_color_scheme == false %} color-{{ settings.color_scheme }}{% endif %}
+    {% if settings.use_product_gradient %} group-block--product-gradient{% endif %}
     {{ class }}
+    {{ settings.additional_class }}
   "
   style="
     {% render 'border-override', settings: settings %}
     {% render 'spacing-style', settings: settings %}
     {% render 'size-style', settings: settings %}
+    {% if settings.use_product_gradient and closest.product.metafields.custom.custom_styles.value.background_gradient != blank %}
+      background: {{ closest.product.metafields.custom.custom_styles.value.background_gradient }};
+      border-radius: {{ settings.product_gradient_radius }}px;
+      padding: {{ settings.product_gradient_padding }}px;
+    {% endif %}
     {{ style }}
   "
   {{ shopify_attributes }}

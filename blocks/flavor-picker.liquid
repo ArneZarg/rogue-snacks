@@ -1,0 +1,106 @@
+{% style %}
+  .rogue-flavor-picker .flavor-links{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+  }
+  @media(max-width:1200px){
+    .rogue-flavor-picker .flavor-links{
+        grid-template-columns:repeat(2,1fr);
+    }
+    .rogue-flavor-picker .flavor-links > *:last-child:nth-child(odd){
+        grid-column:1 / -1;
+    }
+    
+  }
+  
+  .rogue-flavor-picker .flavor-link{
+    width:100%;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+    border: 1px solid #FFF;
+    background: rgba(255, 255, 255, 0.15);
+    padding:8px;
+    gap:9px;
+    span{
+        color:#fff;
+    }
+  }
+  .rogue-flavor-picker .flavor-link.selected-flav{
+    
+    background:#fff;
+    span{
+        color:#000;
+    }
+  }
+  @media(min-width:1200px){
+    .rogue-flavor-picker .flavor-link.selected-flav{
+        span{
+            color: #0D0D0D;
+            font-family: "Space Grotesk";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 18px; /* 120% */
+            letter-spacing: -0.15px;
+        }
+    }
+    .rogue-flavor-picker .flavor-links{
+        gap:30px;
+    }
+  }
+  .rogue-flavor-picker .flavor-link img{
+    width:21px;
+  }
+  .rogue-flavor-picker .flavor-picker-title{
+    color: #FFF;
+    font-family: "Space Grotesk";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 23px; /* 127.778% */
+    letter-spacing: -0.18px;
+    margin-bottom:20px;
+  }
+{% endstyle %}
+<div class="rogue-flavor-picker">
+    <div class="flavor-picker-title">
+        Flavor
+    </div>
+    <div class="flavor-links">
+        {% for flavor in block.settings.flavor_collection.products %}
+            <a href="{{ flavor.url }}" class="flavor-link {% if flavor.id == closest.product.id  %}selected-flav{% endif %}" title="{{ flavor.title }}">
+                {% if flavor.metafields.custom.flavor_picker_thumbnail %}
+                    <img src="{{ flavor.metafields.custom.flavor_picker_thumbnail | image_url }}">
+                {% else %}
+                    <img src="{{ flavor.featured_image | image_url }}">
+                {% endif %}
+                <span>
+                    {% if flavor.metafields.custom.flavor_name %}
+                    {{ flavor.metafields.custom.flavor_name }}
+                    {% else %}
+                        {{ flavor.title }}
+                    {% endif %}
+                </span>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% schema %}
+{
+    "presets": [
+        {
+            "name": "Flavor Picker"
+        }
+    ],
+    "name":"Flavor Picker",
+    "settings": [
+        {
+            "type": "collection",
+            "id": "flavor_collection",
+            "label": "Collection"
+        }
+    ]
+}
+{% endschema %}

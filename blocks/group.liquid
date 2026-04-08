@@ -1,5 +1,3 @@
-
-
 {%- capture children %}
   {% content_for 'blocks' %}
 {% endcapture %}
@@ -48,6 +46,11 @@
       "label": "t:settings.vertical_on_mobile",
       "default": true,
       "visible_if": "{{ block.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "text",
+      "id":"additional_class",
+      "label":"Additional CSS Class"
     },
     {
       "type": "select",
@@ -385,6 +388,34 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "use_product_gradient",
+      "label": "Use product metafield gradient",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "product_gradient_padding",
+      "label": "Gradient padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ block.settings.use_product_gradient }}"
+    },
+    {
+      "type": "range",
+      "id": "product_gradient_radius",
+      "label": "Gradient border radius",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 20,
+      "visible_if": "{{ block.settings.use_product_gradient }}"
     },
     {
       "type": "checkbox",

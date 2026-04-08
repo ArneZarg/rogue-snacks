@@ -1,0 +1,54 @@
+{% style %}
+.pills-row{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    gap:15px;
+    flex-wrap:wrap;
+}
+.pill-container{
+    padding:5px 10px;
+    display:flex;
+    gap:5px;
+    border: 2px solid #858585;
+    width:fit-content;
+    align-items:center;
+}
+.pill-icon{
+    width:15px;
+    img{
+        width:100%;
+    }
+}
+.pill-title{
+    color: #000;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.13px;
+}
+@media(max-width:1023px){
+    .pills-row{
+        display:none;
+    }
+}
+{% endstyle %}
+<div class="pills-row">
+    {% for pill in closest.product.metafields.custom.pills.value %}
+        <div class="pill-container">
+            <span class="pill-icon"><img src="{{ pill.icon | image_url }}" alt="{{pill.title}}"></span>
+            <span class="pill-title">{{ pill.title }}</span>
+        </div>
+    {% endfor %}
+</div>
+{% schema %}
+{
+    "name": "Pills",
+    "presets":[
+        {
+            "name": "Pills"
+        }
+    ]
+}
+{% endschema %}

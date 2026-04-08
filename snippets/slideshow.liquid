@@ -101,12 +101,7 @@
     {{ header }}
   {% endif %}
   <slideshow-container ref="slideshowContainer">
-    {% if show_arrows %}
-      {% render 'slideshow-arrows', icon_style: icon_style, icon_shape: icon_shape, arrows_position: arrows_position %}
-    {% endif %}
-    {% if slideshow_arrows %}
-      {{ slideshow_arrows }}
-    {% endif %}
+    
     <slideshow-slides
       tabindex="-1"
       ref="scroller"
@@ -118,6 +113,12 @@
     </slideshow-slides>
   </slideshow-container>
   {{ controls }}
+  {% if show_arrows %}
+      {% render 'slideshow-arrows', icon_style: icon_style, icon_shape: icon_shape, arrows_position: arrows_position %}
+    {% endif %}
+    {% if slideshow_arrows %}
+      {{ slideshow_arrows }}
+    {% endif %}
 </slideshow-component>
 
 {% stylesheet %}
