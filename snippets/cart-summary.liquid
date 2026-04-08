@@ -113,7 +113,7 @@
           endif
         %}
 
-        <accordion-custom class="cart-discount">
+        {% comment %} <accordion-custom class="cart-discount">
           <details
             class="details"
             {% if disclosure_expanded %}
@@ -210,7 +210,7 @@
               </div>
             </div>
           </details>
-        </accordion-custom>
+        </accordion-custom> {% endcomment %}
       {% endif %}
     </div>
   {% endif %}
@@ -228,7 +228,7 @@
       class="cart-totals__item cart-totals__total"
       role="status"
     >
-      <span class="cart-totals__total-label cart-primary-typography">{{ 'content.cart_estimated_total' | t }}</span>
+      <span class="cart-totals__total-label cart-primary-typography">Subtotal</span>
       <text-component
         ref="cartTotal"
         value="{{ total_price | strip_html }}"
@@ -247,9 +247,9 @@
         {% endform %}
       </span>
     {% endif %}
-    <div class="cart-totals__item cart-totals__tax-note cart-primary-typography">
+    {% comment %} <div class="cart-totals__item cart-totals__tax-note cart-primary-typography">
       {% render 'tax-info', has_discounts_enabled: settings.show_add_discount_code %}
-    </div>
+    </div> {% endcomment %}
   </div>
 </div>
 
@@ -257,15 +257,16 @@
   <button
     type="submit"
     id="checkout"
-    class="cart__checkout-button button"
+    class="cart__checkout-button button rogue-component-btn rogue-btn-yellow"
     name="checkout"
     {% if cart == empty %}
       disabled
     {% endif %}
     form="cart-form"
+    style="text-transform:uppercase; font-size:20px; box-shadow: -3px 4px 0 0 #000;"
   >
     <span class="button-text">
-      {{ 'content.checkout' | t }}
+      SECURE CHECKOUT
     </span>
   </button>
 
@@ -347,6 +348,7 @@
 
   .cart-totals__container {
     row-gap: var(--gap-2xs);
+    padding-inline:15px;
 
     &.cart-totals__container--has-installments {
       row-gap: var(--gap-xs);

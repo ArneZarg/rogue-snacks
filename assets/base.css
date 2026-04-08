@@ -4992,6 +4992,8 @@ product-recommendations:has([data-has-recommendations='false']) {
   border: 2px solid #000;
   background: #FDBE1C;
   box-shadow: 0 2px 0 0 #000;
+  color:#000;
+  font-family:"venice-blvd", sans-serif;
 }
 .rogue-component-btn span{
   font-weight:bold;
