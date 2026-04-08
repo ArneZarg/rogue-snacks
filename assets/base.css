@@ -4992,6 +4992,7 @@ product-recommendations:has([data-has-recommendations='false']) {
   border: 2px solid #000;
   background: #FDBE1C;
   box-shadow: 0 2px 0 0 #000;
+  text-transform: uppercase;
 }
 .rogue-component-btn span{
   font-weight:bold;
@@ -5001,4 +5002,5 @@ product-recommendations:has([data-has-recommendations='false']) {
   border: 2px solid #000;
   background: rgba(255, 255, 255, 0.90);
   box-shadow: 0 2px 0 0 #000;
+  text-transform: uppercase;
 }

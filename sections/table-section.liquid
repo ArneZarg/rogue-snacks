@@ -5,7 +5,39 @@
         padding-bottom:{{ section.settings.padding_bottom_mobile }}px;
         margin-top:{{ section.settings.margin_top_mobile }}px;
         margin-bottom:{{ section.settings.margin_bottom_mobile }}px;
-        
+        position:relative;
+        font-family:"venice-blvd";
+    }
+
+    .{{ section.id }}.table-section .page-container{
+            max-width:1290px;
+    }
+    .{{ section.id }}.table-section .table-section-text div p{
+        font-family:"Space Grotesk";
+    }
+    .{{ section.id }}.table-section::before,
+    .{{ section.id }}.table-section::after{
+        content:'';
+        position:absolute;
+        left:0;
+        width:100%;
+        height:40px;
+        background:{{ section.settings.background }};
+        z-index:1;
+    }
+    .{{ section.id }}.table-section::before{
+        top:-39px;
+        mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40h1440V20C1320 0 1200 10 1080 20S840 40 720 20 480 0 360 20 120 40 0 20z' fill='black'/%3E%3C/svg%3E");
+        -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40h1440V20C1320 0 1200 10 1080 20S840 40 720 20 480 0 360 20 120 40 0 20z' fill='black'/%3E%3C/svg%3E");
+        mask-size:100% 100%;
+        -webkit-mask-size:100% 100%;
+    }
+    .{{ section.id }}.table-section::after{
+        bottom:-39px;
+        mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0h1440v20C1320 40 1200 30 1080 20S840 0 720 20 480 40 360 20 120 0 0 20z' fill='black'/%3E%3C/svg%3E");
+        -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0h1440v20C1320 40 1200 30 1080 20S840 0 720 20 480 40 360 20 120 0 0 20z' fill='black'/%3E%3C/svg%3E");
+        mask-size:100% 100%;
+        -webkit-mask-size:100% 100%;
     }
     .{{ section.id }}.table-section .hot-chicken-pic{
         position:absolute;
@@ -37,6 +69,7 @@
     .{{ section.id }}.table-section .table-section-row{
         flex-wrap:wrap;
         position:relative;
+        padding-bottom: 10px;
     }
     .{{ section.id }}.table-section .table-section-text{
         gap:20px;
@@ -46,6 +79,7 @@
     .{{ section.id }}.table-section h2{
         color: #151414;
         text-align: center;
+        font-family:"venice-blvd", sans-serif;
         font-size: 50px;
         font-style: normal;
         font-weight: 900;
@@ -56,7 +90,7 @@
     }
     .{{ section.id }}.table-section p{
         color: #232323;
-        font-family: "Space Grotesk";
+        font-family:"venice-blvd", sans-serif;
         font-size: 17px;
         font-style: normal;
         font-weight: 500;
@@ -64,6 +98,12 @@
         margin-bottom:5px;
         text-align:center;
     }
+
+    .{{ section.id }} .floating-food-image {
+                z-index: 2;
+            }
+
+
     .{{ section.id }}.table-section .churro-pic,
     .{{section.id }}.table-section .churro-chips-pic,
     .{{section.id}}.table-section .chicken-wing-pic,
@@ -71,6 +111,16 @@
         display:none;
     }
     @media(min-width:1200px){
+        .{{ section.id }}.table-section::before,
+        .{{ section.id }}.table-section::after{
+            height:60px;
+        }
+        .{{ section.id }}.table-section::before{
+            top:-59px;
+        }
+        .{{ section.id }}.table-section::after{
+            bottom:-59px;
+        }
         .{{ section.id }}.table-section{
             padding-top:{{ section.settings.padding_top_desktop }}px;
             padding-bottom:{{ section.settings.padding_bottom_desktop }}px;
@@ -135,6 +185,7 @@
         .{{ section.id }}.table-section h2{
             color: #151414;
             text-align: left;
+            font-family:"venice-blvd", sans-serif;
             font-size: 50px;
             font-style: normal;
             font-weight: 900;
@@ -145,7 +196,7 @@
         }
         .{{ section.id }}.table-section p{
             color: #232323;
-            font-family: "Space Grotesk";
+            font-family:"venice-blvd", sans-serif;
             font-size: 17px;
             font-style: normal;
             font-weight: 500;
@@ -154,7 +205,6 @@
             text-align:left;
         }
         .{{ section.id }}.table-section .table-section-text{
-            max-width:unset;
             margin:0;
         }
         .{{ section.id }}.table-section .table-section-row{
@@ -328,6 +378,12 @@
             "id": "col_1_heading",
             "label": "Column 1 heading",
             "default": "ROGUE"
+        },
+        {
+            "type": "image_picker",
+            "id": "col_1_heading_image",
+            "label": "Column 1 heading image",
+            "info": "Replaces the Column 1 heading text when set"
         },
         {
             "type": "text",
