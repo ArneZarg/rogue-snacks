@@ -476,23 +476,6 @@
     "homepage_multi_variety_pack_6MbyCU": {
       "type": "homepage-multi-variety-pack",
       "blocks": {
-        "variety_pack_9z6XQt": {
-          "type": "variety_pack",
-          "settings": {
-            "product": "churro-pack",
-            "title": "Rogue Multi-Variety Pack",
-            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
-            "button_text": "Buy Now",
-            "button_link": "",
-            "image": "shopify://shop_images/rogue_can_animation_1.png",
-            "benefit_1": "High Protein",
-            "benefit_2": "1 Billion Active Probiotics",
-            "benefit_3": "Fights Cravings",
-            "benefit_4": "No Artificial Sugars",
-            "benefit_5": "No Artificial Ingredients",
-            "benefit_6": "No Seed Oils"
-          }
-        },
         "variety_pack_HX74nb": {
           "type": "variety_pack",
           "settings": {
@@ -514,10 +497,11 @@
           "type": "variety_pack",
           "settings": {
             "product": "buffalo-chicken-wing",
-            "title": "Rogue Multi-Variety Pack",
-            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "title": "Rogue Buffalo Chicken Wing",
+            "description": "",
             "button_text": "Buy Now",
             "button_link": "",
+            "image": "shopify://shop_images/Buffalo_Chicken_Wing_Thumb_fef69288-09a7-421d-8172-1809f8359118.png",
             "benefit_1": "High Protein",
             "benefit_2": "1 Billion Active Probiotics",
             "benefit_3": "Fights Cravings",
@@ -530,10 +514,11 @@
           "type": "variety_pack",
           "settings": {
             "product": "chocolate-chip-cookie-can",
-            "title": "Rogue Multi-Variety Pack",
-            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "title": "Rogue Chocolate Chip Cookie",
+            "description": "",
             "button_text": "Buy Now",
             "button_link": "",
+            "image": "shopify://shop_images/Chocolate_Chip_Cookie_Thumb_27c879bf-7659-4850-89eb-0280297c155d.png",
             "benefit_1": "High Protein",
             "benefit_2": "1 Billion Active Probiotics",
             "benefit_3": "Fights Cravings",
@@ -545,11 +530,29 @@
         "variety_pack_qwKVLM": {
           "type": "variety_pack",
           "settings": {
-            "product": "churro-can",
-            "title": "Rogue Multi-Variety Pack",
-            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "product": "spicy-chicken-sandwich-can",
+            "title": "Rogue Spicy Chicken Sandwich",
+            "description": "",
             "button_text": "Buy Now",
             "button_link": "",
+            "image": "shopify://shop_images/Spicy_Chicken_Sandwich_Thumb_30f505dd-6d9c-4c40-a7ca-1c92800036a8.png",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
+        "variety_pack_9z6XQt": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "churro-pack",
+            "title": "Rogue Churro",
+            "description": "",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "image": "shopify://shop_images/rogue_can_animation_1.png",
             "benefit_1": "High Protein",
             "benefit_2": "1 Billion Active Probiotics",
             "benefit_3": "Fights Cravings",
@@ -560,11 +563,11 @@
         }
       },
       "block_order": [
-        "variety_pack_9z6XQt",
         "variety_pack_HX74nb",
         "variety_pack_fbJMFh",
         "variety_pack_Rfnk86",
-        "variety_pack_qwKVLM"
+        "variety_pack_qwKVLM",
+        "variety_pack_9z6XQt"
       ],
       "name": "Multi Variety Pack",
       "settings": {
