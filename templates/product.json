@@ -379,7 +379,7 @@
         "equal_columns": true,
         "limit_details_width": false,
         "gap": 48,
-        "enable_sticky_add_to_cart": true,
+        "enable_sticky_add_to_cart": false,
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
@@ -419,6 +419,44 @@
         "font_size_mobile": 20,
         "speed": 20,
         "padding_y": 12
+      }
+    },
+    "real_people_hVkRrz": {
+      "type": "real-people",
+      "blocks": {
+        "slide_7PqGjC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/image_3.png"
+          }
+        },
+        "slide_BxTGA9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/image_2.png"
+          }
+        },
+        "slide_bA8erc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_7PqGjC",
+        "slide_BxTGA9",
+        "slide_bA8erc"
+      ],
+      "name": "Real People",
+      "settings": {
+        "bg_color": "#faf2dd",
+        "title": "<strong data-color-one>Real People.</strong>\n<br>\n<strong data-color-two>Gone Rogue.</strong>",
+        "subtitle": "Thousands have already ditched boring snacks and gone rogue.",
+        "d_padding_top": 90,
+        "d_padding_bottom": 180,
+        "m_padding_top": 90,
+        "m_padding_bottom": 50
       }
     },
     "homepage_multi_variety_pack_6MbyCU": {
@@ -521,11 +559,11 @@
       "settings": {
         "padding_top_mobile": 50,
         "padding_bottom_mobile": 50,
-        "margin_top_mobile": 60,
+        "margin_top_mobile": 0,
         "margin_bottom_mobile": 60,
         "padding_top_desktop": 70,
         "padding_bottom_desktop": 70,
-        "margin_top_desktop": 80,
+        "margin_top_desktop": 0,
         "margin_bottom_desktop": 80
       }
     },
@@ -592,12 +630,19 @@
         "m_padding_top": 40,
         "m_padding_bottom": 50
       }
+    },
+    "rogue_sticky_atc_kxLWNY": {
+      "type": "rogue-sticky-atc",
+      "name": "Sticky ATC",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "homepage_marquee_main",
+    "real_people_hVkRrz",
     "homepage_multi_variety_pack_6MbyCU",
-    "product_slider_4RV6cc"
+    "product_slider_4RV6cc",
+    "rogue_sticky_atc_kxLWNY"
   ]
 }
