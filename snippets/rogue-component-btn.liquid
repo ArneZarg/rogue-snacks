@@ -8,7 +8,7 @@
     if variant_id
         assign variant_id = variant_id
     else
-        assign variant_id = product.first_available_variant
+        assign variant_id = product.first_available_variant.id
     endif
 -%}
 {% if tag == 'a' %}
@@ -16,7 +16,20 @@
         <span>{{ text }}</span>
     </a>
 {% elsif tag == 'button' %}
-    <button class="rogue-component-btn rogue-btn-{{ color }}" {% if add_to_cart and product %}data-add data-product-id="{{ product.id }}" data-variant-id="{{  }}"{% endif %}  {%- if additional_styles != "" -%}style="{{ additional_styles }}"{%- endif -%}>
-        <span>{{ text }}</span>
+    <button class="rogue-component-btn rogue-btn-{{ color }}"
+        {% if add_to_cart and product %}
+            data-add-to-cart
+            data-product-id="{{ product.id }}"
+            data-variant-id="{{ variant_id }}"
+        {% endif %}
+        {%- if additional_styles != "" -%}
+            style="{{ additional_styles }}"
+        {%- endif -%}
+    >
+        {% if add_to_cart and price %}
+            <span>{{ text }} &bull; {{ price | money }}</span>
+        {% else %}
+            <span>{{ text }}</span>
+        {% endif %}
     </button>
 {% endif %}

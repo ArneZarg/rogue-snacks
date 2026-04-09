@@ -7,12 +7,17 @@
         gap:25px;
         display:flex;
         flex-direction:column;
+        height: 100%;
     }
     .rogue-product-card-buttons{
         gap:10px;
         display:flex;
         flex-direction:column;
+      
     }
+    .rogue-card-column .card-img {
+    margin-top: auto;
+}
     .rogue-product-card .product-type{
         color: #FFF;
         text-align: center;
@@ -42,7 +47,10 @@
     }
 </style>
 {% assign the_title = product.title | remove:'can' | remove:'Can' | remove:'CAN' | remove:'page' | remove: 'PAGE' | remove: 'Page' | remove:'Pack' | remove:'PACK' | remove:'pack' %}
-<div class="rogue-product-card fallback-card-style">
+{% assign first_variant = product.selected_or_first_available_variant %}
+{% assign cart_type = settings.cart_type | default: 'drawer' %}
+{% assign fly_animation = settings.add_to_cart_animation %}
+<div class="rogue-product-card fallback-card-style" data-cart-type="{{ cart_type }}" data-fly-animation="{{ fly_animation }}" {% if card_background %}style="background:{{ card_background }};border:none;"{% endif %}>
     <div class="rogue-card-column">
         <div class="card-text">
             <div class="product-type">8-Pack</div>
@@ -55,16 +63,22 @@
             </div>
         </div>
         <a href="{{ product.url }}" class="card-img">
-            <img src="{{ product.featured_image | image_url }}">
-        </a> 
+            {% if card_image != blank %}
+                <img src="{{ card_image | image_url }}" alt="{{ card_image.alt | escape }}">
+            {% else %}
+                <img src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt | escape }}">
+            {% endif %}
+        </a>
         <div class="rogue-product-card-buttons">
             {% render 'rogue-component-btn'
                 tag:'button',
-                text:'Add to Cart',
+                text: 'Add to Cart',
                 color:'yellow',
-                additional_styles:'width:100%;font-size:17px;'
+                additional_styles:'width:100%;font-size:17px;',
                 add_to_cart:true,
                 product:product,
+                variant_id: first_variant.id,
+                price: first_variant.price
             %}
             {% render 'rogue-component-btn'
                 tag:'a',
@@ -78,3 +92,89 @@
         </div>
     </div>
 </div>
+<script>
+    if (!window.__rogueCardAtcInit) {
+        window.__rogueCardAtcInit = true;
+        document.addEventListener('click', async function(e) {
+            const btn = e.target.closest('[data-add-to-cart]');
+            if (!btn) return;
+            e.preventDefault();
+            const variantId = btn.dataset.variantId;
+            if (!variantId) return;
+
+            const card = btn.closest('.rogue-product-card');
+            const cartType = card ? card.dataset.cartType : 'drawer';
+            const flyAnimation = card ? card.dataset.flyAnimation === 'true' : false;
+
+            const originalText = btn.querySelector('span').textContent;
+            btn.disabled = true;
+            btn.querySelector('span').textContent = 'Adding...';
+
+            try {
+                const formData = new FormData();
+                formData.append('id', variantId);
+                formData.append('quantity', 1);
+
+                const cartSections = document.querySelectorAll('cart-items-component');
+                const sectionIds = [];
+                cartSections.forEach(function(el) {
+                    if (el.dataset.sectionId) sectionIds.push(el.dataset.sectionId);
+                });
+                if (sectionIds.length) formData.append('sections', sectionIds.join(','));
+
+                const res = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+
+                if (!res.ok) throw new Error(data.description || 'Could not add to cart');
+
+                /* Fly-to-cart animation if enabled */
+                if (flyAnimation && customElements.get('fly-to-cart')) {
+                    const cartIcon = document.querySelector('.header-actions__cart-icon');
+                    const img = card.querySelector('.card-img img');
+                    if (cartIcon && img) {
+                        const flyEl = document.createElement('fly-to-cart');
+                        flyEl.classList.add('fly-to-cart--quick');
+                        flyEl.style.setProperty('background-image', 'url(' + img.src + ')');
+                        flyEl.style.setProperty('--start-opacity', '0');
+                        flyEl.source = img;
+                        flyEl.destination = cartIcon;
+                        document.body.appendChild(flyEl);
+                    }
+                }
+
+                /* Dispatch cart:update event — cart drawer listens for this */
+                document.dispatchEvent(new CustomEvent('cart:update', {
+                    bubbles: true,
+                    detail: {
+                        resource: data,
+                        data: {
+                            source: 'product-card',
+                            productId: btn.dataset.productId,
+                            variantId: variantId,
+                            sections: data.sections || {}
+                        }
+                    }
+                }));
+
+                /* If cart type is page, redirect to cart */
+                if (cartType === 'page') {
+                    window.location.href = window.Shopify.routes.root + 'cart';
+                    return;
+                }
+
+                btn.querySelector('span').textContent = 'Added!';
+                setTimeout(function() {
+                    btn.querySelector('span').textContent = originalText;
+                    btn.disabled = false;
+                }, 1500);
+            } catch(err) {
+                btn.querySelector('span').textContent = originalText;
+                btn.disabled = false;
+                console.error('Add to cart error:', err);
+            }
+        });
+    }
+</script>
