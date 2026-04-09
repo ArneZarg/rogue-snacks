@@ -379,270 +379,156 @@
         "equal_columns": true,
         "limit_details_width": false,
         "gap": 48,
-        "enable_sticky_add_to_cart": false,
+        "enable_sticky_add_to_cart": true,
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
     },
-    "homepage_marquee_main": {
-      "type": "homepage-marquee",
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
       "blocks": {
-        "text_1": {
-          "type": "text_item",
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
           "settings": {
-            "text": "Real Protein"
-          }
+            "text": "<h3>You may also like </h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
-        "text_2": {
-          "type": "text_item",
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
           "settings": {
-            "text": "Max Flavor"
-          }
-        },
-        "text_3": {
-          "type": "text_item",
-          "settings": {
-            "text": "Zero Seed Oils"
-          }
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
         }
       },
       "block_order": [
-        "text_1",
-        "text_2",
-        "text_3"
+        "text_cbcgyb"
       ],
+      "name": "t:names.product_recommendations",
       "settings": {
-        "bg_color": "#1d1d1d",
-        "text_color": "#ffffff",
-        "font_size": 35,
-        "font_size_mobile": 20,
-        "speed": 20,
-        "padding_y": 12
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
       }
-    },
-    "real_people_hVkRrz": {
-      "type": "real-people",
-      "blocks": {
-        "slide_7PqGjC": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/image_3.png"
-          }
-        },
-        "slide_BxTGA9": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/image_2.png"
-          }
-        },
-        "slide_bA8erc": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/image_1.png"
-          }
-        }
-      },
-      "block_order": [
-        "slide_7PqGjC",
-        "slide_BxTGA9",
-        "slide_bA8erc"
-      ],
-      "name": "Real People",
-      "settings": {
-        "bg_color": "#faf2dd",
-        "title": "<strong data-color-one>Real People.</strong>\n<br>\n<strong data-color-two>Gone Rogue.</strong>",
-        "subtitle": "Thousands have already ditched boring snacks and gone rogue.",
-        "d_padding_top": 90,
-        "d_padding_bottom": 180,
-        "m_padding_top": 90,
-        "m_padding_bottom": 50
-      }
-    },
-    "homepage_multi_variety_pack_6MbyCU": {
-      "type": "homepage-multi-variety-pack",
-      "blocks": {
-        "variety_pack_HX74nb": {
-          "type": "variety_pack",
-          "settings": {
-            "product": "bundle-page",
-            "title": "Rogue Multi-Variety Pack",
-            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
-            "button_text": "Buy Now",
-            "button_link": "",
-            "image": "shopify://shop_images/Group_1538232796.png",
-            "benefit_1": "High Protein",
-            "benefit_2": "1 Billion Active Probiotics",
-            "benefit_3": "Fights Cravings",
-            "benefit_4": "No Artificial Sugars",
-            "benefit_5": "No Artificial Ingredients",
-            "benefit_6": "No Seed Oils"
-          }
-        },
-        "variety_pack_fbJMFh": {
-          "type": "variety_pack",
-          "settings": {
-            "product": "buffalo-chicken-wing",
-            "title": "Rogue Buffalo Chicken Wing",
-            "description": "",
-            "button_text": "Buy Now",
-            "button_link": "",
-            "image": "shopify://shop_images/Buffalo_Chicken_Wing_Thumb_fef69288-09a7-421d-8172-1809f8359118.png",
-            "benefit_1": "High Protein",
-            "benefit_2": "1 Billion Active Probiotics",
-            "benefit_3": "Fights Cravings",
-            "benefit_4": "No Artificial Sugars",
-            "benefit_5": "No Artificial Ingredients",
-            "benefit_6": "No Seed Oils"
-          }
-        },
-        "variety_pack_Rfnk86": {
-          "type": "variety_pack",
-          "settings": {
-            "product": "chocolate-chip-cookie-can",
-            "title": "Rogue Chocolate Chip Cookie",
-            "description": "",
-            "button_text": "Buy Now",
-            "button_link": "",
-            "image": "shopify://shop_images/Chocolate_Chip_Cookie_Thumb_27c879bf-7659-4850-89eb-0280297c155d.png",
-            "benefit_1": "High Protein",
-            "benefit_2": "1 Billion Active Probiotics",
-            "benefit_3": "Fights Cravings",
-            "benefit_4": "No Artificial Sugars",
-            "benefit_5": "No Artificial Ingredients",
-            "benefit_6": "No Seed Oils"
-          }
-        },
-        "variety_pack_qwKVLM": {
-          "type": "variety_pack",
-          "settings": {
-            "product": "spicy-chicken-sandwich-can",
-            "title": "Rogue Spicy Chicken Sandwich",
-            "description": "",
-            "button_text": "Buy Now",
-            "button_link": "",
-            "image": "shopify://shop_images/Spicy_Chicken_Sandwich_Thumb_30f505dd-6d9c-4c40-a7ca-1c92800036a8.png",
-            "benefit_1": "High Protein",
-            "benefit_2": "1 Billion Active Probiotics",
-            "benefit_3": "Fights Cravings",
-            "benefit_4": "No Artificial Sugars",
-            "benefit_5": "No Artificial Ingredients",
-            "benefit_6": "No Seed Oils"
-          }
-        },
-        "variety_pack_9z6XQt": {
-          "type": "variety_pack",
-          "settings": {
-            "product": "churro-pack",
-            "title": "Rogue Churro",
-            "description": "",
-            "button_text": "Buy Now",
-            "button_link": "",
-            "image": "shopify://shop_images/rogue_can_animation_1.png",
-            "benefit_1": "High Protein",
-            "benefit_2": "1 Billion Active Probiotics",
-            "benefit_3": "Fights Cravings",
-            "benefit_4": "No Artificial Sugars",
-            "benefit_5": "No Artificial Ingredients",
-            "benefit_6": "No Seed Oils"
-          }
-        }
-      },
-      "block_order": [
-        "variety_pack_HX74nb",
-        "variety_pack_fbJMFh",
-        "variety_pack_Rfnk86",
-        "variety_pack_qwKVLM",
-        "variety_pack_9z6XQt"
-      ],
-      "name": "Multi Variety Pack",
-      "settings": {
-        "padding_top_mobile": 50,
-        "padding_bottom_mobile": 50,
-        "margin_top_mobile": 0,
-        "margin_bottom_mobile": 60,
-        "padding_top_desktop": 70,
-        "padding_bottom_desktop": 70,
-        "margin_top_desktop": 0,
-        "margin_bottom_desktop": 80
-      }
-    },
-    "product_slider_4RV6cc": {
-      "type": "product-slider",
-      "blocks": {
-        "product_J9w9YV": {
-          "type": "product",
-          "settings": {
-            "product": "bundle-page",
-            "product_image": "shopify://shop_images/Group_1538232871.png",
-            "card_background": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
-          }
-        },
-        "product_8jKKwd": {
-          "type": "product",
-          "settings": {
-            "product": "buffalo-chicken-wing",
-            "product_image": "shopify://shop_images/Group_1538232873.png",
-            "card_background": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)"
-          }
-        },
-        "product_qtxb7w": {
-          "type": "product",
-          "settings": {
-            "product": "chocolate-chip-cookie-can",
-            "product_image": "shopify://shop_images/Group_1538232874.png",
-            "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
-          }
-        },
-        "product_zLaPKA": {
-          "type": "product",
-          "settings": {
-            "product": "spicy-chicken-sandwich",
-            "product_image": "shopify://shop_images/Group_1538232875_1.png",
-            "card_background": "linear-gradient(100deg, #FF0005 6.65%, #FF9294 96.35%)"
-          }
-        },
-        "product_7A3wpj": {
-          "type": "product",
-          "settings": {
-            "product": "churro-pack",
-            "product_image": "shopify://shop_images/Group_1538232876.png",
-            "card_background": "linear-gradient(117deg, #4640A6 28.82%, #7961F2 97.13%);"
-          }
-        }
-      },
-      "block_order": [
-        "product_J9w9YV",
-        "product_8jKKwd",
-        "product_qtxb7w",
-        "product_zLaPKA",
-        "product_7A3wpj"
-      ],
-      "name": "Product Slider",
-      "settings": {
-        "title": "GO ROGUE. EAT THEM ALL.",
-        "subtitle": "Protein snacks that hit like junk food — without the junk.",
-        "accent_image": "shopify://shop_images/yum_chip.png",
-        "bg_color": "#ffffff",
-        "text_color": "#151414",
-        "d_padding_top": 40,
-        "d_padding_bottom": 180,
-        "m_padding_top": 40,
-        "m_padding_bottom": 50
-      }
-    },
-    "rogue_sticky_atc_kxLWNY": {
-      "type": "rogue-sticky-atc",
-      "name": "Sticky ATC",
-      "settings": {}
     }
   },
   "order": [
     "main",
-    "homepage_marquee_main",
-    "real_people_hVkRrz",
-    "homepage_multi_variety_pack_6MbyCU",
-    "product_slider_4RV6cc",
-    "rogue_sticky_atc_kxLWNY"
+    "product_recommendations_qggXJq"
   ]
 }
