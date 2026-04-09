@@ -287,6 +287,7 @@
             flex-direction:row;
             align-items:center;
             gap:40px;
+            max-width: 1200px;
            max-width: min(85%, 1200px);
         margin: 0 auto;
         }
@@ -342,22 +343,26 @@
     <svg class="mvp-wave-top" viewBox="0 0 410 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(180deg);">
         <path d="M0 40V8C30 2 80 0 130 0C200 0 250 12 310 12C360 12 390 6 410 2V40H0Z" fill="white"/>
     </svg>
-    {% for block in section.blocks %}
-        <div class="mvp-bg{% if forloop.first %} is-active{% endif %}" data-mvp-bg="{{ forloop.index0 }}" style="background:{{ block.settings.background_gradient | default: 'linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)' }};"></div>
-    {% endfor %}
+    <svg class="mvp-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1778 741" fill="none" preserveAspectRatio="none">
+        <path d="M1778 720C1747.69 727 1660.42 741 1553.76 741C1420.44 741 1130.16 715 936.905 715C743.653 715 584.241 732 413.82 732C277.484 732 81.1332 724 0 720V0H1778V720Z" fill="url(#mvp-grad-{{ section.id }})"/>
+        <defs>
+            <linearGradient id="mvp-grad-{{ section.id }}" x1="1714.5" y1="741" x2="1562.4" y2="-241.803" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6E00FF"/>
+                <stop offset="1" stop-color="#0077FF"/>
+            </linearGradient>
+        </defs>
+    </svg>
     <div class="page-container" style="position:relative;z-index:1;">
         <div class="mvp-slides">
             <div class="mvp-track" data-mvp-track>
                 {% for block in section.blocks %}
                     {% assign product = block.settings.product %}
-                    <div class="mvp-slide" data-mvp-index="{{ forloop.index0 }}" data-mvp-gradient="{{ block.settings.background_gradient | default: 'linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)' }}" {{ block.shopify_attributes }}>
+                    <div class="mvp-slide" {{ block.shopify_attributes }}>
                         <div class="mvp-slide-inner">
-                            {%- comment -%} Product images / video {%- endcomment -%}
+                            {%- comment -%} Product images grid {%- endcomment -%}
                             <div class="mvp-images">
                                 <div class="mvp-images-bg"></div>
-                                {% if block.settings.video %}
-                                    {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'mvp-product-video' }}
-                                {% elsif block.settings.image %}
+                                {% if block.settings.image %}
                                     <img class="mvp-product-image" src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.image.alt | default: product.title }}" loading="lazy" width="800" height="800">
                                 {% endif %}
                             </div>
@@ -468,16 +473,12 @@
         const slides = track ? track.querySelectorAll('.mvp-slide') : [];
         const prevBtn = section.querySelector('[data-mvp-prev]');
         const nextBtn = section.querySelector('[data-mvp-next]');
-        const bgs = section.querySelectorAll('.mvp-bg');
         let current = 0;
 
         function goTo(index){
             if(!track || slides.length === 0) return;
             current = ((index % slides.length) + slides.length) % slides.length;
             track.style.transform = 'translateX(-' + (current * 100) + '%)';
-            bgs.forEach(function(bg){
-                bg.classList.toggle('is-active', bg.dataset.mvpBg == current);
-            });
         }
 
         if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(current - 1); });
@@ -612,23 +613,7 @@
                 },
                 {
                     "type": "header",
-                    "content": "Colors"
-                },
-                {
-                    "type": "text",
-                    "id": "background_gradient",
-                    "label": "Background Gradient (CSS)",
-                    "default": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)",
-                    "info": "CSS gradient for background and wave, e.g. linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
-                },
-                {
-                    "type": "header",
-                    "content": "Product Media"
-                },
-                {
-                    "type": "video",
-                    "id": "video",
-                    "label": "Product Video (overrides image)"
+                    "content": "Product Image"
                 },
                 {
                     "type": "image_picker",
