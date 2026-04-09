@@ -9,6 +9,103 @@
  */
 {
   "sections": {
+    "homepage_hero_main": {
+      "type": "homepage-hero",
+      "blocks": {
+        "badge_nDmKMh": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/Layer_1_af99ba29-ba12-40b7-8412-cdb998a127c8.png",
+            "label": "Badge"
+          }
+        },
+        "badge_AmpJNc": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/Group_1_3896912f-3c26-467f-a74b-536efd99e858.png",
+            "label": "Badge"
+          }
+        },
+        "badge_zbhyUz": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/Layer_1_1_fdb1bb0b-affe-4dd0-9931-be73736dd381.png",
+            "label": "Badge"
+          }
+        },
+        "badge_DeBR9y": {
+          "type": "badge",
+          "settings": {
+            "icon": "shopify://shop_images/Layer_1_2_780e1bba-ea87-42f7-81d2-7ddc78d0eb71.png",
+            "label": "Badge"
+          }
+        }
+      },
+      "block_order": [
+        "badge_nDmKMh",
+        "badge_AmpJNc",
+        "badge_zbhyUz",
+        "badge_DeBR9y"
+      ],
+      "settings": {
+        "enable_sticky": false,
+        "show_rating": true,
+        "rating_value": "4.8",
+        "rating_text": "4.8 · Average Rating",
+        "heading": "REAL PROTEIN. REAL FLAVOR. ZERO JUNK OILS.",
+        "subtext": "High-protein chips & puffs that satisfy cravings and help you hit your macros.",
+        "button_text": "GO ROGUE",
+        "button_link": "",
+        "product_image": "shopify://shop_images/Component_1_b4ab0a76-d9e8-4d5c-a427-1451886d5a66.png",
+        "content_bg_color": "#ffffff",
+        "content_bg_color_end": "#faf2dd",
+        "heading_color": "#1d1d1d",
+        "text_color": "#333333",
+        "star_color": "#1d1d1d",
+        "button_bg_color": "#fdbe1c",
+        "button_text_color": "#1d1d1d",
+        "button_border_color": "#1d1d1d",
+        "gradient_start": "#f5a623",
+        "gradient_end": "#e85d04",
+        "gradient_direction": "135deg"
+      }
+    },
+    "homepage_marquee_main": {
+      "type": "homepage-marquee",
+      "blocks": {
+        "text_1": {
+          "type": "text_item",
+          "settings": {
+            "text": "Real Protein"
+          }
+        },
+        "text_2": {
+          "type": "text_item",
+          "settings": {
+            "text": "Max Flavor"
+          }
+        },
+        "text_3": {
+          "type": "text_item",
+          "settings": {
+            "text": "Zero Seed Oils"
+          }
+        }
+      },
+      "block_order": [
+        "text_1",
+        "text_2",
+        "text_3"
+      ],
+      "settings": {
+        "bg_color": "#1d1d1d",
+        "text_color": "#ffffff",
+        "font_size": 35,
+        "font_size_mobile": 20,
+        "speed": 20,
+        "padding_y": 12
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -144,31 +241,41 @@
         "product_J9w9YV": {
           "type": "product",
           "settings": {
-            "product": "bundle-page"
+            "product": "bundle-page",
+            "product_image": "shopify://shop_images/Group_1538232871.png",
+            "card_background": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
           }
         },
         "product_8jKKwd": {
           "type": "product",
           "settings": {
-            "product": "buffalo-chicken-wing"
+            "product": "buffalo-chicken-wing",
+            "product_image": "shopify://shop_images/Group_1538232873.png",
+            "card_background": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)"
           }
         },
         "product_qtxb7w": {
           "type": "product",
           "settings": {
-            "product": "chocolate-chip-cookie-can"
+            "product": "chocolate-chip-cookie-can",
+            "product_image": "shopify://shop_images/Group_1538232874.png",
+            "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
           }
         },
         "product_zLaPKA": {
           "type": "product",
           "settings": {
-            "product": "spicy-chicken-sandwich"
+            "product": "spicy-chicken-sandwich",
+            "product_image": "shopify://shop_images/Group_1538232875_1.png",
+            "card_background": "linear-gradient(100deg, #FF0005 6.65%, #FF9294 96.35%)"
           }
         },
         "product_7A3wpj": {
           "type": "product",
           "settings": {
-            "product": "churro-pack"
+            "product": "churro-pack",
+            "product_image": "shopify://shop_images/Group_1538232876.png",
+            "card_background": "linear-gradient(117deg, #4640A6 28.82%, #7961F2 97.13%);"
           }
         }
       },
@@ -183,11 +290,12 @@
       "settings": {
         "title": "GO ROGUE. EAT THEM ALL.",
         "subtitle": "Protein snacks that hit like junk food — without the junk.",
+        "accent_image": "shopify://shop_images/yum_chip.png",
         "bg_color": "#ffffff",
         "text_color": "#151414",
-        "d_padding_top": 90,
+        "d_padding_top": 40,
         "d_padding_bottom": 180,
-        "m_padding_top": 90,
+        "m_padding_top": 40,
         "m_padding_bottom": 50
       }
     },
@@ -265,15 +373,242 @@
         "button_txt": "Shop All Flavors",
         "button_link": "shopify://collections",
         "col_1_heading": "ROGUE",
+        "col_1_heading_image": "shopify://shop_images/Rogue_Protein_Snacks_1_1.png",
         "col_2_heading": "\"PROTEIN SNACK BRANDS\"",
-        "col_3_heading": "COMMON SNACK BRANDS"
+        "col_3_heading": "COMMON SNACK BRANDS",
+        "top_left_image": "shopify://shop_images/CookieChips_3.png"
+      }
+    },
+    "homepage_reviews_brrfrc": {
+      "type": "homepage-reviews",
+      "blocks": {
+        "review_9HkXrj": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "The Best Snack",
+            "review_text": "I bought these expecting another chalky protein snack. These actually taste like real junk food. The churro flavor is insane.",
+            "reviewer_name": "Jack Doe",
+            "reviewer_initials": "JD",
+            "avatar_color": "#f26b2d"
+          }
+        },
+        "review_weLtLr": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "I can't get enough!",
+            "review_text": "Finally a protein snack that doesn't feel like punishment. Crunchy, flavorful, and actually keeps me full.",
+            "reviewer_name": "Victor Martinez",
+            "reviewer_initials": "VM",
+            "avatar_color": "#9b5fcf"
+          }
+        },
+        "review_9FbNHt": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "Can't stop eating them",
+            "review_text": "High protein, no seed oils, and they actually taste good. This is what protein snacks should be. I just ordered another variety pack!",
+            "reviewer_name": "Isabelle Orange",
+            "reviewer_initials": "IO",
+            "avatar_color": "#2dae6e"
+          }
+        },
+        "review_EdY9y3": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "They taste fire!",
+            "review_text": "I bought these expecting another chalky protein snack. These actually taste like real junk food. The churro flavor is insane.",
+            "reviewer_name": "Jack Doe",
+            "reviewer_initials": "JD",
+            "avatar_color": "#9b5fcf"
+          }
+        },
+        "review_pRXnhR": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "My favorite is the Churros",
+            "review_text": "Finally a protein snack that doesn't feel like punishment. Crunchy, flavorful, and actually keeps me full.",
+            "reviewer_name": "Victor Martinez",
+            "reviewer_initials": "VM",
+            "avatar_color": "#e04040"
+          }
+        },
+        "review_nGUVnA": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "Love them",
+            "review_text": "High protein, no seed oils, and they actually taste good. This is what protein snacks should be. I just ordered another variety pack!",
+            "reviewer_name": "Jack Doe",
+            "reviewer_initials": "IO",
+            "avatar_color": "#2dae6e"
+          }
+        }
+      },
+      "block_order": [
+        "review_9HkXrj",
+        "review_weLtLr",
+        "review_9FbNHt",
+        "review_EdY9y3",
+        "review_pRXnhR",
+        "review_nGUVnA"
+      ],
+      "name": "Homepage Reviews",
+      "settings": {
+        "heading": "REAL PEOPLE. GONE ROGUE.",
+        "subtext": "Thousands have already ditched boring protein snacks.",
+        "show_rating": true,
+        "rating_value": "4.8",
+        "rating_text": "4.8 • Average Rating",
+        "bg_color": "#ffffff",
+        "heading_color": "#1d1d1d",
+        "text_color": "#555555",
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "homepage_multi_variety_pack_6MbyCU": {
+      "type": "homepage-multi-variety-pack",
+      "blocks": {
+        "variety_pack_HX74nb": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "bundle-page",
+            "title": "Rogue Multi-Variety Pack",
+            "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "image": "shopify://shop_images/Group_1538232796.png",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
+        "variety_pack_fbJMFh": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "buffalo-chicken-wing",
+            "title": "Rogue Buffalo Chicken Wing",
+            "description": "",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "image": "shopify://shop_images/Buffalo_Chicken_Wing_Thumb_fef69288-09a7-421d-8172-1809f8359118.png",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
+        "variety_pack_Rfnk86": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "chocolate-chip-cookie-can",
+            "title": "Rogue Chocolate Chip Cookie",
+            "description": "",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "image": "shopify://shop_images/Chocolate_Chip_Cookie_Thumb_27c879bf-7659-4850-89eb-0280297c155d.png",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
+        "variety_pack_qwKVLM": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "spicy-chicken-sandwich-can",
+            "title": "Rogue Spicy Chicken Sandwich",
+            "description": "",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "image": "shopify://shop_images/Spicy_Chicken_Sandwich_Thumb_30f505dd-6d9c-4c40-a7ca-1c92800036a8.png",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        },
+        "variety_pack_9z6XQt": {
+          "type": "variety_pack",
+          "settings": {
+            "product": "churro-pack",
+            "title": "Rogue Churro",
+            "description": "",
+            "button_text": "Buy Now",
+            "button_link": "",
+            "image": "shopify://shop_images/rogue_can_animation_1.png",
+            "benefit_1": "High Protein",
+            "benefit_2": "1 Billion Active Probiotics",
+            "benefit_3": "Fights Cravings",
+            "benefit_4": "No Artificial Sugars",
+            "benefit_5": "No Artificial Ingredients",
+            "benefit_6": "No Seed Oils"
+          }
+        }
+      },
+      "block_order": [
+        "variety_pack_HX74nb",
+        "variety_pack_fbJMFh",
+        "variety_pack_Rfnk86",
+        "variety_pack_qwKVLM",
+        "variety_pack_9z6XQt"
+      ],
+      "name": "Multi Variety Pack",
+      "settings": {
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 50,
+        "margin_top_mobile": 60,
+        "margin_bottom_mobile": 60,
+        "padding_top_desktop": 70,
+        "padding_bottom_desktop": 70,
+        "margin_top_desktop": 80,
+        "margin_bottom_desktop": 80
+      }
+    },
+    "homepage_newsletter_BXEAMF": {
+      "type": "homepage-newsletter",
+      "name": "Homepage Newsletter",
+      "settings": {
+        "heading": "Stay Connected With Rogue.",
+        "subtext": "Be the first to hear about new flavors, exclusive drops, and special discounts.",
+        "input_placeholder": "Email Address",
+        "button_label": "Keep Me Updated",
+        "success_message": "Thanks for subscribing!",
+        "products_image": "shopify://shop_images/Group_1538232793.png",
+        "products_image_mobile": "shopify://shop_images/Group_1538232793_2.png",
+        "form_side_image": "shopify://shop_images/Group_1538232793_1.png",
+        "padding_top": 40,
+        "padding_bottom": -112,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": -304
       }
     }
   },
   "order": [
+    "homepage_hero_main",
+    "homepage_marquee_main",
     "hero_jVaWmY",
     "17731058756c6f27c1",
     "product_slider_4RV6cc",
-    "table_section_pNwnaH"
+    "table_section_pNwnaH",
+    "homepage_reviews_brrfrc",
+    "homepage_multi_variety_pack_6MbyCU",
+    "homepage_newsletter_BXEAMF"
   ]
 }

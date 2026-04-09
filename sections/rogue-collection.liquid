@@ -1,0 +1,343 @@
+<style>
+    .{{ section.id }}{
+        padding-top:{{ section.settings.m_padding_top }}px;
+        padding-bottom:{{ section.settings.m_padding_bottom }}px;
+        background: linear-gradient(180deg, {{ section.settings.bg_color_from }} 0%, {{ section.settings.bg_color_to }} 100%);
+    }
+    .{{ section.id }} h2,
+    .{{ section.id }} .product-title,
+    .{{ section.id }} .rogue-component-btn span{
+        font-family: "venice-blvd", sans-serif;
+    }
+    .{{ section.id }} .product-type{
+        font-family: var(--font-paragraph--family), sans-serif;
+    }
+    .{{ section.id }} .rogue-collection-header{
+        margin-bottom: 30px;
+    }
+    .{{ section.id }} h2{
+        color:{{ section.settings.text_color }};
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 36px;
+        letter-spacing: -0.7px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .{{ section.id }} .rogue-collection-badges{
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 30px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .{{ section.id }} .rogue-collection-badges::-webkit-scrollbar{
+        display: none;
+    }
+    .{{ section.id }} .rogue-badge{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+    .{{ section.id }} .rogue-badge img{
+        width: auto;
+        height: auto;
+    }
+    .{{ section.id }} .rogue-badges-end-image{
+        display: none;
+    }
+    .{{ section.id }} .rogue-badges-end-image img{
+        width: auto;
+        height: clamp(40px, 12vw, 55px);
+    }
+    .{{ section.id }} .rogue-badge-divider{
+        display: none;
+    }
+    .{{ section.id }} .rogue-collection-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .{{ section.id }} .rogue-product-card{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .{{ section.id }} .rogue-collection-bottom-image{
+        display: block;
+        text-align: center;
+        margin-top: 30px;
+    }
+    .{{ section.id }} .rogue-collection-bottom-image img{
+        max-width: 100%;
+        height: auto;
+    }
+
+    @media(min-width:750px){
+        .{{ section.id }}{
+            padding-top:{{ section.settings.d_padding_top }}px;
+            padding-bottom:{{ section.settings.d_padding_bottom }}px;
+        }
+        .{{ section.id }} h2{
+            font-size: 45px;
+            line-height: 40px;
+            letter-spacing: -0.9px;
+            text-align: left;
+        }
+        .{{ section.id }} .rogue-collection-badges{
+            flex-wrap: nowrap;
+            gap: 0;
+            margin-bottom: 40px;
+            overflow-x: visible;
+        }
+        .{{ section.id }} .rogue-badge{
+            gap: 12px;
+            flex-shrink: 1;
+        }
+        .{{ section.id }} .rogue-badge img{
+            height: auto;
+        }
+        .{{ section.id }} .rogue-badge-divider{
+            display: block;
+            width: 1px;
+            height: 59px;
+            background: #1d1d1d;
+            opacity: 0.2;
+            margin: 0 30px;
+        }
+        .{{ section.id }} .rogue-badges-end-image{
+            display: block;
+            margin-left: auto;
+        }
+        .{{ section.id }} .rogue-badges-end-image img{
+            height: clamp(84px, 7vw, 109px);
+        }
+        .{{ section.id }} .rogue-collection-grid{
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .{{ section.id }} .rogue-collection-bottom-image{
+            display: none;
+        }
+    }
+</style>
+
+<section class="{{ section.id }}">
+    <div class="page-container-body-wide">
+        <div class="rogue-collection-header">
+            {% if section.settings.title != blank %}
+                <h2>{{ section.settings.title }}</h2>
+            {% endif %}
+
+            {% assign badge_blocks = section.blocks | where: 'type', 'badge' %}
+            {% if badge_blocks.size > 0 %}
+                <div class="rogue-collection-badges">
+                    {% for block in badge_blocks %}
+                        {% unless forloop.first %}
+                            <div class="rogue-badge-divider"></div>
+                        {% endunless %}
+                        <div class="rogue-badge" {{ block.shopify_attributes }}>
+                            {% if block.settings.badge_image != blank %}
+                                <img src="{{ block.settings.badge_image | image_url: height: 130 }}" alt="{{ block.settings.badge_label | escape }}" loading="lazy" height="65">
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    {% if section.settings.badges_end_image != blank %}
+                        <div class="rogue-badges-end-image">
+                            <img src="{{ section.settings.badges_end_image | image_url: height: 130 }}" alt="{{ section.settings.badges_end_image_alt | escape }}" loading="lazy" width="{{ section.settings.badges_end_image.width }}" height="{{ section.settings.badges_end_image.height }}">
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="rogue-collection-grid">
+            {% for block in section.blocks %}
+                {% if block.type == 'product' %}
+                    <div {{ block.shopify_attributes }}>
+                        {% render 'rogue-product-card'
+                            product: block.settings.product,
+                            card_image: block.settings.product_image,
+                            card_background: block.settings.card_background
+                        %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        {% if section.settings.bottom_image_mobile != blank %}
+            <div class="rogue-collection-bottom-image">
+                <img src="{{ section.settings.bottom_image_mobile | image_url: width: 800 }}" alt="{{ section.settings.bottom_image_alt | escape }}" loading="lazy" width="{{ section.settings.bottom_image_mobile.width }}" height="{{ section.settings.bottom_image_mobile.height }}">
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Rogue Collection",
+    "presets": [
+        {
+            "name": "Rogue Collection"
+        }
+    ],
+    "settings": [
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Shop all ROGUE Flavors.",
+            "label": "Title"
+        },
+        {
+            "type": "header",
+            "content": "Background and Colours"
+        },
+        {
+            "type": "color",
+            "id": "bg_color_from",
+            "label": "Background Color (Top)",
+            "default": "#FFFFFF"
+        },
+        {
+            "type": "color",
+            "id": "bg_color_to",
+            "label": "Background Color (Bottom)",
+            "default": "#FAF2DD"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#1D1D1D"
+        },
+        {
+            "type": "header",
+            "content": "Badges End Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "badges_end_image",
+            "label": "End Image",
+            "info": "Displayed on the far right of the badges row"
+        },
+        {
+            "type": "text",
+            "id": "badges_end_image_alt",
+            "label": "End Image Alt Text"
+        },
+        {
+            "type": "header",
+            "content": "Bottom Image (Mobile Only)"
+        },
+        {
+            "type": "image_picker",
+            "id": "bottom_image_mobile",
+            "label": "Bottom Image"
+        },
+        {
+            "type": "text",
+            "id": "bottom_image_alt",
+            "label": "Bottom Image Alt Text"
+        },
+        {
+            "type": "header",
+            "content": "Padding"
+        },
+        {
+            "type": "range",
+            "id": "d_padding_top",
+            "default": 60,
+            "label": "Padding Top (Desktop)",
+            "min": 20,
+            "max": 200,
+            "step": 10,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "d_padding_bottom",
+            "default": 90,
+            "label": "Padding Bottom (Desktop)",
+            "min": 20,
+            "max": 200,
+            "step": 10,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "m_padding_top",
+            "default": 40,
+            "label": "Padding Top (Mobile)",
+            "min": 20,
+            "max": 100,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "m_padding_bottom",
+            "default": 50,
+            "label": "Padding Bottom (Mobile)",
+            "min": -100,
+            "max": 100,
+            "step": 5,
+            "unit": "px"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "badge",
+            "name": "Badge",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "badge_image",
+                    "label": "Badge Image",
+                    "info": "Upload the badge icon (e.g. Active Probiotics, No Artificial Ingredients)"
+                },
+                {
+                    "type": "text",
+                    "id": "badge_label",
+                    "label": "Badge Label",
+                    "info": "Used for accessibility alt text"
+                }
+            ]
+        },
+        {
+            "type": "product",
+            "name": "Product",
+            "settings": [
+                {
+                    "type": "product",
+                    "label": "Product",
+                    "id": "product"
+                },
+                {
+                    "type": "image_picker",
+                    "label": "Product Image",
+                    "id": "product_image",
+                    "info": "Overrides the default product featured image"
+                },
+                {
+                    "type": "text",
+                    "label": "Card Background",
+                    "id": "card_background",
+                    "info": "CSS background value (e.g. #FF0000 or linear-gradient(...))"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
