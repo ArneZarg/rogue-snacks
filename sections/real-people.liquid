@@ -1,0 +1,278 @@
+<style>
+  .{{ section.id }}{
+    background:{{ section.settings.bg_color }};
+    padding-top:{{ section.settings.m_padding_top }}px;
+    padding-bottom:{{ section.settings.m_padding_bottom }}px;
+  }
+
+  .{{ section.id }} .title-header{
+    text-align:center;
+    font-family:"venice-blvd", sans-serif;
+    font-size:35px;
+    font-style:normal;
+    font-weight:900;
+    line-height:30px;
+    letter-spacing:-0.7px;
+    text-transform:uppercase;
+    margin-top:15px;
+    margin-bottom:10px;
+  }
+
+  .{{ section.id }} .section-subtitle-txt{
+    color:#0D0D0D;
+    text-align:center;
+    font-family:"Space Grotesk";
+    font-size:15px;
+    font-style:normal;
+    font-weight:700;
+    line-height:20px;
+    letter-spacing:-0.15px;
+  }
+
+  .{{ section.id }} [data-color-one]{ color:#1D1D1D; }
+  .{{ section.id }} [data-color-two]{ color:#5045B2; }
+
+  .{{ section.id }} .section-txt{
+    padding-bottom:75px;
+    position:relative;
+    max-width:fit-content;
+    margin:0 auto;
+  }
+
+  .{{ section.id }} .cartoon-container{
+    position:absolute;
+    bottom:-19px;
+    left:0;
+    display:flex;
+  }
+
+  .{{ section.id }} .cookie-img{ margin-right:-15px; }
+  .{{ section.id }} .quote-line{ width:12px; }
+  .{{ section.id }} .hardcoded--reviews{
+    width:100%;
+    justify-content:center;
+  }
+
+  /* critical swiper fallback styles */
+  .{{ section.id }} .people-slider{
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  .{{ section.id }} .people-slider .swiper-wrapper{
+    display:flex;
+    box-sizing:border-box;
+  }
+
+  .{{ section.id }} .people-slider .swiper-slide{
+    flex-shrink:0;
+    width:100%;
+    box-sizing:border-box;
+  }
+
+  .{{ section.id }} .people-slider img{
+    display:block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+  }
+
+  .{{ section.id }} .slider-container{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+
+  @media(min-width:1024px){
+    .{{ section.id }} .real-people-row{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      align-items:center;
+    }
+
+    .{{ section.id }} .title-header{
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 40px; /* 88.889% */
+        letter-spacing: -0.9px;
+        text-transform: uppercase;
+        text-align:left;
+    }
+    .{{ section.id }} .section-subtitle-txt{
+        text-align:left;
+        color: #0D0D0D;
+font-family: "Space Grotesk";
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 23px;
+letter-spacing: -0.16px;
+    }
+    .{{ section.id }} .hardcoded--reviews{
+        justify-content:flex-start;
+    }
+  }
+</style>
+<style>
+  .{{ section.id }} .swiper-slide-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 5;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .{{ section.id }} .swiper-slide-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+</style>
+<section class="{{ section.id }}">
+  <div class="page-container">
+    <div class="real-people-row">
+      <div class="section-txt">
+        <div class="cartoon-container">
+          <div class="cookie-img">
+            <img src="https://cdn.shopify.com/s/files/1/0972/8933/9200/files/Cookie-IO.png?v=1775704029">
+          </div>
+          <div class="quote-line">
+            <img src="https://cdn.shopify.com/s/files/1/0972/8933/9200/files/quote-line.png?v=1775704153">
+          </div>
+        </div>
+
+        <div class="hardcoded--reviews">
+          {% render 'hardcoded-reviews-svg' %}<span>4.8 • Average Rating </span>
+        </div>
+
+        <div class="title-header">
+          {{ section.settings.title }}
+        </div>
+
+        <div class="section-subtitle-txt">
+          {{ section.settings.subtitle }}
+        </div>
+      </div>
+
+      <div class="slider-container">
+        <div class="swiper people-slider">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+            <div class="swiper-slide">
+                <div class="swiper-slide-image">
+                <img src="{{ block.settings.image | image_url: width: 900 }}" alt="" loading="lazy">
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.{{ section.id }} .people-slider');
+    if (!slider || typeof Swiper === 'undefined') return;
+
+    new Swiper(slider, {
+      loop: false,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      centeredSlides:true,
+      slidesPerView:1.2,
+      initialSlide:1,
+      breakpoints: {
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 15
+        }
+      }
+    });
+  });
+</script>
+{% schema %}
+{
+    "name": "Real People",
+    "presets": [{
+        "name": "Real People"
+    }],
+    "settings": [
+        {
+            "type":"color",
+            "id":"bg_color",
+            "label": "Background Color",
+            "default":"#FAF2DD"
+        },
+        {
+            "type":"liquid",
+            "id": "title",
+            "label":"Title"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default":"Thousands have already ditched boring snacks and gone rogue."
+        },
+        {
+            "type": "range",
+            "id": "d_padding_top",
+            "default":90,
+            "label": "Padding Top (Desktop)",
+            "min": 20,
+            "max": 200,
+            "step": 10,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "d_padding_bottom",
+            "default":180,
+            "label": "Padding Bottom  (Desktop)",
+            "min": 20,
+            "max": 200,
+            "step": 10,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "m_padding_top",
+            "default":90,
+            "label": "Padding Top (Mobile)",
+            "min": 20,
+            "max": 100,
+            "step": 5,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "m_padding_bottom",
+            "default":50,
+            "label": "Padding Bottom  (Mobile)",
+            "min": 20,
+            "max": 100,
+            "step": 5,
+            "unit": "px"
+        }
+    ],
+    "blocks": [{
+        "type": "slide",
+        "name":"Slide",
+        "limit":3,
+        "settings": [
+            {
+                "type":"image_picker",
+                "label":"Image",
+                "id": "image"
+            }
+        ]
+    }]
+}
+{% endschema %}
