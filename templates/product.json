@@ -51,8 +51,8 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 18,
-            "sticky_details_desktop": true,
+            "gap": 8,
+            "sticky_details_desktop": false,
             "inherit_color_scheme": true,
             "color_scheme": "scheme-1",
             "background_media": "none",
@@ -80,7 +80,7 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "space-between",
-                "gap": 12,
+                "gap": 8,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -170,7 +170,7 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
+                "gap": 8,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -633,7 +633,7 @@
         "d_padding_top": 40,
         "d_padding_bottom": 180,
         "m_padding_top": 40,
-        "m_padding_bottom": 50
+        "m_padding_bottom": 100
       }
     },
     "rogue_sticky_atc_kxLWNY": {
