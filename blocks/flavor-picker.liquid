@@ -3,6 +3,7 @@
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:10px;
+    margin-bottom:8px;
   }
   @media(max-width:1200px){
     .rogue-flavor-picker .flavor-links{
@@ -21,8 +22,8 @@
     border-radius: 7px;
     border: 1px solid #FFF;
     background: rgba(255, 255, 255, 0.15);
-    padding:8px;
-    gap:9px;
+    padding:7px;
+    gap:7px;
     span{
         color:#fff;
     }
@@ -39,16 +40,16 @@
         span{
             color: #0D0D0D;
             font-family: "Space Grotesk";
-            font-size: 15px;
+            font-size: 13px;
             font-style: normal;
             font-weight: 500;
             line-height: 18px; /* 120% */
             letter-spacing: -0.15px;
         }
     }
-    .rogue-flavor-picker .flavor-links{
-        gap:30px;
-    }
+  }
+  .rogue-flavor-picker .link-title{
+    font-size:13px;
   }
   .rogue-flavor-picker .flavor-link img{
     width:21px;
@@ -61,7 +62,7 @@
     font-weight: 600;
     line-height: 23px; /* 127.778% */
     letter-spacing: -0.18px;
-    margin-bottom:20px;
+    margin-bottom:10px;
   }
 {% endstyle %}
 <div class="rogue-flavor-picker">
@@ -76,7 +77,7 @@
                 {% else %}
                     <img src="{{ flavor.featured_image | image_url }}">
                 {% endif %}
-                <span>
+                <span class="link-title">
                     {% if flavor.metafields.custom.flavor_name %}
                     {{ flavor.metafields.custom.flavor_name }}
                     {% else %}
