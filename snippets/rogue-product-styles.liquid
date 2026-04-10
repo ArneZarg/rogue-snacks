@@ -101,9 +101,16 @@ letter-spacing: -0.12px;
     }
     
 }
+@media(min-width:750px){
+    .product-information__grid:not(.product-information--media-none).product-information--media-left .product-details{
+        border-left:2px solid #000;
+                padding-left: 48px;
+        height: stretch;
+    }
+}
 @media(min-width:1874px){
     media-gallery.spacing-style.sticky-content.media-gallery--carousel.media-gallery--extend{
-        border-right:2px solid #000;
+        {% comment %} border-right:2px solid #000; {% endcomment %}
     }
     slideshow-slide.product-media-container.constrain-height.media-fit-cover.product-media-container--image.product-media-container--zoomable.product-media-container--tallest{
         border-bottom:2px solid #000;
