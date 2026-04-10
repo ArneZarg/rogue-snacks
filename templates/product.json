@@ -632,7 +632,7 @@
         "text_color": "#151414",
         "d_padding_top": 40,
         "d_padding_bottom": 180,
-        "m_padding_top": 40,
+        "m_padding_top": 10,
         "m_padding_bottom": 100
       }
     },

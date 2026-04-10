@@ -186,7 +186,7 @@
     /* Benefits grid */
     .{{ section.id }} .mvp-benefits{
         display:grid;
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:repeat(1, 1fr);
         gap:10px 20px;
         width:100%;
         margin-bottom:30px;
@@ -194,6 +194,7 @@
     .{{ section.id }} .mvp-benefit{
         display:flex;
         align-items:center;
+        justify-content:center;
         gap:8px;
         text-align:left;
     }
@@ -262,6 +263,12 @@
         justify-content:center;
         pointer-events:auto;
         transition:background 0.2s;
+    }
+    @media (max-width:989px){ 
+        .{{ section.id }} .mvp-nav-btn{
+            width:30px;
+            height:30px;
+        }
     }
     .{{ section.id }} .mvp-nav-btn:hover{
         background:rgba(255,255,255,0.15);
