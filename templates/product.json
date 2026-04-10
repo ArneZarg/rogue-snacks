@@ -568,7 +568,7 @@
         "margin_bottom_mobile": 60,
         "padding_top_desktop": 70,
         "padding_bottom_desktop": 70,
-        "margin_top_desktop": 80,
+        "margin_top_desktop": 0,
         "margin_bottom_desktop": 80
       }
     },
