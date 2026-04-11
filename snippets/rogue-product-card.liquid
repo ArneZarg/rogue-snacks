@@ -50,7 +50,7 @@
 {% assign first_variant = product.selected_or_first_available_variant %}
 {% assign cart_type = settings.cart_type | default: 'drawer' %}
 {% assign fly_animation = settings.add_to_cart_animation %}
-<div class="rogue-product-card fallback-card-style" data-cart-type="{{ cart_type }}" data-fly-animation="{{ fly_animation }}" {% if card_background %}style="background:{{ card_background }};border:none;"{% endif %}>
+<div {% if product.metafields.custom.custom_styles.value and menu_drawer %}style="background:{{ product.metafields.custom.custom_styles.value.background_gradient }}"{% endif %} class="rogue-product-card fallback-card-style" data-cart-type="{{ cart_type }}" data-fly-animation="{{ fly_animation }}" {% if card_background %}style="background:{{ card_background }};border:none;"{% endif %}>
     <div class="rogue-card-column">
         <div class="card-text">
             <div class="product-type">8-Pack</div>
@@ -63,10 +63,18 @@
             </div>
         </div>
         <a href="{{ product.url }}" class="card-img">
-            {% if card_image != blank %}
-                <img src="{{ card_image | image_url }}" alt="{{ card_image.alt | escape }}">
+            {% if menu_drawer %}
+                {% if product.metafields.custom.cart_drawer_thumb %}
+                    <img src="{{ product.metafields.custom.cart_drawer_thumb | image_url }}">
+                {% else %}
+                    <img src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt | escape }}">
+                {% endif %}
             {% else %}
-                <img src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt | escape }}">
+                {% if card_image != blank %}
+                    <img src="{{ card_image | image_url }}" alt="{{ card_image.alt | escape }}">
+                {% else %}
+                    <img src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt | escape }}">
+                {% endif %}
             {% endif %}
         </a>
         <div class="rogue-product-card-buttons">
@@ -80,15 +88,17 @@
                 variant_id: first_variant.id,
                 price: first_variant.price
             %}
-            {% render 'rogue-component-btn'
-                tag:'a',
-                text:'View Product',
-                color:'white',
-                additional_styles:'width:100%;font-size:17px;',
-                add_to_cart:false,
-                product:product,
-                url:product.url
-            %}
+            {% if menu_drawer == false or menu_drawer == nil %}
+                {% render 'rogue-component-btn'
+                    tag:'a',
+                    text:'View Product',
+                    color:'white',
+                    additional_styles:'width:100%;font-size:17px;',
+                    add_to_cart:false,
+                    product:product,
+                    url:product.url
+                %}
+            {% endif %}
         </div>
     </div>
 </div>
