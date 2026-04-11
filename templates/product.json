@@ -579,7 +579,7 @@
           "type": "product",
           "settings": {
             "product": "bundle-page",
-            "product_image": "shopify://shop_images/Group_1538232871.png",
+            "product_image": "shopify://shop_images/Combo-Image.png",
             "card_background": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
           }
         },
@@ -587,7 +587,7 @@
           "type": "product",
           "settings": {
             "product": "chocolate-chip-cookie-pack-copy",
-            "product_image": "shopify://shop_images/Group_1538232873.png",
+            "product_image": "shopify://shop_images/Chicken_Wing_a4458e1c-59fc-44bd-bb7e-46bdb4461590.png",
             "card_background": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)"
           }
         },
@@ -595,7 +595,7 @@
           "type": "product",
           "settings": {
             "product": "spicy-chicken-sandwich-copy",
-            "product_image": "shopify://shop_images/Group_1538232874.png",
+            "product_image": "shopify://shop_images/Cookies_0db020e8-639d-401e-922c-463aa5aec8d4.png",
             "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
           }
         },
@@ -603,7 +603,7 @@
           "type": "product",
           "settings": {
             "product": "spicy-chicken-sandwich",
-            "product_image": "shopify://shop_images/Group_1538232875_1.png",
+            "product_image": "shopify://shop_images/Chicken_Sandwhich_29168920-942a-4819-9427-b18448cf394c.png",
             "card_background": "linear-gradient(100deg, #FF0005 6.65%, #FF9294 96.35%)"
           }
         },
@@ -611,7 +611,7 @@
           "type": "product",
           "settings": {
             "product": "churro-pack",
-            "product_image": "shopify://shop_images/Group_1538232876.png",
+            "product_image": "shopify://shop_images/Churro_1240a8c5-ee72-487a-bcda-8d3d2e021726.png",
             "card_background": "linear-gradient(117deg, #4640A6 28.82%, #7961F2 97.13%);"
           }
         }
