@@ -78,6 +78,7 @@
             {% endif %}
         </a>
         <div class="rogue-product-card-buttons">
+            {% if menu_drawer == false or menu_drawer == nil %}
             {% render 'rogue-component-btn'
                 tag:'button',
                 text: 'Add to Cart',
@@ -88,7 +89,7 @@
                 variant_id: first_variant.id,
                 price: first_variant.price
             %}
-            {% if menu_drawer == false or menu_drawer == nil %}
+            {% endif %}
                 {% render 'rogue-component-btn'
                     tag:'a',
                     text:'View Product',
@@ -98,7 +99,7 @@
                     product:product,
                     url:product.url
                 %}
-            {% endif %}
+            
         </div>
     </div>
 </div>
