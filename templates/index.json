@@ -371,7 +371,7 @@
         "title": "Built Different.",
         "subtitle": "See the difference, us VS. them.",
         "button_txt": "Shop All Flavors",
-        "button_link": "shopify://collections",
+        "button_link": "shopify://collections/all",
         "col_1_heading": "ROGUE",
         "col_1_heading_image": "shopify://shop_images/Rogue_Protein_Snacks_1_1.png",
         "col_2_heading": "\"PROTEIN SNACK BRANDS\"",
