@@ -172,12 +172,6 @@
                 {% endif %}
             {% endfor %}
         </div>
-
-        {% if section.settings.bottom_image_mobile != blank %}
-            <div class="rogue-collection-bottom-image">
-                <img src="{{ section.settings.bottom_image_mobile | image_url: width: 800 }}" alt="{{ section.settings.bottom_image_alt | escape }}" loading="lazy" width="{{ section.settings.bottom_image_mobile.width }}" height="{{ section.settings.bottom_image_mobile.height }}">
-            </div>
-        {% endif %}
         {% if badge_blocks.size > 0 %}
                 <div class="rogue-collection-badges">
                     {% for block in badge_blocks %}
@@ -197,7 +191,13 @@
                         </div>
                     {% endif %}
                 </div>
-            {% endif %}
+        {% endif %}
+        {% if section.settings.bottom_image_mobile != blank %}
+            <div class="rogue-collection-bottom-image">
+                <img src="{{ section.settings.bottom_image_mobile | image_url: width: 800 }}" alt="{{ section.settings.bottom_image_alt | escape }}" loading="lazy" width="{{ section.settings.bottom_image_mobile.width }}" height="{{ section.settings.bottom_image_mobile.height }}">
+            </div>
+        {% endif %}
+        
     </div>
 </section>
 
