@@ -51,7 +51,7 @@
         "enable_sticky": false,
         "show_rating": true,
         "rating_value": "4.8",
-        "rating_text": "4.8 · Average Rating",
+        "rating_text": "4.8 · Customer Rating",
         "heading": "REAL PROTEIN. REAL FLAVOR. ZERO JUNK OILS.",
         "subtext": "High-protein chips & puffs that satisfy cravings and help you hit your macros.",
         "button_text": "GO ROGUE",
@@ -242,7 +242,7 @@
           "type": "product",
           "settings": {
             "product": "bundle-page",
-            "product_image": "shopify://shop_images/Group_1538232871.png",
+            "product_image": "shopify://shop_images/Combo-Pack-lrg.png",
             "card_background": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
           }
         },
@@ -250,7 +250,7 @@
           "type": "product",
           "settings": {
             "product": "chocolate-chip-cookie-pack-copy",
-            "product_image": "shopify://shop_images/Group_1538232873.png",
+            "product_image": "shopify://shop_images/Chicken_Wing_a4458e1c-59fc-44bd-bb7e-46bdb4461590.png",
             "card_background": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)"
           }
         },
@@ -258,7 +258,7 @@
           "type": "product",
           "settings": {
             "product": "spicy-chicken-sandwich-copy",
-            "product_image": "shopify://shop_images/Group_1538232874.png",
+            "product_image": "shopify://shop_images/Cookies_0db020e8-639d-401e-922c-463aa5aec8d4.png",
             "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
           }
         },
@@ -266,7 +266,7 @@
           "type": "product",
           "settings": {
             "product": "spicy-chicken-sandwich",
-            "product_image": "shopify://shop_images/Group_1538232875_1.png",
+            "product_image": "shopify://shop_images/Chicken_Sandwhich_29168920-942a-4819-9427-b18448cf394c.png",
             "card_background": "linear-gradient(100deg, #FF0005 6.65%, #FF9294 96.35%)"
           }
         },
@@ -274,7 +274,7 @@
           "type": "product",
           "settings": {
             "product": "churro-pack",
-            "product_image": "shopify://shop_images/Group_1538232876.png",
+            "product_image": "shopify://shop_images/Churro_1240a8c5-ee72-487a-bcda-8d3d2e021726.png",
             "card_background": "linear-gradient(117deg, #4640A6 28.82%, #7961F2 97.13%);"
           }
         }
@@ -308,7 +308,7 @@
             "row_label": "BOLD FLAVORS",
             "rogue_value": "yes",
             "protein_brands_value": "no",
-            "common_snack_value": "no"
+            "common_snack_value": "yes"
           }
         },
         "comparison_row_R4kkwm": {
@@ -371,12 +371,12 @@
         "title": "Built Different.",
         "subtitle": "See the difference, us VS. them.",
         "button_txt": "Shop All Flavors",
-        "button_link": "shopify://collections",
+        "button_link": "shopify://collections/all",
         "col_1_heading": "ROGUE",
         "col_1_heading_image": "shopify://shop_images/Rogue_Protein_Snacks_1_1.png",
         "col_2_heading": "\"PROTEIN SNACK BRANDS\"",
         "col_3_heading": "COMMON SNACK BRANDS",
-        "top_left_image": "shopify://shop_images/CookieChips_3.png"
+        "top_left_image": "shopify://shop_images/Cookie-Guy.png"
       }
     },
     "homepage_reviews_brrfrc": {
@@ -463,7 +463,7 @@
         "subtext": "Thousands have already ditched boring protein snacks.",
         "show_rating": true,
         "rating_value": "4.8",
-        "rating_text": "4.8 • Average Rating",
+        "rating_text": "4.8 • Customer Rating",
         "bg_color": "#ffffff",
         "heading_color": "#1d1d1d",
         "text_color": "#555555",
@@ -485,7 +485,7 @@
             "button_text": "Buy Now",
             "button_link": "",
             "background_gradient": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)",
-            "image": "shopify://shop_images/Group_1538232796.png",
+            "image": "shopify://shop_images/Combo-Cans.png",
             "benefit_1": "High Protein",
             "benefit_2": "1 Billion Active Probiotics",
             "benefit_3": "Fights Cravings",
@@ -503,7 +503,7 @@
             "button_text": "Buy Now",
             "button_link": "",
             "background_gradient": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)",
-            "image": "shopify://shop_images/Buffalo_Chicken_Wing_Thumb_fef69288-09a7-421d-8172-1809f8359118.png",
+            "image": "shopify://shop_images/Buffalo_Chicken_Wing_PDPs_v1_-01_2.png",
             "benefit_1": "High Protein",
             "benefit_2": "1 Billion Active Probiotics",
             "benefit_3": "Fights Cravings",
@@ -521,7 +521,7 @@
             "button_text": "Buy Now",
             "button_link": "",
             "background_gradient": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)",
-            "image": "shopify://shop_images/Chocolate_Chip_Cookie_Thumb_27c879bf-7659-4850-89eb-0280297c155d.png",
+            "image": "shopify://shop_images/Cookie_PDPs_v1_-01_2.png",
             "benefit_1": "High Protein",
             "benefit_2": "1 Billion Active Probiotics",
             "benefit_3": "Fights Cravings",
@@ -539,7 +539,7 @@
             "button_text": "Buy Now",
             "button_link": "",
             "background_gradient": "linear-gradient(100deg, #FF0005 6.65%, #FF9294 96.35%)",
-            "image": "shopify://shop_images/Spicy_Chicken_Sandwich_Thumb_30f505dd-6d9c-4c40-a7ca-1c92800036a8.png",
+            "image": "shopify://shop_images/Spicy_Chicken_Sandwich_PDPs_v1_-01_2.png",
             "benefit_1": "High Protein",
             "benefit_2": "1 Billion Active Probiotics",
             "benefit_3": "Fights Cravings",
@@ -556,8 +556,8 @@
             "description": "",
             "button_text": "Buy Now",
             "button_link": "",
-            "background_gradient": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)",
-            "image": "shopify://shop_images/rogue_can_animation_1.png",
+            "background_gradient": "linear-gradient(340deg, #332E80 0.97%, #7960F1 100%)",
+            "image": "shopify://shop_images/Churro_PDPs_v1_-01_2.png",
             "benefit_1": "High Protein",
             "benefit_2": "1 Billion Active Probiotics",
             "benefit_3": "Fights Cravings",
@@ -595,7 +595,7 @@
         "input_placeholder": "Email Address",
         "button_label": "Keep Me Updated",
         "success_message": "Thanks for subscribing!",
-        "products_image": "shopify://shop_images/Group_1538232793.png",
+        "products_image": "shopify://shop_images/ProductCollection-lrg.png",
         "products_image_mobile": "shopify://shop_images/Group_1538232793_2.png",
         "form_side_image": "shopify://shop_images/Group_1538232793_1.png",
         "padding_top": 40,
