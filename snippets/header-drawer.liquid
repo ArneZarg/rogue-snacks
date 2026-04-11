@@ -1156,8 +1156,22 @@
   .menu-drawer__menu-item-text {
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family:'venice-blvd', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 45px; /* 140.625% */
+    letter-spacing: -0.64px;
+    text-transform: uppercase;
   }
+  .menu-drawer__menu .menu-drawer__list-item--flat {
+  border-bottom: 2px solid lightgrey;
+  padding-bottom:15px;
+}
 
+.menu-drawer__menu .menu-drawer__list-item--flat:last-child {
+  border-bottom: none;
+}
   /** Styles when the country selector is hidden */
   .menu-drawer .language-selector:not(.menu-drawer__submenu *) {
     width: fit-content;
