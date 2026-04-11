@@ -727,7 +727,7 @@
                 </li>
               {%- endfor -%}
             {% elsif top_level_featured_products_collection.products_count > 0 %}
-              {% assign flav_collection = collections['cart-drawer'] %}
+              {% assign flav_collection = collections['menu-drawer'] %}
               {% paginate flav_collection.products by 5 %}
                 {%- for product in flav_collection.products limit: 5 -%}
                   <li class="menu-drawer__featured-content-list-item menu-drawer__featured-content-list-item--product">
@@ -820,7 +820,7 @@
     transform: translateX(-100%);
     visibility: hidden;
     height: var(--drawer-height);
-    width: var(--drawer-width);
+    width: 100%;
     max-width: var(--drawer-max-width);
     z-index: var(--layer-menu-drawer);
     left: 0;
