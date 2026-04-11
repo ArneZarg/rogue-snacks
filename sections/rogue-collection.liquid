@@ -178,6 +178,26 @@
                 <img src="{{ section.settings.bottom_image_mobile | image_url: width: 800 }}" alt="{{ section.settings.bottom_image_alt | escape }}" loading="lazy" width="{{ section.settings.bottom_image_mobile.width }}" height="{{ section.settings.bottom_image_mobile.height }}">
             </div>
         {% endif %}
+        {% if badge_blocks.size > 0 %}
+                <div class="rogue-collection-badges">
+                    {% for block in badge_blocks %}
+                        {% unless forloop.first %}
+                            <div class="rogue-badge-divider"></div>
+                        {% endunless %}
+                        <div class="rogue-badge" {{ block.shopify_attributes }}>
+                            {% if block.settings.badge_image != blank %}
+                                <img src="{{ block.settings.badge_image | image_url: height: 130 }}" alt="{{ block.settings.badge_label | escape }}" loading="lazy" height="65">
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    {% if section.settings.badges_end_image != blank %}
+                        <div class="rogue-badges-end-image">
+                            <img src="{{ section.settings.badges_end_image | image_url: height: 130 }}" alt="{{ section.settings.badges_end_image_alt | escape }}" loading="lazy" width="{{ section.settings.badges_end_image.width }}" height="{{ section.settings.badges_end_image.height }}">
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
     </div>
 </section>
 
