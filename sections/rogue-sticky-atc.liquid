@@ -1,45 +1,61 @@
 {% style %}
 .sticky-atc-container{
-    position:fixed;
-    bottom:12px;
+    position: fixed;
+    bottom: 12px;
     width: 85%;
     left: 50%;
     transform: translateX(-50%);
-    z-index:40;
+    z-index: 40;
 }
 .sticky-atc{
-    display:flex;
-    width:100%;
-    flex-direction:row;
-    justify-content:space-between;
-    padding-inline:20px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline: 20px;
 }
 .sticky-atc .cta{
-    font-size:18px;
-    text-transform:uppercase;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 @media(min-width:1024px){
-    .sticky-atc-container{display:none;}
+    .sticky-atc-container{ display: none; }
 }
 {% endstyle %}
+
 <div class="sticky-atc-container">
-    <button class="sticky-atc rogue-component-btn rogue-btn-yellow">
+    <button type="button" class="sticky-atc rogue-component-btn rogue-btn-yellow">
         <span><span class="cta">Add to Cart</span></span>
         <span>
-            <span class="compare-at-price">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros}}</span>&nbsp;<span class="price">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>
+            <span class="compare-at-price">
+                {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                    {{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}
+                {% endif %}
+            </span>
+            <span class="price">
+                {{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}
+            </span>
         </span>
     </button>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const myform = document.querySelector('.variant-picker__form');
-    const myATC = document.querySelector('.add-to-cart-button');
-    const stickyBtn = document.querySelector('.sticky-atc');
 
-    if (!myform || !myATC || !stickyBtn) return;
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const stickyContainer = document.querySelector('.sticky-atc-container');
+    const stickyBtn = document.querySelector('.sticky-atc');
+    const myATC = document.querySelector('.add-to-cart-button');
+
+    if (!stickyContainer || !stickyBtn || !myATC) return;
 
     const stickyPrice = stickyBtn.querySelector('.price');
     const stickyCompare = stickyBtn.querySelector('.compare-at-price');
+
+    // Works whether there's a variant form, product form, or neither
+    const myform =
+        document.querySelector('.variant-picker__form') ||
+        myATC.closest('form') ||
+        document.querySelector('product-form form') ||
+        document.querySelector('form[action*="/cart/add"]');
 
     function syncStickyButton() {
         const mainPrice = myATC.querySelector('.price');
@@ -49,22 +65,26 @@
             stickyPrice.textContent = mainPrice.textContent.trim();
         }
 
-        if (mainCompare && stickyCompare) {
-            const compareText = mainCompare.textContent.trim();
-            stickyCompare.textContent = compareText;
-            stickyCompare.style.display = compareText ? '' : 'none';
+        if (stickyCompare) {
+            if (mainCompare) {
+                const compareText = mainCompare.textContent.trim();
+                stickyCompare.textContent = compareText;
+                stickyCompare.style.display = compareText ? '' : 'none';
+            } else {
+                stickyCompare.textContent = '';
+                stickyCompare.style.display = 'none';
+            }
         }
 
         stickyBtn.disabled = myATC.disabled;
     }
+
     function updateVisibility() {
         const rect = myATC.getBoundingClientRect();
         const inView = rect.top < window.innerHeight && rect.bottom > 0;
-
-        stickyBtn.parentElement.style.display = inView ? 'none' : '';
+        stickyContainer.style.display = inView ? 'none' : '';
     }
-    window.addEventListener('scroll', updateVisibility, { passive: true });
-    window.addEventListener('resize', updateVisibility);
+
     function syncAfterUpdate() {
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
@@ -74,9 +94,14 @@
         });
     }
 
-    myform.addEventListener('change', syncAfterUpdate);
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility);
 
-    const mo = new MutationObserver(syncStickyButton);
+    if (myform) {
+        myform.addEventListener('change', syncAfterUpdate);
+    }
+
+    const mo = new MutationObserver(syncAfterUpdate);
     mo.observe(myATC, {
         childList: true,
         subtree: true,
@@ -85,19 +110,24 @@
     });
 
     stickyBtn.addEventListener('click', function () {
+        
         if (!myATC.disabled) {
             myATC.click();
         }
     });
 
     syncStickyButton();
+    updateVisibility();
 });
 </script>
+
 {% schema %}
 {
     "name": "Sticky ATC",
-    "presets": [{
-        "name":"Sticky ATC"
-    }]
+    "presets": [
+        {
+            "name": "Sticky ATC"
+        }
+    ]
 }
 {% endschema %}

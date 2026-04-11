@@ -84,38 +84,6 @@
     min-width:0;
   }
 
-  @media(min-width:1024px){
-    .{{ section.id }} .real-people-row{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      align-items:center;
-    }
-
-    .{{ section.id }} .title-header{
-        font-size: 45px;
-        font-style: normal;
-        font-weight: 900;
-        line-height: 40px; /* 88.889% */
-        letter-spacing: -0.9px;
-        text-transform: uppercase;
-        text-align:left;
-    }
-    .{{ section.id }} .section-subtitle-txt{
-        text-align:left;
-        color: #0D0D0D;
-font-family: "Space Grotesk";
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 23px;
-letter-spacing: -0.16px;
-    }
-    .{{ section.id }} .hardcoded--reviews{
-        justify-content:flex-start;
-    }
-  }
-</style>
-<style>
   .{{ section.id }} .swiper-slide-image {
     position: relative;
     width: 100%;
@@ -132,7 +100,65 @@ letter-spacing: -0.16px;
     object-fit: cover;
     display: block;
   }
+
+  @media(max-width:1023px){
+    .{{ section.id }}{
+      overflow-x:hidden;
+    }
+
+    .{{ section.id }} .slider-container{
+      position:relative;
+      width:100vw;
+      max-width:100vw;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .{{ section.id }} .people-slider{
+      padding-inline:12px;
+      box-sizing:border-box;
+    }
+  }
+
+  @media(min-width:1024px){
+    .{{ section.id }}{
+      padding-top:{{ section.settings.d_padding_top }}px;
+      padding-bottom:{{ section.settings.d_padding_bottom }}px;
+    }
+
+    .{{ section.id }} .real-people-row{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      align-items:center;
+    }
+
+    .{{ section.id }} .title-header{
+      font-size:45px;
+      font-style:normal;
+      font-weight:900;
+      line-height:40px;
+      letter-spacing:-0.9px;
+      text-transform:uppercase;
+      text-align:left;
+    }
+
+    .{{ section.id }} .section-subtitle-txt{
+      text-align:left;
+      color:#0D0D0D;
+      font-family:"Space Grotesk";
+      font-size:16px;
+      font-style:normal;
+      font-weight:500;
+      line-height:23px;
+      letter-spacing:-0.16px;
+    }
+
+    .{{ section.id }} .hardcoded--reviews{
+      justify-content:flex-start;
+    }
+  }
 </style>
+
 <section class="{{ section.id }}">
   <div class="page-container">
     <div class="real-people-row">
@@ -158,16 +184,16 @@ letter-spacing: -0.16px;
           {{ section.settings.subtitle }}
         </div>
       </div>
-
+      
       <div class="slider-container">
         <div class="swiper people-slider">
           <div class="swiper-wrapper">
             {% for block in section.blocks %}
-            <div class="swiper-slide">
+              <div class="swiper-slide">
                 <div class="swiper-slide-image">
-                <img src="{{ block.settings.image | image_url: width: 900 }}" alt="" loading="lazy">
+                  <img src="{{ block.settings.image | image_url: width: 900 }}" alt="" loading="lazy">
                 </div>
-            </div>
+              </div>
             {% endfor %}
           </div>
         </div>
@@ -183,96 +209,102 @@ letter-spacing: -0.16px;
 
     new Swiper(slider, {
       loop: false,
-      slidesPerView: 1,
+      slidesPerView: 1.2,
       spaceBetween: 10,
-      centeredSlides:true,
-      slidesPerView:1.2,
-      initialSlide:1,
+      centeredSlides: true,
+      initialSlide: 1,
       breakpoints: {
         1024: {
           slidesPerView: 3,
-          spaceBetween: 15
+          spaceBetween: 15,
+          centeredSlides: false,
+          initialSlide: 0
         }
       }
     });
   });
 </script>
+
 {% schema %}
 {
-    "name": "Real People",
-    "presets": [{
-        "name": "Real People"
-    }],
-    "settings": [
+  "name": "Real People",
+  "presets": [
+    {
+      "name": "Real People"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FAF2DD"
+    },
+    {
+      "type": "liquid",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Thousands have already ditched boring snacks and gone rogue."
+    },
+    {
+      "type": "range",
+      "id": "d_padding_top",
+      "default": 90,
+      "label": "Padding Top (Desktop)",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "d_padding_bottom",
+      "default": 180,
+      "label": "Padding Bottom  (Desktop)",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "m_padding_top",
+      "default": 90,
+      "label": "Padding Top (Mobile)",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "m_padding_bottom",
+      "default": 50,
+      "label": "Padding Bottom  (Mobile)",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "limit": 3,
+      "settings": [
         {
-            "type":"color",
-            "id":"bg_color",
-            "label": "Background Color",
-            "default":"#FAF2DD"
-        },
-        {
-            "type":"liquid",
-            "id": "title",
-            "label":"Title"
-        },
-        {
-            "type": "text",
-            "id": "subtitle",
-            "label": "Subtitle",
-            "default":"Thousands have already ditched boring snacks and gone rogue."
-        },
-        {
-            "type": "range",
-            "id": "d_padding_top",
-            "default":90,
-            "label": "Padding Top (Desktop)",
-            "min": 20,
-            "max": 200,
-            "step": 10,
-            "unit": "px"
-        },
-        {
-            "type": "range",
-            "id": "d_padding_bottom",
-            "default":180,
-            "label": "Padding Bottom  (Desktop)",
-            "min": 20,
-            "max": 200,
-            "step": 10,
-            "unit": "px"
-        },
-        {
-            "type": "range",
-            "id": "m_padding_top",
-            "default":90,
-            "label": "Padding Top (Mobile)",
-            "min": 20,
-            "max": 100,
-            "step": 5,
-            "unit": "px"
-        },
-        {
-            "type": "range",
-            "id": "m_padding_bottom",
-            "default":50,
-            "label": "Padding Bottom  (Mobile)",
-            "min": 20,
-            "max": 100,
-            "step": 5,
-            "unit": "px"
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
         }
-    ],
-    "blocks": [{
-        "type": "slide",
-        "name":"Slide",
-        "limit":3,
-        "settings": [
-            {
-                "type":"image_picker",
-                "label":"Image",
-                "id": "image"
-            }
-        ]
-    }]
+      ]
+    }
+  ]
 }
 {% endschema %}
