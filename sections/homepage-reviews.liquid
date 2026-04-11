@@ -365,13 +365,23 @@
     }
 
 function goTo(index) {
-        if (!isMobile()) return;
-        current = Math.max(0, Math.min(index, total - 1));
-        var slideW = slides[0].offsetWidth + gap;
-        track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
-        if (prevBtn) prevBtn.disabled = current === 0;
-        if (nextBtn) nextBtn.disabled = current === total - 1;
-    }
+    if (!isMobile()) return;
+
+    current = Math.max(0, Math.min(index, total - 1));
+
+    var slideW = slides[0].offsetWidth;
+    var totalSlideW = slideW + gap;
+
+    var container = slider.offsetWidth;
+
+    // center offset
+    var offset = (container - slideW) / 2;
+
+    track.style.transform = 'translateX(' + (offset - (current * totalSlideW)) + 'px)';
+
+    if (prevBtn) prevBtn.disabled = current === 0;
+    if (nextBtn) nextBtn.disabled = current === total - 1;
+}
 
     if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
     if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
