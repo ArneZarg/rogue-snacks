@@ -79,7 +79,7 @@
                 class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}"
               >
                 {% for var in product.variants %}
-                  {{product_option.name }}
+                  <strong>{{product_option.name }}</strong>
                   {% if var.metafields.custom.most_popular.value and var.title == product_option.name %}
                   <div class="best-value">MOST POPULAR</div>
                   {% endif %}
