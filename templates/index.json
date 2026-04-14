@@ -52,7 +52,7 @@
         "show_rating": true,
         "rating_value": "4.8",
         "rating_text": "4.8 · Customer Rating",
-        "heading": "REAL PROTEIN. REAL FLAVOR. ZERO JUNK OILS.",
+        "heading": "High PROTEIN. REAL FLAVOR. ZERO JUNK OILS.",
         "subtext": "High-protein chips & puffs that satisfy cravings and help you hit your macros.",
         "button_text": "GO ROGUE",
         "button_link": "shopify://collections/all",
@@ -76,7 +76,7 @@
         "text_1": {
           "type": "text_item",
           "settings": {
-            "text": "Real Protein"
+            "text": "High Protein"
           }
         },
         "text_2": {
@@ -290,7 +290,7 @@
       "settings": {
         "title": "GO ROGUE. EAT THEM ALL.",
         "subtitle": "Protein snacks that hit like junk food — without the junk.",
-        "accent_image": "shopify://shop_images/yum_chip.png",
+        "accent_image": "shopify://shop_images/AK_Rogue_Characters_Working-30.png",
         "bg_color": "#ffffff",
         "text_color": "#151414",
         "d_padding_top": 40,
@@ -387,9 +387,9 @@
           "settings": {
             "stars": 5,
             "title": "The Best Snack",
-            "review_text": "I bought these expecting another chalky protein snack. These actually taste like real junk food. The churro flavor is insane.",
-            "reviewer_name": "Jack Doe",
-            "reviewer_initials": "JD",
+            "review_text": "These don’t taste like ‘protein snacks’—they taste like real chips. I crushed a whole bag and didn’t feel like I wrecked my diet after. Finally something that hits both flavor and macros.",
+            "reviewer_name": "Jason M.",
+            "reviewer_initials": "JM",
             "avatar_color": "#f26b2d"
           }
         },
@@ -398,9 +398,9 @@
           "settings": {
             "stars": 5,
             "title": "I can't get enough!",
-            "review_text": "Finally a protein snack that doesn't feel like punishment. Crunchy, flavorful, and actually keeps me full.",
-            "reviewer_name": "Victor Martinez",
-            "reviewer_initials": "VM",
+            "review_text": "I’ve tried every ‘healthy chip’ out there and they all miss. Rogue is the first one I actually crave. I keep them in my car, gym bag, everywhere.",
+            "reviewer_name": "Alex R.",
+            "reviewer_initials": "AR",
             "avatar_color": "#9b5fcf"
           }
         },
@@ -409,9 +409,9 @@
           "settings": {
             "stars": 5,
             "title": "Can't stop eating them",
-            "review_text": "High protein, no seed oils, and they actually taste good. This is what protein snacks should be. I just ordered another variety pack!",
-            "reviewer_name": "Isabelle Orange",
-            "reviewer_initials": "IO",
+            "review_text": "Cutting right now and these are saving me. High protein, no junk, and actually satisfying. Way easier to stay on track when food doesn’t feel like a sacrifice.",
+            "reviewer_name": "Marcus T.",
+            "reviewer_initials": "MT",
             "avatar_color": "#2dae6e"
           }
         },
@@ -421,7 +421,7 @@
             "stars": 5,
             "title": "They taste fire!",
             "review_text": "I bought these expecting another chalky protein snack. These actually taste like real junk food. The churro flavor is insane.",
-            "reviewer_name": "Jack Doe",
+            "reviewer_name": "John Dillon",
             "reviewer_initials": "JD",
             "avatar_color": "#9b5fcf"
           }
@@ -443,8 +443,8 @@
             "stars": 5,
             "title": "Love them",
             "review_text": "High protein, no seed oils, and they actually taste good. This is what protein snacks should be. I just ordered another variety pack!",
-            "reviewer_name": "Jack Doe",
-            "reviewer_initials": "IO",
+            "reviewer_name": "Isabella Hernandez",
+            "reviewer_initials": "IH",
             "avatar_color": "#2dae6e"
           }
         }

@@ -14,6 +14,7 @@
     }
     .{{ section.id }} .rogue-collection-header{
         margin-bottom: 30px;
+        
     }
     .{{ section.id }} h2{
         color:{{ section.settings.text_color }};
@@ -137,7 +138,7 @@
             {% endif %}
 
             {% assign badge_blocks = section.blocks | where: 'type', 'badge' %}
-            {% if badge_blocks.size > 0 %}
+            {% comment %} {% if badge_blocks.size > 0 %}
                 <div class="rogue-collection-badges">
                     {% for block in badge_blocks %}
                         {% unless forloop.first %}
@@ -156,7 +157,7 @@
                         </div>
                     {% endif %}
                 </div>
-            {% endif %}
+            {% endif %} {% endcomment %}
         </div>
 
         <div class="rogue-collection-grid">
@@ -172,12 +173,13 @@
                 {% endif %}
             {% endfor %}
         </div>
-
+        
         {% if section.settings.bottom_image_mobile != blank %}
             <div class="rogue-collection-bottom-image">
                 <img src="{{ section.settings.bottom_image_mobile | image_url: width: 800 }}" alt="{{ section.settings.bottom_image_alt | escape }}" loading="lazy" width="{{ section.settings.bottom_image_mobile.width }}" height="{{ section.settings.bottom_image_mobile.height }}">
             </div>
         {% endif %}
+        
     </div>
 </section>
 

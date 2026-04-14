@@ -78,6 +78,12 @@
               <label
                 class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}"
               >
+                {% for var in product.variants %}
+                  {% if var.metafields.custom.most_popular.value and var.title == product_option_value %}
+                  <div class="best-value">MOST POPULAR</div>
+                  {% break %}
+                  {% endif %}
+                {% endfor %}
                 {% if forloop.last %}
                   <div class="best-value">BEST VALUE</div>
                 {% endif %}
