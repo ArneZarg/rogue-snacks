@@ -193,7 +193,7 @@
         .homepage-hero__cta.{{ section.id }} {
             padding: 18px 48px;
             font-size: 17px;
-            margin-bottom: 40px;
+            margin-bottom: 0px;
             width: 100%;
         }
         .homepage-hero__badges.{{ section.id }} {
@@ -240,8 +240,14 @@
         .homepage-hero__badge {
             max-width: 110px;
         }
+        .homepage-hero__cta.{{ section.id }} {
+            padding: 18px 48px;
+            font-size: 17px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
     }
-    @media (min-width: 320px) and (max-width: 990px) {
+    @media(max-width: 990px) {
         .homepage-hero__heading.{{ section.id }} {
             font-size: 40px;
             line-height: 34px;
