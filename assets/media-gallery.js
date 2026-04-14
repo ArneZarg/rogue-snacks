@@ -1,22 +1,17 @@
 import { Component } from '@theme/component';
-import { ThemeEvents } from '@theme/events';
+import { ThemeEvents, VariantUpdateEvent, ZoomMediaSelectedEvent } from '@theme/events';
 
 /**
  * A custom element that renders a media gallery.
  *
- * This version keeps zoom inside the slideshow/media container
- * instead of opening the fullscreen zoom dialog.
- *
  * @typedef {object} Refs
- * @property {import('./zoom-dialog').ZoomDialog} [zoomDialogComponent]
- * @property {import('./slideshow').Slideshow} [slideshow]
- * @property {HTMLElement[]} [media]
+ * @property {import('./zoom-dialog').ZoomDialog} [zoomDialogComponent] - The zoom dialog component.
+ * @property {import('./slideshow').Slideshow} [slideshow] - The slideshow component.
+ * @property {HTMLElement[]} [media] - The media elements.
  *
  * @extends Component<Refs>
  */
 export class MediaGallery extends Component {
-  #controller = new AbortController();
-
   connectedCallback() {
     super.connectedCallback();
 
@@ -24,115 +19,62 @@ export class MediaGallery extends Component {
     const target = this.closest('.shopify-section, dialog');
 
     target?.addEventListener(ThemeEvents.variantUpdate, this.#handleVariantUpdate, { signal });
-
-    this.addEventListener(
-      'click',
-      (event) => {
-        const clickedZoomable =
-          event.target instanceof Element &&
-          event.target.closest('slideshow-slide, [data-media-zoomable], .product-media-container--image');
-
-        if (!clickedZoomable) {
-          this.#resetAllZoom();
-        }
-      },
-      { signal }
-    );
+    this.refs.zoomDialogComponent?.addEventListener(ThemeEvents.zoomMediaSelected, this.#handleZoomMediaSelected, {
+      signal,
+    });
   }
+
+  #controller = new AbortController();
 
   disconnectedCallback() {
     super.disconnectedCallback();
+
     this.#controller.abort();
   }
 
   /**
    * Handles a variant update event by replacing the current media gallery with a new one.
    *
-   * @param {CustomEvent} event
+   * @param {VariantUpdateEvent} event - The variant update event.
    */
   #handleVariantUpdate = (event) => {
-    const source = event.detail?.data?.html;
-    if (!source) return;
+    const source = event.detail.data.html;
 
+    if (!source) return;
     const newMediaGallery = source.querySelector('media-gallery');
+
     if (!newMediaGallery) return;
 
     this.replaceWith(newMediaGallery);
   };
 
   /**
-   * Zoom the image only inside its slideshow slide/container.
+   * Handles the 'zoom-media:selected' event.
+   * @param {ZoomMediaSelectedEvent} event - The zoom-media:selected event.
+   */
+  #handleZoomMediaSelected = async (event) => {
+    this.slideshow?.select(event.detail.index, undefined, { animate: false });
+  };
+
+  /**
+   * Zooms the media gallery.
    *
-   * @param {number} index
-   * @param {PointerEvent} event
+   * @param {number} index - The index of the media to zoom.
+   * @param {PointerEvent} event - The pointer event.
    */
   zoom(index, event) {
-    event.preventDefault();
-
-    const mediaItem = this.media?.[index];
-    if (!mediaItem) return;
-
-    const zoomContainer =
-      mediaItem.closest('slideshow-slide') ||
-      mediaItem.querySelector('slideshow-slide') ||
-      mediaItem.querySelector('[data-media-zoomable]') ||
-      mediaItem.querySelector('.product-media-container--image') ||
-      mediaItem;
-
-    const image =
-      zoomContainer.querySelector('img.product-media__image') ||
-      zoomContainer.querySelector('img');
-
-    if (!image || !(image instanceof HTMLImageElement)) return;
-
-    const alreadyZoomed = zoomContainer.classList.contains('is-zoomed');
-
-    this.#resetAllZoom();
-
-    if (alreadyZoomed) return;
-
-    zoomContainer.classList.add('is-zoomed');
-
-    const rect = zoomContainer.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-
-    image.style.transformOrigin = `${x}% ${y}%`;
+    this.refs.zoomDialogComponent?.open(index, event);
   }
 
   /**
-   * Kept for compatibility with existing integrations.
-   *
-   * @param {number} index
+   * Preloads an image.
+   * @param {number} index - The index of the media to preload.
    */
   preloadImage(index) {
     const zoomDialogMedia = this.refs.zoomDialogComponent?.refs.media[index];
     if (!zoomDialogMedia) return;
 
     this.refs.zoomDialogComponent?.loadHighResolutionImage(zoomDialogMedia);
-  }
-
-  #resetAllZoom() {
-    const mediaItems = this.media || [];
-
-    mediaItems.forEach((mediaItem) => {
-      const zoomContainer =
-        mediaItem.closest('slideshow-slide') ||
-        mediaItem.querySelector('slideshow-slide') ||
-        mediaItem.querySelector('[data-media-zoomable]') ||
-        mediaItem.querySelector('.product-media-container--image') ||
-        mediaItem;
-
-      const image =
-        zoomContainer.querySelector('img.product-media__image') ||
-        zoomContainer.querySelector('img');
-
-      zoomContainer.classList.remove('is-zoomed');
-
-      if (image && image instanceof HTMLImageElement) {
-        image.style.transformOrigin = 'center center';
-      }
-    });
   }
 
   get slideshow() {
