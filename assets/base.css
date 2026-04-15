@@ -2308,7 +2308,7 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 
   &:hover,
   &:hover:has([aria-disabled='true']):has([data-option-available='false']) {
-    background-color: var(--color-variant-hover-background);
+    background-color: #000);
     border-color: var(--color-variant-hover-border);
     color: var(--color-variant-hover-text);
   }
