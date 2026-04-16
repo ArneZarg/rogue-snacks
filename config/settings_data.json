@@ -12,6 +12,7 @@
     "logo": "shopify://shop_images/Rogue_Protein_Snacks_copy.svg",
     "logo_height": 75,
     "logo_height_mobile": 53,
+    "favicon": "shopify://shop_images/Rogue_Favicon_v1.svg",
     "type_body_font": "space_grotesk_n4",
     "type_subheading_font": "inter_n5",
     "type_heading_font": "inter_n7",
