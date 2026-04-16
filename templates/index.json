@@ -52,8 +52,8 @@
         "show_rating": true,
         "rating_value": "4.8",
         "rating_text": "4.8 · Customer Rating",
-        "heading": "High PROTEIN. REAL FLAVOR. ZERO JUNK OILS.",
-        "subtext": "High-protein chips & puffs that satisfy cravings and help you hit your macros.",
+        "heading": "THE BEST TASTING PROTEIN SNACK.",
+        "subtext": "High-protein chips that satisfy cravings and help you hit your macros.",
         "button_text": "GO ROGUE",
         "button_link": "shopify://collections/all",
         "product_image": "shopify://shop_images/Component_1_b4ab0a76-d9e8-4d5c-a427-1451886d5a66.png",
@@ -88,7 +88,7 @@
         "text_3": {
           "type": "text_item",
           "settings": {
-            "text": "Zero Seed Oils"
+            "text": "NO Seed Oils"
           }
         }
       },
@@ -249,7 +249,7 @@
         "product_8jKKwd": {
           "type": "product",
           "settings": {
-            "product": "chocolate-chip-cookie-pack-copy",
+            "product": "buffalo-chicken-wing-pack",
             "product_image": "shopify://shop_images/Chicken_Wing_a4458e1c-59fc-44bd-bb7e-46bdb4461590.png",
             "card_background": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)"
           }
@@ -376,7 +376,7 @@
         "col_1_heading_image": "shopify://shop_images/Rogue_Protein_Snacks_1_1.png",
         "col_2_heading": "\"PROTEIN SNACK BRANDS\"",
         "col_3_heading": "COMMON SNACK BRANDS",
-        "top_left_image": "shopify://shop_images/Cookie-Guy.png"
+        "top_left_image": "shopify://shop_images/AK_Rogue_Characters_Working-18.png"
       }
     },
     "homepage_reviews_brrfrc": {
@@ -497,7 +497,7 @@
         "variety_pack_fbJMFh": {
           "type": "variety_pack",
           "settings": {
-            "product": "chocolate-chip-cookie-pack-copy",
+            "product": "buffalo-chicken-wing-pack",
             "title": "Rogue Buffalo Chicken Wing",
             "description": "",
             "button_text": "Buy Now",
@@ -597,7 +597,7 @@
         "success_message": "Thanks for subscribing!",
         "products_image": "shopify://shop_images/ProductCollection-lrg.png",
         "products_image_mobile": "shopify://shop_images/Group_1538232793_2.png",
-        "form_side_image": "shopify://shop_images/Group_1538232793_1.png",
+        "form_side_image": "shopify://shop_images/AK_Rogue_Characters_Working-04.png",
         "padding_top": 40,
         "padding_bottom": -112,
         "padding_top_mobile": 24,

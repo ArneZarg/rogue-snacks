@@ -56,13 +56,18 @@
     .homepage-hero__heading.{{ section.id }} {
         color: #151414;
         font-family: 'venice-blvd', sans-serif;
-        font-size: 50px;
+        font-size: 40px;
         font-style: normal;
         font-weight: 900;
         line-height: 45px;
         letter-spacing: -1px;
         text-transform: uppercase;
         margin: 0 0 16px;
+    }
+    @media(min-width:1400px){
+        .homepage-hero__heading.{{ section.id }} {
+            font-size:50px;
+        }
     }
     /* Subtext */
     .homepage-hero__subtext.{{ section.id }} {
@@ -193,7 +198,7 @@
         .homepage-hero__cta.{{ section.id }} {
             padding: 18px 48px;
             font-size: 17px;
-            margin-bottom: 40px;
+            margin-bottom: 0px;
             width: 100%;
         }
         .homepage-hero__badges.{{ section.id }} {
@@ -240,11 +245,23 @@
         .homepage-hero__badge {
             max-width: 110px;
         }
+        .homepage-hero__cta.{{ section.id }} {
+            padding: 18px 48px;
+            font-size: 17px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
     }
-    @media (min-width: 320px) and (max-width: 990px) {
+    @media(max-width: 990px) {
         .homepage-hero__heading.{{ section.id }} {
             font-size: 40px;
             line-height: 34px;
+        }
+    }
+    @media(max-width:768px){
+        .homepage-hero__heading.{{ section.id }}{
+            font-size:35px;
+            color: #000000;
         }
     }
 </style>
