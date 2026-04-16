@@ -249,7 +249,7 @@
         "product_8jKKwd": {
           "type": "product",
           "settings": {
-            "product": "chocolate-chip-cookie-pack-copy",
+            "product": "buffalo-chicken-wing-pack",
             "product_image": "shopify://shop_images/Chicken_Wing_a4458e1c-59fc-44bd-bb7e-46bdb4461590.png",
             "card_background": "linear-gradient(121deg, #FF5418 32.79%, #FDAE24 97.3%)"
           }
@@ -497,7 +497,7 @@
         "variety_pack_fbJMFh": {
           "type": "variety_pack",
           "settings": {
-            "product": "chocolate-chip-cookie-pack-copy",
+            "product": "buffalo-chicken-wing-pack",
             "title": "Rogue Buffalo Chicken Wing",
             "description": "",
             "button_text": "Buy Now",
