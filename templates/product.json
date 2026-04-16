@@ -454,7 +454,7 @@
         "title": "<strong data-color-one>Real People.</strong>\n<br>\n<strong data-color-two>Gone Rogue.</strong>",
         "subtitle": "Thousands have already ditched boring snacks and gone rogue.",
         "d_padding_top": 90,
-        "d_padding_bottom": 180,
+        "d_padding_bottom": 100,
         "m_padding_top": 70,
         "m_padding_bottom": 70
       }
