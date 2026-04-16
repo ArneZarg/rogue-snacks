@@ -226,6 +226,7 @@
                 "rogue_subscribe_save_8CMT7p": {
                   "type": "rogue-subscribe-save",
                   "name": "Rogue Subscribe",
+                  "disabled": true,
                   "settings": {},
                   "blocks": {}
                 },
