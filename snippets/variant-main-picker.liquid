@@ -80,13 +80,15 @@
               >
                 {% for var in product.variants %}
                   {% if var.metafields.custom.most_popular.value and var.title == product_option_value %}
-                  <div class="best-value">MOST POPULAR</div>
-                  {% break %}
+                    <span class="best-value">MOST POPULAR</span>
+                    {% break %}
                   {% endif %}
                 {% endfor %}
+
                 {% if forloop.last %}
-                  <div class="best-value">BEST VALUE</div>
+                  <span class="best-value">BEST VALUE</span>
                 {% endif %}
+
                 <input
                   type="radio"
                   name="{{ product_option.name | escape }}-{{ block.id }}-{{ product_resource.id }}"
@@ -240,6 +242,33 @@
     padding-inline-start: max(4px, var(--padding-inline-start));
   }
 
+  /* Custom badge styling */
+  .variant-option__button-label {
+    position: relative;
+    overflow: visible;
+    padding-top: 18px;
+  }
+
+  .best-value {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
   /* Dropdown variant option styles */
   .variant-option__select-wrapper {
     display: flex;
@@ -301,7 +330,7 @@
   .variant-picker--center .variant-option {
     text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
     width: 100%;
   }
 
@@ -310,4 +339,4 @@
     text-align: right;
     justify-content: right;
   }
-{% endstylesheet %}
+{% endstylesheet %} 
