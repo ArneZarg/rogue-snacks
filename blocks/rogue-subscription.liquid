@@ -1,0 +1,303 @@
+{% style %}
+/* Hide Skio UI but keep functionality */
+.shopify-app-block .skio-plan-picker {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.custom-subscription-picker {
+  margin-top: 14px;
+  margin-bottom:14px;
+}
+
+/* OUTER segmented control */
+.custom-subscription-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+
+/* each segment */
+.custom-subscription-switch__option {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 999px;
+  min-height: 32px;
+  padding: 15px 14px;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+/* active segment */
+.custom-subscription-switch__option.is-active {
+  background: #f3f1ee;
+  color: #111111;
+  box-shadow: none;
+  font-weight:bold;
+  position:relative;
+}
+.custom-subscription-switch__option.is-active::before{
+    position:absolute;
+    content:'';
+    width:100%;
+    height:100%;
+    border:1px solid #fff;
+}
+/* remove any previous focus/radio visual styles */
+.custom-subscription-switch__option::before,
+.custom-subscription-switch__option::after {
+  content: none !important;
+}
+
+/* helper text below */
+.custom-subscription-helper {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: left;
+}
+
+.custom-subscription-helper__link {
+  color: inherit;
+  text-decoration: underline;
+  margin-left: 6px;
+}
+
+@media (max-width: 767px) {
+  .custom-subscription-switch__option {
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
+  .custom-subscription-helper {
+    font-size: 11px;
+  }
+}
+.custom-subscription-picker {
+  width: 100%;
+  max-width: 100%;
+  flex: 1 1 auto;
+  align-self: stretch;
+}
+
+.custom-subscription-switch {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.custom-subscription-switch__option {
+  width: 100%;
+  justify-self: stretch;
+}
+.custom-subscription-picker {
+  align-self: stretch;
+}
+/* make every wrapper in the chain fill available width */
+.shopify-block,
+.shopify-app-block,
+.custom-subscription-picker {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* if any parent is flex/grid, allow this item to stretch */
+.custom-subscription-picker {
+  justify-self: stretch !important;
+  align-self: stretch !important;
+}
+
+/* the segmented control itself */
+.custom-subscription-switch {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* each half fills evenly */
+.custom-subscription-switch__option {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+.custom-subscription-helper {
+  display: none;
+}
+
+.custom-subscription-picker:has(
+  .custom-subscription-switch__option[data-custom-skio-option="sub"].is-active
+) .custom-subscription-helper {
+  display: block;
+}
+{% endstyle %}
+<div class="custom-subscription-picker" data-custom-skio-picker>
+  <div class="custom-subscription-switch">
+    <button
+      type="button"
+      class="custom-subscription-switch__option is-active"
+      data-custom-skio-option="sub"
+      aria-pressed="true"
+    >
+      Subscribe &amp; Save 10%
+    </button>
+
+    <button
+      type="button"
+      class="custom-subscription-switch__option"
+      data-custom-skio-option="onetime"
+      aria-pressed="false"
+    >
+      Single Purchase
+    </button>
+  </div>
+
+  <div class="custom-subscription-helper">
+    Save 10% • Ships Every Month • Free Shipping • Cancel Anytime
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function initCustomSkioPicker() {
+      const customPicker = document.querySelector('[data-custom-skio-picker]');
+      if (!customPicker) return;
+
+      const skioFieldset = document.querySelector('fieldset[skio-plan-picker]');
+      if (!skioFieldset) return;
+
+      const subInput = skioFieldset.querySelector('input[skio-selling-plan-group]');
+      const oneTimeInput = skioFieldset.querySelector('input[skio-one-time]');
+      const subOption = customPicker.querySelector('[data-custom-skio-option="sub"]');
+      const oneTimeOption = customPicker.querySelector('[data-custom-skio-option="onetime"]');
+
+      const subPriceEl = customPicker.querySelector('[data-custom-skio-sub-price]');
+      const oneTimePriceEl = customPicker.querySelector('[data-custom-skio-onetime-price]');
+
+      if (!subInput || !oneTimeInput || !subOption || !oneTimeOption) return;
+
+      function triggerNativeChange(el) {
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.click();
+      }
+
+      function setActive(type) {
+        const isSub = type === 'sub';
+
+            subOption.classList.toggle('is-active', isSub);
+            oneTimeOption.classList.toggle('is-active', !isSub);
+
+            subOption.setAttribute('aria-pressed', isSub ? 'true' : 'false');
+            oneTimeOption.setAttribute('aria-pressed', isSub ? 'false' : 'true');
+        }
+
+      function syncFromSkio() {
+        if (subInput.checked) {
+          setActive('sub');
+        } else {
+          setActive('onetime');
+        }
+
+        const liveSubPrice = skioFieldset.querySelector('[skio-subscription-price]');
+        const liveOneTimePrice = skioFieldset.querySelector('[skio-onetime-price]');
+
+        if (liveSubPrice && subPriceEl) {
+          subPriceEl.textContent = liveSubPrice.textContent.trim();
+        }
+
+        if (liveOneTimePrice && oneTimePriceEl) {
+          oneTimePriceEl.textContent = liveOneTimePrice.textContent.trim();
+        }
+      }
+
+      subOption.addEventListener('click', function () {
+        if (!subInput.checked) {
+          subInput.checked = true;
+          oneTimeInput.checked = false;
+          triggerNativeChange(subInput);
+        }
+        setActive('sub');
+      });
+
+      oneTimeOption.addEventListener('click', function () {
+        if (!oneTimeInput.checked) {
+          oneTimeInput.checked = true;
+          subInput.checked = false;
+          triggerNativeChange(oneTimeInput);
+        }
+        setActive('onetime');
+      });
+
+      subInput.addEventListener('change', syncFromSkio);
+      oneTimeInput.addEventListener('change', syncFromSkio);
+
+      const skioObserver = new MutationObserver(function () {
+        syncFromSkio();
+      });
+
+      skioObserver.observe(skioFieldset, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true
+      });
+
+      document.addEventListener('change', function (event) {
+        if (
+          event.target.matches('input[name="id"]') ||
+          event.target.matches('select[name="id"]') ||
+          event.target.matches('[name="options[]"]') ||
+          event.target.matches('input[type="radio"][name^="options"]')
+        ) {
+          setTimeout(syncFromSkio, 150);
+          setTimeout(syncFromSkio, 400);
+        }
+      });
+
+      syncFromSkio();
+    }
+
+    initCustomSkioPicker();
+  });
+</script>
+{% schema %}
+{
+    "name": "Rogue Subscription UI",
+    "presets": [
+        {
+            "name": "Rogue Subscription UI"
+        }
+    ]
+}
+{% endschema %}

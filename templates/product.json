@@ -226,6 +226,7 @@
                 "rogue_subscribe_save_8CMT7p": {
                   "type": "rogue-subscribe-save",
                   "name": "Rogue Subscribe",
+                  "disabled": true,
                   "settings": {},
                   "blocks": {}
                 },
@@ -233,7 +234,7 @@
                   "type": "shopify://apps/skio-subscriptions-yc-s20/blocks/app-block/de50f7a4-0bb0-4d4c-84e2-c03dce83436d",
                   "settings": {
                     "form_id": "BuyButtons-ProductForm-{{ section.id }}",
-                    "start_onetime": "true",
+                    "start_onetime": "false",
                     "onetime_first": "false",
                     "default_subscription": "",
                     "group_border_radius": 5,
@@ -248,6 +249,12 @@
                     "discount_suffix": "",
                     "discount_color": "#0fa573"
                   }
+                },
+                "rogue_subscription_CLkUrp": {
+                  "type": "rogue-subscription",
+                  "name": "Rogue Subscription UI",
+                  "settings": {},
+                  "blocks": {}
                 },
                 "buy_buttons_pxwGjR": {
                   "type": "buy-buttons",
@@ -291,6 +298,7 @@
                 "variant_picker_UtiEHB",
                 "rogue_subscribe_save_8CMT7p",
                 "skio_subscriptions_yc_s20_app_block_y7BgCr",
+                "rogue_subscription_CLkUrp",
                 "buy_buttons_pxwGjR"
               ]
             },
