@@ -411,6 +411,7 @@
                     object-fit: contain;
                     max-height: 100%;
                     max-width: 100%;
+                    padding:20px;
                 }
             </style>
             <canvas id="canvas" width="1920" height="1920" style=""></canvas>
@@ -440,7 +441,9 @@
                         stateMachines:'State Machine 1',
                         loop:true,
                         onLoad: function () {
-                        console.log('Rive file loaded');
+                            console.log('Rive file loaded');
+                            const hero_img = document.querySelector('.disappear-on-load');
+                            hero_img.style.display = 'none';
                             r.resizeDrawingSurfaceToCanvas();
                         },
                         onLoadError: function (err) {
@@ -450,14 +453,16 @@
                     console.log(r.stateMachineInputs('State Machine 1'));
                 });
             </script>
-                    {% comment %} <img
+                    <img
                         src="{{ section.settings.product_image | image_url: width: 1920 }}"
                         alt="{{ section.settings.product_image.alt | default: section.settings.heading | escape }}"
                         width="{{ section.settings.product_image.width }}"
                         height="{{ section.settings.product_image.height }}"
                         loading="eager"
                         fetchpriority="high"
-                    > {% endcomment %}
+                        style="position:absolute;"
+                        class="disappear-on-load"
+                    >
                 </div>
             {% endif %}
         </div>
