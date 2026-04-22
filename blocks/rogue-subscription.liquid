@@ -161,6 +161,13 @@
 ) .custom-subscription-helper {
   display: block;
 }
+.check-sub {
+  display: none;
+}
+
+.custom-subscription-switch__option.is-active .check-sub {
+  display: inline-flex;
+}
 {% endstyle %}
 <div class="custom-subscription-picker" data-custom-skio-picker>
   <div class="custom-subscription-switch">
@@ -170,7 +177,19 @@
       data-custom-skio-option="sub"
       aria-pressed="true"
     >
-      Subscribe &amp; Save 10%
+      <span style="display:flex;align-items:center;justify-content:center;width:100%;gap:5px">
+        <span class="check-sub">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="path-1-outside-1_2021_342" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20" fill="black">
+          <rect fill="white" width="20" height="20"/>
+          <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1ZM8.60254 12.4492L6.73242 10.5791L5.31836 11.9932L7.88965 14.5645C8.2776 14.9524 8.90631 14.9546 9.29785 14.5703L15.8428 8.14258L15.1426 7.42871L14.4414 6.71484L8.60254 12.4492Z"/>
+          </mask>
+          <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1ZM8.60254 12.4492L6.73242 10.5791L5.31836 11.9932L7.88965 14.5645C8.2776 14.9524 8.90631 14.9546 9.29785 14.5703L15.8428 8.14258L15.1426 7.42871L14.4414 6.71484L8.60254 12.4492Z" fill="white"/>
+          <path d="M19 10H20H19ZM1 10H0H1ZM8.60254 12.4492L7.89543 13.1563L8.59618 13.8571L9.30323 13.1627L8.60254 12.4492ZM6.73242 10.5791L7.43953 9.87199L6.73242 9.16489L6.02532 9.87199L6.73242 10.5791ZM5.31836 11.9932L4.61125 11.2861L3.90415 11.9932L4.61125 12.7003L5.31836 11.9932ZM7.88965 14.5645L8.59677 13.8574L8.59676 13.8573L7.88965 14.5645ZM9.29785 14.5703L9.9983 15.284L9.99854 15.2838L9.29785 14.5703ZM15.8428 8.14258L16.5435 8.85604L17.2565 8.1558L16.5567 7.44234L15.8428 8.14258ZM15.1426 7.42871L15.8565 6.72847L15.856 6.72798L15.1426 7.42871ZM14.4414 6.71484L15.1548 6.01411L14.4541 5.30073L13.7407 6.00138L14.4414 6.71484ZM10 1V2C14.4183 2 18 5.58172 18 10H19H20C20 4.47715 15.5228 0 10 0V1ZM19 10H18C18 14.4183 14.4183 18 10 18V19V20C15.5228 20 20 15.5228 20 10H19ZM10 19V18C5.58172 18 2 14.4183 2 10H1H0C0 15.5228 4.47715 20 10 20V19ZM1 10H2C2 5.58172 5.58172 2 10 2V1V0C4.47715 0 0 4.47715 0 10H1ZM8.60254 12.4492L9.30965 11.7421L7.43953 9.87199L6.73242 10.5791L6.02532 11.2862L7.89543 13.1563L8.60254 12.4492ZM6.73242 10.5791L6.02532 9.87199L4.61125 11.2861L5.31836 11.9932L6.02547 12.7003L7.43953 11.2862L6.73242 10.5791ZM5.31836 11.9932L4.61125 12.7003L7.18254 15.2716L7.88965 14.5645L8.59676 13.8573L6.02547 11.2861L5.31836 11.9932ZM7.88965 14.5645L7.18253 15.2715C7.95942 16.0485 9.21621 16.0516 9.9983 15.284L9.29785 14.5703L8.5974 13.8566L8.59677 13.8574L7.88965 14.5645ZM9.29785 14.5703L9.99854 15.2838L16.5435 8.85604L15.8428 8.14258L15.1421 7.42911L8.59716 13.8568L9.29785 14.5703ZM15.8428 8.14258L16.5567 7.44234L15.8565 6.72847L15.1426 7.42871L14.4287 8.12895L15.1289 8.84282L15.8428 8.14258ZM15.1426 7.42871L15.856 6.72798L15.1548 6.01411L14.4414 6.71484L13.728 7.41558L14.4292 8.12945L15.1426 7.42871ZM14.4414 6.71484L13.7407 6.00138L7.90184 11.7358L8.60254 12.4492L9.30323 13.1627L15.1421 7.42831L14.4414 6.71484Z" fill="black" mask="url(#path-1-outside-1_2021_342)"/>
+        </svg>
+        </span>
+
+        Subscribe &amp; Save 10%</span>
     </button>
 
     <button
@@ -178,8 +197,18 @@
       class="custom-subscription-switch__option"
       data-custom-skio-option="onetime"
       aria-pressed="false"
-    >
-      Single Purchase
+    ><span style="display:flex;align-items:center;justify-content:center;width:100%;gap:5px">
+        <span class="check-sub">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="path-1-outside-1_2021_342" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20" fill="black">
+          <rect fill="white" width="20" height="20"/>
+          <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1ZM8.60254 12.4492L6.73242 10.5791L5.31836 11.9932L7.88965 14.5645C8.2776 14.9524 8.90631 14.9546 9.29785 14.5703L15.8428 8.14258L15.1426 7.42871L14.4414 6.71484L8.60254 12.4492Z"/>
+          </mask>
+          <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1ZM8.60254 12.4492L6.73242 10.5791L5.31836 11.9932L7.88965 14.5645C8.2776 14.9524 8.90631 14.9546 9.29785 14.5703L15.8428 8.14258L15.1426 7.42871L14.4414 6.71484L8.60254 12.4492Z" fill="white"/>
+          <path d="M19 10H20H19ZM1 10H0H1ZM8.60254 12.4492L7.89543 13.1563L8.59618 13.8571L9.30323 13.1627L8.60254 12.4492ZM6.73242 10.5791L7.43953 9.87199L6.73242 9.16489L6.02532 9.87199L6.73242 10.5791ZM5.31836 11.9932L4.61125 11.2861L3.90415 11.9932L4.61125 12.7003L5.31836 11.9932ZM7.88965 14.5645L8.59677 13.8574L8.59676 13.8573L7.88965 14.5645ZM9.29785 14.5703L9.9983 15.284L9.99854 15.2838L9.29785 14.5703ZM15.8428 8.14258L16.5435 8.85604L17.2565 8.1558L16.5567 7.44234L15.8428 8.14258ZM15.1426 7.42871L15.8565 6.72847L15.856 6.72798L15.1426 7.42871ZM14.4414 6.71484L15.1548 6.01411L14.4541 5.30073L13.7407 6.00138L14.4414 6.71484ZM10 1V2C14.4183 2 18 5.58172 18 10H19H20C20 4.47715 15.5228 0 10 0V1ZM19 10H18C18 14.4183 14.4183 18 10 18V19V20C15.5228 20 20 15.5228 20 10H19ZM10 19V18C5.58172 18 2 14.4183 2 10H1H0C0 15.5228 4.47715 20 10 20V19ZM1 10H2C2 5.58172 5.58172 2 10 2V1V0C4.47715 0 0 4.47715 0 10H1ZM8.60254 12.4492L9.30965 11.7421L7.43953 9.87199L6.73242 10.5791L6.02532 11.2862L7.89543 13.1563L8.60254 12.4492ZM6.73242 10.5791L6.02532 9.87199L4.61125 11.2861L5.31836 11.9932L6.02547 12.7003L7.43953 11.2862L6.73242 10.5791ZM5.31836 11.9932L4.61125 12.7003L7.18254 15.2716L7.88965 14.5645L8.59676 13.8573L6.02547 11.2861L5.31836 11.9932ZM7.88965 14.5645L7.18253 15.2715C7.95942 16.0485 9.21621 16.0516 9.9983 15.284L9.29785 14.5703L8.5974 13.8566L8.59677 13.8574L7.88965 14.5645ZM9.29785 14.5703L9.99854 15.2838L16.5435 8.85604L15.8428 8.14258L15.1421 7.42911L8.59716 13.8568L9.29785 14.5703ZM15.8428 8.14258L16.5567 7.44234L15.8565 6.72847L15.1426 7.42871L14.4287 8.12895L15.1289 8.84282L15.8428 8.14258ZM15.1426 7.42871L15.856 6.72798L15.1548 6.01411L14.4414 6.71484L13.728 7.41558L14.4292 8.12945L15.1426 7.42871ZM14.4414 6.71484L13.7407 6.00138L7.90184 11.7358L8.60254 12.4492L9.30323 13.1627L15.1421 7.42831L14.4414 6.71484Z" fill="black" mask="url(#path-1-outside-1_2021_342)"/>
+        </svg>
+        </span>
+      Single Purchase</span>
     </button>
   </div>
 
@@ -204,6 +233,10 @@
       const subPriceEl = customPicker.querySelector('[data-custom-skio-sub-price]');
       const oneTimePriceEl = customPicker.querySelector('[data-custom-skio-onetime-price]');
 
+      // ATC button price elements
+      const atcPriceEl = document.querySelector('add-to-cart-component .price');
+      const atcCompareEl = document.querySelector('add-to-cart-component .compare-at-price');
+
       if (!subInput || !oneTimeInput || !subOption || !oneTimeOption) return;
 
       function triggerNativeChange(el) {
@@ -215,12 +248,55 @@
       function setActive(type) {
         const isSub = type === 'sub';
 
-            subOption.classList.toggle('is-active', isSub);
-            oneTimeOption.classList.toggle('is-active', !isSub);
+        subOption.classList.toggle('is-active', isSub);
+        oneTimeOption.classList.toggle('is-active', !isSub);
 
-            subOption.setAttribute('aria-pressed', isSub ? 'true' : 'false');
-            oneTimeOption.setAttribute('aria-pressed', isSub ? 'false' : 'true');
+        subOption.setAttribute('aria-pressed', isSub ? 'true' : 'false');
+        oneTimeOption.setAttribute('aria-pressed', isSub ? 'false' : 'true');
+      }
+
+      function updateAtcPrices() {
+        if (!atcPriceEl) return;
+
+        const liveSubPrice = skioFieldset.querySelector('[skio-subscription-price]');
+        const liveOneTimePrice = skioFieldset.querySelector('[skio-onetime-price]');
+        const liveComparePrice =
+          skioFieldset.querySelector('[skio-compare-at-price]') ||
+          skioFieldset.querySelector('[skio-regular-price]');
+
+        if (subInput.checked) {
+          if (liveSubPrice) {
+            atcPriceEl.textContent = liveSubPrice.textContent.trim();
+          }
+
+          if (atcCompareEl) {
+            if (liveOneTimePrice) {
+              atcCompareEl.textContent = liveOneTimePrice.textContent.trim();
+              atcCompareEl.style.display = '';
+            } else if (liveComparePrice) {
+              atcCompareEl.textContent = liveComparePrice.textContent.trim();
+              atcCompareEl.style.display = '';
+            } else {
+              atcCompareEl.textContent = '';
+              atcCompareEl.style.display = 'none';
+            }
+          }
+        } else {
+          if (liveOneTimePrice) {
+            atcPriceEl.textContent = liveOneTimePrice.textContent.trim();
+          }
+
+          if (atcCompareEl) {
+            if (liveComparePrice) {
+              atcCompareEl.textContent = liveComparePrice.textContent.trim();
+              atcCompareEl.style.display = '';
+            } else {
+              atcCompareEl.textContent = '';
+              atcCompareEl.style.display = 'none';
+            }
+          }
         }
+      }
 
       function syncFromSkio() {
         if (subInput.checked) {
@@ -239,6 +315,8 @@
         if (liveOneTimePrice && oneTimePriceEl) {
           oneTimePriceEl.textContent = liveOneTimePrice.textContent.trim();
         }
+
+        updateAtcPrices();
       }
 
       subOption.addEventListener('click', function () {
@@ -248,6 +326,7 @@
           triggerNativeChange(subInput);
         }
         setActive('sub');
+        setTimeout(syncFromSkio, 50);
       });
 
       oneTimeOption.addEventListener('click', function () {
@@ -257,6 +336,7 @@
           triggerNativeChange(oneTimeInput);
         }
         setActive('onetime');
+        setTimeout(syncFromSkio, 50);
       });
 
       subInput.addEventListener('change', syncFromSkio);
