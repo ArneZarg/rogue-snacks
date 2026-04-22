@@ -2475,7 +2475,7 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 }
 
 .variant-option__button-label:has(:checked):hover {
-  border-color: var(--color-selected-variant-hover-border);
+  /* border-color: var(--color-selected-variant-hover-border); */
   color: var(--color-selected-variant-hover-text);
 
   .variant-option__button-label__pill {
