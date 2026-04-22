@@ -2448,12 +2448,10 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 }
 
 .variant-option__button-label:has(:focus-visible) {
-  --variant-picker-stroke-color: var(--color-foreground);
-
   background: rgba(255, 255, 255, 0.15);
   border: 4px solid rgba(255, 255, 255, 0.2);
-  outline: var(--focus-outline-width) solid var(--color-foreground);
-  outline-offset: var(--focus-outline-offset);
+  /* outline: var(--focus-outline-width) solid var(--color-foreground);
+  outline-offset: var(--focus-outline-offset); */
 }
 
 .variant-option__button-label--has-swatch {
@@ -2523,8 +2521,8 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 }
 
 .variant-option__button-label:has([data-option-available='false']):has(:checked) {
-  background-color: inherit;
-  color: rgb(var(--color-variant-text-rgb) / var(--opacity-60));
+  background: rgba(255, 255, 255, 0.15);
+  border: 4px solid rgba(255, 255, 255, 0.2);
 }
 
 .variant-option__button-label input {
