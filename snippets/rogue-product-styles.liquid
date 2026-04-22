@@ -76,16 +76,17 @@
     }
     label.variant-option__button-label{
         border-radius: 66px;
-        border: 1px solid #FFF !important;
-        background: rgba(255, 255, 255, 0.15);
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 1);
+        color: #000;
     }
     .variant-option__button-label:has(input:checked) {
-  background: #fff !important;
-  color: #000 !important;
+        background: rgba(255, 255, 255, 0.15);
+        border: 4px solid rgba(255, 255, 255, 0.2);
 }
 .variant-option__button-label input:checked + .variant-option__button-label__pill,
 .variant-option__button-label input:checked ~ .variant-option__button-label__text {
-  color: #000;
+  color: #fff;
 }
 
 .variant-option__button-label input:checked {
@@ -93,18 +94,14 @@
 }
 
 .variant-option__button-label input:checked ~ * {
-  color: #000;
+  color: #fff;
 }
 
-.variant-option__button-label input:checked {
-  accent-color: #000;
-}
 /* selected state */
 .variant-option__button-label:has(input:checked),
 .variant-option__button-label[data-current-checked="true"] {
-  background: #fff !important;
-  color: #000 !important;
-  border-color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border: 4px solid rgba(255, 255, 255, 0.2);
 }
 .variant-option__button-label__pill {
   display: none !important;
@@ -151,7 +148,7 @@ letter-spacing: -0.12px;
     
 }
 span.variant-option__button-label__text{
-        color:#fff;
+        color:#000;
     }
 
 span.variant-option__button-label__text{
