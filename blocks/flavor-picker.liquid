@@ -1,40 +1,76 @@
 {% style %}
   .rogue-flavor-picker .flavor-links{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:10px;
+    row-gap:14px;
     margin-bottom:8px;
   }
   @media(max-width:1200px){
     .rogue-flavor-picker .flavor-links{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(3,1fr);
+        column-gap: 15px;
+        row-gap: 17px;
     }
-    .rogue-flavor-picker .flavor-links > *:last-child:nth-child(odd){
+    /* .rogue-flavor-picker .flavor-links > *:last-child:nth-child(odd){
         grid-column:1 / -1;
-    }
+    } */
     
   }
   
   .rogue-flavor-picker .flavor-link{
-    width:100%;
+    width: 100%;
     display: flex;
     align-items: center;
     border-radius: 7px;
-    border: 1px solid #FFF;
-    background: rgba(255, 255, 255, 0.15);
-    padding:7px;
-    gap:7px;
-    span{
-        color:#fff;
-    }
-  }
-  .rogue-flavor-picker .flavor-link.selected-flav{
-    
+    border: 4px solid rgba(255, 255, 255, 0);
+    padding: 7px;
+    gap: 7px;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
     background:#fff;
     span{
         color:#000;
     }
   }
+  .rogue-flavor-picker .flavor-link.selected-flav{
+    background: rgba(255, 255, 255, 0.15);
+    border: 4px solid rgba(255, 255, 255, 0);
+    .link-title{
+        color:#fff;
+    }
+  }
+  .rogue-flavor-picker .flavor-link[data-flavor="10031050490176"].selected-flav{
+    border:4px solid transparent;
+  }
+  .rogue-flavor-picker .flavor-link[data-flavor="10031050490176"] {
+    position: relative;
+    border-radius: 7px;
+    border:4px solid transparent;
+    }
+
+    .rogue-flavor-picker .flavor-link[data-flavor="10031050490176"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 4px; /* controls border thickness */
+    border-radius: 7px;
+    background: linear-gradient(150deg, #FFAE00 1.93%, #F00 43.27%, #7960F1 70.68%, #2FA1DC 98.55%);
+    
+    /* this creates the "border only" effect */
+    -webkit-mask: 
+        linear-gradient(#000 0 0) content-box, 
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+        width: 100%;
+    height: 100%;
+    top: -4px;
+    left: -4px;
+    pointer-events: none;
+    z-index: 3;
+    }
   @media(min-width:1200px){
     .rogue-flavor-picker .flavor-link.selected-flav{
         .link-title{
@@ -49,11 +85,11 @@
     }
   }
   .rogue-flavor-picker .link-title{
-    font-size:13px;
+    font-size:14px;
     line-height: 16px;
   }
   .rogue-flavor-picker .flavor-link img{
-    width:21px;
+    width:40px;
   }
   .rogue-flavor-picker .flavor-picker-title{
     color: #FFF;
@@ -72,7 +108,7 @@
     </div>
     <div class="flavor-links">
         {% for flavor in block.settings.flavor_collection.products %}
-            <a href="{{ flavor.url }}" class="flavor-link {% if flavor.id == closest.product.id  %}selected-flav{% endif %}" title="{{ flavor.title }}">
+            <a data-flavor="{{ flavor.id }}" href="{{ flavor.url }}" class="flavor-link {% if flavor.id == closest.product.id  %}selected-flav{% endif %}" title="{{ flavor.title }}">
                 {% if flavor.metafields.custom.flavor_picker_thumbnail %}
                     <img src="{{ flavor.metafields.custom.flavor_picker_thumbnail | image_url }}">
                 {% else %}
