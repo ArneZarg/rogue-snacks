@@ -2448,10 +2448,11 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 }
 
 .variant-option__button-label:has(:focus-visible) {
-  background: rgba(255, 255, 255, 0.15);
-  border: 4px solid rgba(255, 255, 255, 0.2);
-  /* outline: var(--focus-outline-width) solid var(--color-foreground);
-  outline-offset: var(--focus-outline-offset); */
+  --variant-picker-stroke-color: var(--color-foreground);
+
+  border-color: var(--color-foreground);
+  outline: var(--focus-outline-width) solid var(--color-foreground);
+  outline-offset: var(--focus-outline-offset);
 }
 
 .variant-option__button-label--has-swatch {
@@ -2469,13 +2470,13 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 }
 
 .variant-option__button-label:has(:checked) {
-  background: rgba(255, 255, 255, 0.15);
-  border: 4px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-selected-variant-text);
+  border-color: var(--color-selected-variant-border);
 }
 
 .variant-option__button-label:has(:checked):hover {
-  background: rgba(255, 255, 255, 0.15);
-  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-color: var(--color-selected-variant-hover-border);
+  color: var(--color-selected-variant-hover-text);
 
   .variant-option__button-label__pill {
     background-color: var(--color-selected-variant-hover-background);
@@ -2513,16 +2514,16 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
     content: '';
     position: absolute;
     inset: calc(-1 * var(--focus-outline-offset));
-    background: rgba(255, 255, 255, 0.15);
-    border: 4px solid rgba(255, 255, 255, 0.2);
+    border: var(--focus-outline);
     border-radius: var(--focus-outline-radius, 50%);
+    background-color: transparent;
     display: inherit;
   }
 }
 
 .variant-option__button-label:has([data-option-available='false']):has(:checked) {
-  background: rgba(255, 255, 255, 0.15);
-  border: 4px solid rgba(255, 255, 255, 0.2);
+  background-color: inherit;
+  color: rgb(var(--color-variant-text-rgb) / var(--opacity-60));
 }
 
 .variant-option__button-label input {
