@@ -15,28 +15,28 @@
         "badge_nDmKMh": {
           "type": "badge",
           "settings": {
-            "icon": "shopify://shop_images/Layer_1_af99ba29-ba12-40b7-8412-cdb998a127c8.png",
+            "icon": "shopify://shop_images/ActiveProbiotic-icon.svg",
             "label": "Badge"
           }
         },
         "badge_AmpJNc": {
           "type": "badge",
           "settings": {
-            "icon": "shopify://shop_images/Group_1_3896912f-3c26-467f-a74b-536efd99e858.png",
+            "icon": "shopify://shop_images/NoArtificial-icon.svg",
             "label": "Badge"
           }
         },
         "badge_zbhyUz": {
           "type": "badge",
           "settings": {
-            "icon": "shopify://shop_images/Layer_1_1_fdb1bb0b-affe-4dd0-9931-be73736dd381.png",
+            "icon": "shopify://shop_images/HighProtein-icon.svg",
             "label": "Badge"
           }
         },
         "badge_DeBR9y": {
           "type": "badge",
           "settings": {
-            "icon": "shopify://shop_images/Layer_1_2_780e1bba-ea87-42f7-81d2-7ddc78d0eb71.png",
+            "icon": "shopify://shop_images/NoSeedOils-icon.svg",
             "label": "Badge"
           }
         }
