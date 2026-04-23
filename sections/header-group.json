@@ -18,7 +18,7 @@
           "type": "_announcement",
           "settings": {
             "text": "Subscribe & Save with 10% Off - Shop Now",
-            "link": "",
+            "link": "shopify://products/bundle-page",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
             "weight": "",
@@ -32,7 +32,7 @@
         "announcement_BxgCk9"
       ],
       "custom_css": [
-        ".announcement-bar {background: #6E00FF;background: linear-gradient(90deg,rgba(110, 0, 255, 1) 0%, rgba(0, 119, 255, 1) 100%);}"
+        ".announcement-bar {background: #6e00ff; background: linear-gradient( 90deg, rgba(110, 0, 255, 1) 0%, rgba(0, 119, 255, 1) 100% );}"
       ],
       "name": "t:names.announcement_bar",
       "settings": {
