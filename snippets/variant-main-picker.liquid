@@ -118,8 +118,6 @@
                   {% liquid
                     assign featured_media = product_option_value.variant.featured_media
 
-                    # If the variant has no featured media, and we have a combined listing product, then fall back to
-                    # using the featured media of the child product that is linked to this option value.
                     if featured_media == blank and product_option_value.product_url
                       assign featured_media = product_option_value.variant.product.featured_media
                     endif
@@ -140,6 +138,8 @@
                   <span
                     class="variant-option__button-label__text"
                     data-key="variant-option-text"
+                    data-option-label="{{ product_option_value | escape }}"
+                    data-price="{{ product_option_value.variant.price }}"
                   >
                     {{- product_option_value | escape -}}
                     {% if product_option_value.variant %}
@@ -159,16 +159,10 @@
             {% endif %}
           </fieldset>
         {%- elsif block_settings.variant_style == 'dropdowns' -%}
-          {%
-            # There is an opportunity to build a custom select component that will allow us to style the select element further (animation for dropdown, swatches shown in the dropdown options, etc)
-            # It's too bad as it mean rebuilding baked in behaviours but I think we've already done that for the locale selectors
-            # in dawn. So it might mean more time spent in setting it up but worth it for future updates/styling.
-          %}
           {% liquid
             assign property_being_updated = false
             if settings.variant_swatch_width != settings.variant_swatch_height
               assign property_being_updated = true
-              # (original width / original height) x new height (20px at the moment) = new width
               assign new_width = settings.variant_swatch_width | times: 1.0 | divided_by: settings.variant_swatch_height | times: 20
             endif
           %}
@@ -228,7 +222,6 @@
 {% endunless %}
 
 {% stylesheet %}
-  /* Variant picker container styles - unique to main variant picker */
   .variant-picker {
     width: 100%;
   }
@@ -242,7 +235,6 @@
     padding-inline-start: max(4px, var(--padding-inline-start));
   }
 
-  /* Custom badge styling */
   .variant-option__button-label {
     position: relative;
     overflow: visible;
@@ -269,7 +261,6 @@
     pointer-events: none;
   }
 
-  /* Dropdown variant option styles */
   .variant-option__select-wrapper {
     display: flex;
     position: relative;
@@ -325,12 +316,11 @@
     transform: translateY(-50%);
   }
 
-  /* Variant picker alignment modifiers */
   .variant-picker--center,
   .variant-picker--center .variant-option {
     text-align: center;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
     width: 100%;
   }
 
@@ -339,4 +329,4 @@
     text-align: right;
     justify-content: right;
   }
-{% endstylesheet %} 
+{% endstylesheet %}
