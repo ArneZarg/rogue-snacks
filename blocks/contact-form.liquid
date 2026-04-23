@@ -1,9 +1,3 @@
-
-
-{% capture submit_button %}
-  {% content_for 'block', type: 'contact-form-submit-button', id: 'submit-button' %}
-{% endcapture %}
-
 <div
   class="
     contact-form
@@ -17,6 +11,7 @@
   {{ block.shopify_attributes }}
 >
   {% assign form_id = block.id | default: section.id | prepend: 'ContactForm-' %}
+
   {%- form 'contact', id: form_id, class: 'contact-form__form' -%}
     <input
       name="contact[id]"
@@ -30,10 +25,8 @@
         tabindex="-1"
         autofocus
       >
-        {{- 'icon-error.svg' | inline_asset_content -}}
-
-        {{- form.errors.translated_fields.email | capitalize }}
-        {{ form.errors.messages.email -}}
+        {{ 'icon-error.svg' | inline_asset_content }}
+        {{ form.errors | default_errors }}
       </div>
     {%- endif -%}
 
@@ -43,21 +36,18 @@
         tabindex="-1"
         autofocus
       >
-        {{- 'icon-checkmark.svg' | inline_asset_content -}}
-        {{- 'blocks.contact_form.post_success' | t -}}
+        {{ 'icon-checkmark.svg' | inline_asset_content }}
+        {{ 'blocks.contact_form.post_success' | t }}
       </div>
     {%- endif -%}
 
     <div class="contact-form__form-row">
-      <label
-        class="visually-hidden"
-        for="ContactForm-name"
-      >
-        {{- 'blocks.contact_form.name' | t -}}
+      <label class="visually-hidden" for="{{ form_id }}-name">
+        {{ 'blocks.contact_form.name' | t }}
       </label>
       <input
         type="text"
-        id="ContactForm-name"
+        id="{{ form_id }}-name"
         class="contact-form__input"
         autocomplete="name"
         name="contact[name]"
@@ -65,16 +55,13 @@
         placeholder="{{ 'blocks.contact_form.name' | t }}"
       >
 
-      <label
-        class="visually-hidden"
-        for="ContactForm-email"
-      >
-        {{- 'blocks.contact_form.email' | t -}}
-        <span aria-hidden="true">*</span></label
-      >
+      <label class="visually-hidden" for="{{ form_id }}-email">
+        {{ 'blocks.contact_form.email' | t }}
+        <span aria-hidden="true">*</span>
+      </label>
       <input
         type="email"
-        id="ContactForm-email"
+        id="{{ form_id }}-email"
         class="contact-form__input"
         autocomplete="email"
         name="contact[email]"
@@ -82,48 +69,46 @@
         autocapitalize="off"
         value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
         aria-required="true"
+        required
         {% if form.errors contains 'email' and form.id == form_id %}
           aria-invalid="true"
-          aria-describedby="ContactForm-email-error"
+          aria-describedby="{{ form_id }}-email-error"
         {% endif %}
         placeholder="{{ 'blocks.contact_form.email' | t }}"
       >
     </div>
 
-    <label
-      class="visually-hidden"
-      for="ContactForm-phone"
-    >
-      {{- 'blocks.contact_form.phone' | t -}}
+    <label class="visually-hidden" for="{{ form_id }}-phone">
+      {{ 'blocks.contact_form.phone' | t }}
     </label>
     <input
       type="tel"
-      id="ContactForm-phone"
+      id="{{ form_id }}-phone"
       class="contact-form__input"
       autocomplete="tel"
       name="contact[phone]"
-      pattern="[0-9\-]*"
+      pattern="[0-9\-+\s()]*"
       value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
       placeholder="{{ 'blocks.contact_form.phone' | t }}"
     >
 
-    <label
-      class="visually-hidden"
-      for="ContactForm-body"
-    >
-      {{- 'blocks.contact_form.comment' | t -}}
+    <label class="visually-hidden" for="{{ form_id }}-body">
+      {{ 'blocks.contact_form.comment' | t }}
     </label>
     <textarea
       rows="10"
-      id="ContactForm-body"
+      id="{{ form_id }}-body"
       class="contact-form__input contact-form__input--textarea"
       name="contact[body]"
       placeholder="{{ 'blocks.contact_form.comment' | t }}"
-    >
-      {{- form.body -}}
-    </textarea>
+    >{{- form.body -}}</textarea>
 
-    {{ submit_button }}
+    <button
+      type="submit"
+      class="button submit-button"
+    >
+      Send
+    </button>
   {%- endform -%}
 </div>
 
@@ -138,8 +123,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-md);
+  }
 
-    @media screen and (min-width: 750px) {
+  @media screen and (min-width: 750px) {
+    .contact-form__form-row {
       flex-direction: row;
       align-items: center;
     }
@@ -167,6 +154,10 @@
     display: flex;
     align-items: center;
     gap: var(--gap-xs);
+  }
+
+  .submit-button {
+    min-width: max-content;
   }
 {% endstylesheet %}
 
