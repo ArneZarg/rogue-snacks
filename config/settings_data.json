@@ -87,17 +87,17 @@
         "disabled": false,
         "settings": {}
       },
-      "14952540001915115444": {
-        "type": "shopify://apps/upcart-cart-drawer/blocks/app-embed/af3da5fb-f5f7-40ec-8273-41bf50059d4b",
-        "disabled": true,
-        "settings": {}
-      },
       "10605408327587305396": {
         "type": "shopify://apps/eg-auto-add-to-cart/blocks/app-embed/0f7d4f74-1e89-4820-aec4-6564d7e535d2",
         "disabled": false,
         "settings": {
           "version": "v3"
         }
+      },
+      "14952540001915115444": {
+        "type": "shopify://apps/upcart-cart-drawer/blocks/app-embed/af3da5fb-f5f7-40ec-8273-41bf50059d4b",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
