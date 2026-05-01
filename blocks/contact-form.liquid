@@ -114,7 +114,7 @@
     <div
       class="contact-form__submission"
       tabindex="-1"
-      {% if is_success_state %}autofocus{% else %}hidden{% endif %}
+      {% if is_success_state %}{% else %}hidden{% endif %}
     >
       {%- if block.settings.success_image != blank -%}
         {{
