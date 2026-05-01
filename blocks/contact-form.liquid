@@ -16,6 +16,11 @@
     {%- assign is_success_state = false -%}
     {%- if form.posted_successfully? -%}
       {%- assign is_success_state = true -%}
+
+     <style>
+    #MainContent[data-template="page.contact"] h1 { display: none; }
+  </style>
+   
     {%- endif -%}
 
     <input
