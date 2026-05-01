@@ -14,7 +14,7 @@
 
   {%- form 'contact', id: form_id, class: 'contact-form__form' -%}
     {%- assign is_success_state = false -%}
-    {%- if form.posted_successfully? and form.id == form_id -%}
+    {%- if form.posted_successfully? -%}
       {%- assign is_success_state = true -%}
     {%- endif -%}
 
