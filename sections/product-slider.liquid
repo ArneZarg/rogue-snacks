@@ -48,12 +48,15 @@
     .{{ section.id }} .accent-img.desk-accent{
         display:none;
     }
-    .{{ section.id }} .product-slider-arrows{
-        display:none;
-    }
     .{{ section.id }} .rogue-button-prev,
     .{{ section.id }} .rogue-button-next{
         cursor:pointer;
+    }
+    .{{ section.id }} .product-slider-container{
+        position:relative;
+    }
+    .{{ section.id }} .product-slider-side-arrow{
+        display:none;
     }
 
     .{{ section.id }} .full-width-slider-headline {
@@ -77,8 +80,6 @@
         .{{ section.id }} .product-slider-text{
             padding-bottom:50px;
             max-width:unset;
-            display: flex;
-            justify-content: space-between;
         }
         .{{ section.id }} .accent-img{
             margin:unset;
@@ -91,13 +92,27 @@
             top: -35px;
             width: 110px;
         }
-        .{{ section.id }} .product-slider-arrows{
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
         .{{ section.id }} .full-width-slider {
             padding-left:90px;
+        }
+        .{{ section.id }} .product-slider-side-arrow{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            z-index:2;
+        }
+        .{{ section.id }} .product-slider-side-arrow.product-slider-side-arrow-prev{
+            left:0;
+        }
+        .{{ section.id }} .product-slider-side-arrow.product-slider-side-arrow-next{
+            right:0;
+        }
+        .{{ section.id }} .product-slider-side-arrow.swiper-button-disabled{
+            opacity:0.4;
+            pointer-events:none;
         }
     }
     @media (min-width: 750px) and (max-width: 1010px) {
@@ -146,24 +161,24 @@
                 </h2>
                 <p>{{ section.settings.subtitle }}</p>
             </div>
-            <div class="product-slider-arrows">
-                <div class="rogue-button-prev">
-                    {% render 'arrow-prev' %}
-                </div>
-                <div class="rogue-button-next">
-                    {% render 'arrow-next' %}
-                </div>
-            </div>
         </div>
     </div>
     <div class="full-width-slider">
-        <div class="swiper product-slider">
-            <div class="swiper-wrapper">
-                {% for block in section.blocks %}
-                    <div class="swiper-slide">
-                        {% render 'rogue-product-card' product:block.settings.product, card_image:block.settings.product_image, card_background:block.settings.card_background %}
-                    </div>
-                {% endfor %}
+        <div class="product-slider-container">
+            <div class="rogue-button-prev product-slider-side-arrow product-slider-side-arrow-prev" aria-label="Previous">
+                {% render 'arrow-prev' %}
+            </div>
+            <div class="swiper product-slider">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                        <div class="swiper-slide">
+                            {% render 'rogue-product-card' product:block.settings.product, card_image:block.settings.product_image, card_background:block.settings.card_background %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="rogue-button-next product-slider-side-arrow product-slider-side-arrow-next" aria-label="Next">
+                {% render 'arrow-next' %}
             </div>
         </div>
     </div>
