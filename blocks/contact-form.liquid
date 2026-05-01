@@ -12,6 +12,11 @@
 >
   {% assign form_id = block.id | default: section.id | prepend: 'ContactForm-' %}
 
+  {%- assign is_success_state = false -%}
+  {%- if form.posted_successfully? and form.id == form_id -%}
+    {%- assign is_success_state = true -%}
+  {%- endif -%}
+
   {%- form 'contact', id: form_id, class: 'contact-form__form' -%}
     <input
       name="contact[id]"
@@ -19,98 +24,125 @@
       value="{{ form_id }}"
     >
 
-    {%- if form.errors and form.id == form_id -%}
-      <div
-        class="contact-form__error"
-        tabindex="-1"
-        autofocus
-      >
-        {{ 'icon-error.svg' | inline_asset_content }}
-        {{ form.errors | default_errors }}
-      </div>
-    {%- endif -%}
+    <div class="contact-form__fields"{% if is_success_state %} hidden{% endif %}>
+      {%- if form.errors and form.id == form_id -%}
+        <div
+          class="contact-form__error"
+          tabindex="-1"
+          autofocus
+        >
+          {{ 'icon-error.svg' | inline_asset_content }}
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
 
-    {%- if form.posted_successfully? and form.id == form_id -%}
-      <div
-        class="contact-form__success"
-        tabindex="-1"
-        autofocus
-      >
-        {{ 'icon-checkmark.svg' | inline_asset_content }}
-        {{ 'blocks.contact_form.post_success' | t }}
-      </div>
-    {%- endif -%}
+      <div class="contact-form__form-row">
+        <label class="visually-hidden" for="{{ form_id }}-name">
+          {{ 'blocks.contact_form.name' | t }}
+        </label>
+        <input
+          type="text"
+          id="{{ form_id }}-name"
+          class="contact-form__input"
+          autocomplete="name"
+          name="contact[name]"
+          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+          placeholder="{{ 'blocks.contact_form.name' | t }}"
+        >
 
-    <div class="contact-form__form-row">
-      <label class="visually-hidden" for="{{ form_id }}-name">
-        {{ 'blocks.contact_form.name' | t }}
+        <label class="visually-hidden" for="{{ form_id }}-email">
+          {{ 'blocks.contact_form.email' | t }}
+          <span aria-hidden="true">*</span>
+        </label>
+        <input
+          type="email"
+          id="{{ form_id }}-email"
+          class="contact-form__input"
+          autocomplete="email"
+          name="contact[email]"
+          spellcheck="false"
+          autocapitalize="off"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          aria-required="true"
+          required
+          {% if form.errors contains 'email' and form.id == form_id %}
+            aria-invalid="true"
+            aria-describedby="{{ form_id }}-email-error"
+          {% endif %}
+          placeholder="{{ 'blocks.contact_form.email' | t }}"
+        >
+      </div>
+
+      <label class="visually-hidden" for="{{ form_id }}-phone">
+        {{ 'blocks.contact_form.phone' | t }}
       </label>
       <input
-        type="text"
-        id="{{ form_id }}-name"
+        type="tel"
+        id="{{ form_id }}-phone"
         class="contact-form__input"
-        autocomplete="name"
-        name="contact[name]"
-        value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-        placeholder="{{ 'blocks.contact_form.name' | t }}"
+        autocomplete="tel"
+        name="contact[phone]"
+        pattern="[0-9\-+\s()]*"
+        value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        placeholder="{{ 'blocks.contact_form.phone' | t }}"
       >
 
-      <label class="visually-hidden" for="{{ form_id }}-email">
-        {{ 'blocks.contact_form.email' | t }}
-        <span aria-hidden="true">*</span>
+      <label class="visually-hidden" for="{{ form_id }}-body">
+        {{ 'blocks.contact_form.comment' | t }}
       </label>
-      <input
-        type="email"
-        id="{{ form_id }}-email"
-        class="contact-form__input"
-        autocomplete="email"
-        name="contact[email]"
-        spellcheck="false"
-        autocapitalize="off"
-        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-        aria-required="true"
-        required
-        {% if form.errors contains 'email' and form.id == form_id %}
-          aria-invalid="true"
-          aria-describedby="{{ form_id }}-email-error"
-        {% endif %}
-        placeholder="{{ 'blocks.contact_form.email' | t }}"
+      <textarea
+        rows="10"
+        id="{{ form_id }}-body"
+        class="contact-form__input contact-form__input--textarea"
+        name="contact[body]"
+        placeholder="{{ 'blocks.contact_form.comment' | t }}"
+      >{{- form.body -}}</textarea>
+
+      <button
+        type="submit"
+        class="button submit-button"
       >
+        Send
+      </button>
     </div>
 
-    <label class="visually-hidden" for="{{ form_id }}-phone">
-      {{ 'blocks.contact_form.phone' | t }}
-    </label>
-    <input
-      type="tel"
-      id="{{ form_id }}-phone"
-      class="contact-form__input"
-      autocomplete="tel"
-      name="contact[phone]"
-      pattern="[0-9\-+\s()]*"
-      value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-      placeholder="{{ 'blocks.contact_form.phone' | t }}"
+    <div
+      class="contact-form__submission"
+      tabindex="-1"
+      {% if is_success_state %}autofocus{% else %}hidden{% endif %}
     >
-
-    <label class="visually-hidden" for="{{ form_id }}-body">
-      {{ 'blocks.contact_form.comment' | t }}
-    </label>
-    <textarea
-      rows="10"
-      id="{{ form_id }}-body"
-      class="contact-form__input contact-form__input--textarea"
-      name="contact[body]"
-      placeholder="{{ 'blocks.contact_form.comment' | t }}"
-    >{{- form.body -}}</textarea>
-
-    <button
-      type="submit"
-      class="button submit-button"
-    >
-      Send
-    </button>
+      {%- if block.settings.success_image != blank -%}
+        {{
+          block.settings.success_image
+          | image_url: width: 360
+          | image_tag:
+            widths: '120, 180, 240, 360',
+            sizes: '(min-width: 750px) 120px, 80px',
+            class: 'contact-form__submission-image',
+            alt: ''
+        }}
+      {%- endif -%}
+      {%- if block.settings.success_headline != blank -%}
+        <h2 class="contact-form__submission-headline">{{ block.settings.success_headline }}</h2>
+      {%- endif -%}
+      {%- if block.settings.success_subheadline != blank -%}
+        <div class="contact-form__submission-subheadline">{{ block.settings.success_subheadline }}</div>
+      {%- endif -%}
+    </div>
   {%- endform -%}
 </div>
+
+<script>
+  (function () {
+    if (!new URLSearchParams(location.search).has('preview_success')) return;
+    document.querySelectorAll('.contact-form').forEach(function (container) {
+      var fields = container.querySelector('.contact-form__fields');
+      var submission = container.querySelector('.contact-form__submission');
+      if (fields) fields.hidden = true;
+      if (submission) submission.hidden = false;
+    });
+  })();
+</script>
 
 {% stylesheet %}
   .contact-form__form {
@@ -156,6 +188,38 @@
     gap: var(--gap-xs);
   }
 
+  .contact-form__submission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--gap-md);
+  }
+
+  .contact-form__submission-image {
+    width: 80px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media screen and (min-width: 750px) {
+    .contact-form__submission-image {
+      width: 100px;
+    }
+  }
+
+  .contact-form__submission-headline {
+    margin: 0;
+  }
+
+  .contact-form__submission-subheadline {
+    margin: 0;
+  }
+
+  .contact-form__submission-subheadline > * {
+    margin: 0;
+  }
+
   .submit-button {
     min-width: max-content;
   }
@@ -166,6 +230,31 @@
   "name": "t:names.contact_form",
   "tag": null,
   "settings": [
+    {
+      "type": "header",
+      "content": "Submission success"
+    },
+    {
+      "type": "image_picker",
+      "id": "success_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "success_headline",
+      "label": "Headline",
+      "default": "Submission confirmed."
+    },
+    {
+      "type": "richtext",
+      "id": "success_subheadline",
+      "label": "Subheadline",
+      "default": "<p>Thanks for reaching out. Your inquiry has been successfully submitted and our team will respond shortly.</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
     {
       "type": "select",
       "id": "width",
