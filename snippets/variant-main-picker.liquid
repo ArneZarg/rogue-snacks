@@ -135,15 +135,28 @@
                       data-key="variant-option-pill"
                     ></span>
                   {% endif %}
+                  {%- liquid
+                    assign opt_digits = product_option_value | split: '-' | first
+                    assign cans_per_pack = opt_digits | times: 1
+                    assign variant_price = product_option_value.variant.price | default: 0
+                    assign per_can_cents = 0
+                    if cans_per_pack > 0 and variant_price > 0
+                      assign per_can_cents = variant_price | divided_by: cans_per_pack
+                    endif
+                  -%}
                   <span
                     class="variant-option__button-label__text"
                     data-key="variant-option-text"
                     data-option-label="{{ product_option_value | escape }}"
-                    data-price="{{ product_option_value.variant.price }}"
+                    data-price="{{ variant_price }}"
+                    data-cans-per-pack="{{ cans_per_pack }}"
                   >
-                    {{- product_option_value | escape -}}
+                    <span class="variant-option__name" data-key="variant-option-name">{{- product_option_value | escape -}}</span>
                     {% if product_option_value.variant %}
-                      • {{ product_option_value.variant.price | money }}
+                      <span class="variant-option__total" data-key="variant-option-total">{{- variant_price | money -}}</span>
+                      {% if cans_per_pack > 0 %}
+                        <span class="variant-option__unit" data-key="variant-option-unit">{{- per_can_cents | money_without_trailing_zeros -}}/ea</span>
+                      {% endif %}
                     {% endif %}
                   </span>
                 {% endif %}
@@ -328,5 +341,28 @@
   .variant-picker--right .variant-option {
     text-align: right;
     justify-content: right;
+  }
+
+  .variant-option--equal-width-buttons .variant-option__button-label__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    line-height: 1.2;
+  }
+
+  .variant-option--equal-width-buttons .variant-option__name {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .variant-option--equal-width-buttons .variant-option__total {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .variant-option--equal-width-buttons .variant-option__unit {
+    font-size: 0.7rem;
+    opacity: 0.6;
   }
 {% endstylesheet %}
