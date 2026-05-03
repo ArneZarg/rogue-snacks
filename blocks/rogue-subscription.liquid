@@ -295,22 +295,31 @@
         }
       }
 
+      function formatMoneyTrimmed(cents) {
+        return formatMoney(cents).replace(/\.00(?=\D|$)/, '');
+      }
+
       function updateVariantOptionPrices() {
         const optionLabels = document.querySelectorAll('[data-key="variant-option-text"]');
 
-        optionLabels.forEach(function(label) {
-          const optionText = label.getAttribute('data-option-label');
+        optionLabels.forEach(function (label) {
           const basePriceCents = parseInt(label.getAttribute('data-price'), 10);
+          if (!basePriceCents) return;
 
-          if (!optionText || !basePriceCents) return;
+          const cansPerPack = parseInt(label.getAttribute('data-cans-per-pack'), 10) || 0;
 
-          let finalPriceCents = basePriceCents;
+          const finalPriceCents = subInput.checked
+            ? Math.round(basePriceCents * 0.9)
+            : basePriceCents;
 
-          if (subInput.checked) {
-            finalPriceCents = Math.round(basePriceCents * 0.9);
+          const totalEl = label.querySelector('[data-key="variant-option-total"]');
+          if (totalEl) totalEl.textContent = formatMoney(finalPriceCents);
+
+          const unitEl = label.querySelector('[data-key="variant-option-unit"]');
+          if (unitEl && cansPerPack > 0) {
+            const perCanCents = Math.round(finalPriceCents / cansPerPack);
+            unitEl.textContent = formatMoneyTrimmed(perCanCents) + '/ea';
           }
-
-          label.textContent = optionText + ' • ' + formatMoney(finalPriceCents);
         });
       }
 
