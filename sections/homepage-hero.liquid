@@ -398,8 +398,60 @@
                     </svg>
                 {% endif %}
             </div>
+            
+
             {% if section.settings.product_image != blank %}
                 <div class="homepage-hero__product-image {{ section.id }}">
+                    <script src="https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.9.1"></script>
+            <style>
+                #canvas{
+                    z-index:4;
+                    position:relative;
+                    border:1px solid transparent;
+                    object-fit: contain;
+                    max-height: 100%;
+                    max-width: 100%;
+                }
+            </style>
+            <canvas id="canvas" width="1920" height="1920" style=""></canvas>
+
+            <script>
+                window.addEventListener('load', function () {
+                    const canvas = document.getElementById('canvas');
+
+                    console.log('canvas:', canvas);
+                    console.log('window.rive:', window.rive);
+
+                    if (!canvas) {
+                        console.error('Canvas not found');
+                        return;
+                    }
+
+                    if (!window.rive || !window.rive.Rive) {
+                        console.error('Rive runtime not loaded');
+                        return;
+                    }
+
+                    const r = new window.rive.Rive({
+                        src: 'https://cdn.shopify.com/s/files/1/0972/8933/9200/files/rogue_-_hero-Loop.riv?v=1776899848',
+                        canvas: canvas,
+                        autoplay: true,
+                        animations:'Rogue-Hero-Animation',
+                        stateMachines:'State Machine 1',
+                        loop:true,
+                        onLoad: function () {
+                            console.log('Rive file loaded');
+                            const hero_img = document.querySelector('.disappear-on-load');
+                            hero_img.style.display = 'none';
+                            r.resizeDrawingSurfaceToCanvas();
+                        },
+                        onLoadError: function (err) {
+                            console.error('Rive load error:', err);
+                        }
+                    });
+                    console.log(r.stateMachineInputs('State Machine 1'));
+                });
+            </script>
                     <img
                         src="{{ section.settings.product_image | image_url: width: 1920 }}"
                         alt="{{ section.settings.product_image.alt | default: section.settings.heading | escape }}"
@@ -407,6 +459,8 @@
                         height="{{ section.settings.product_image.height }}"
                         loading="eager"
                         fetchpriority="high"
+                        style="position:absolute;"
+                        class="disappear-on-load"
                     >
                 </div>
             {% endif %}

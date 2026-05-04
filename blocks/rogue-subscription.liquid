@@ -12,15 +12,23 @@
 
 .custom-subscription-picker {
   margin-top: 14px;
-  margin-bottom:14px;
+  margin-bottom: 14px;
+  width: 100%;
+  max-width: 100%;
+  flex: 1 1 auto;
+  align-self: stretch;
+  justify-self: stretch !important;
 }
 
-/* OUTER segmented control */
 .custom-subscription-switch {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
   gap: 0;
   padding: 0;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.75);
   background: rgba(255, 255, 255, 0.12);
@@ -29,7 +37,6 @@
   overflow: hidden;
 }
 
-/* each segment */
 .custom-subscription-switch__option {
   appearance: none;
   -webkit-appearance: none;
@@ -50,42 +57,90 @@
     color 0.2s ease,
     box-shadow 0.2s ease;
   white-space: nowrap;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  justify-self: stretch;
+  position: relative;
 }
 
-/* active segment */
 .custom-subscription-switch__option.is-active {
   background: #f3f1ee;
   color: #111111;
   box-shadow: none;
-  font-weight:bold;
-  position:relative;
+  font-weight: bold;
+  position: relative;
 }
-.custom-subscription-switch__option.is-active::before{
-    position:absolute;
-    content:'';
-    width:100%;
-    height:100%;
-    border:1px solid #fff;
+
+.custom-subscription-switch__option.is-active::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border: 1px solid #fff;
+  inset: 0;
+  border-radius: 999px;
+  pointer-events: none;
 }
-/* remove any previous focus/radio visual styles */
+
 .custom-subscription-switch__option::before,
 .custom-subscription-switch__option::after {
   content: none !important;
 }
 
-/* helper text below */
+.option-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 5px;
+}
+
+.check-sub {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  width: 0;
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, width 0.2s ease;
+}
+
+.custom-subscription-switch__option.is-active .check-sub {
+  opacity: 1;
+  transform: scale(1);
+  width: 20px;
+}
+
 .custom-subscription-helper {
   margin-top: 6px;
   font-size: 12px;
   line-height: 1.25;
   color: rgba(255, 255, 255, 0.92);
   text-align: left;
+  display: none;
 }
 
 .custom-subscription-helper__link {
   color: inherit;
   text-decoration: underline;
   margin-left: 6px;
+}
+
+.custom-subscription-picker:has(
+  .custom-subscription-switch__option[data-custom-skio-option="sub"].is-active
+) .custom-subscription-helper {
+  display: block;
+}
+
+.shopify-block,
+.shopify-app-block,
+.custom-subscription-picker {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
 }
 
 @media (max-width: 767px) {
@@ -99,87 +154,50 @@
     font-size: 11px;
   }
 }
-.custom-subscription-picker {
-  width: 100%;
-  max-width: 100%;
-  flex: 1 1 auto;
-  align-self: stretch;
-}
-
-.custom-subscription-switch {
-  width: 100%;
-  max-width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.custom-subscription-switch__option {
-  width: 100%;
-  justify-self: stretch;
-}
-.custom-subscription-picker {
-  align-self: stretch;
-}
-/* make every wrapper in the chain fill available width */
-.shopify-block,
-.shopify-app-block,
-.custom-subscription-picker {
-  display: block !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-/* if any parent is flex/grid, allow this item to stretch */
-.custom-subscription-picker {
-  justify-self: stretch !important;
-  align-self: stretch !important;
-}
-
-/* the segmented control itself */
-.custom-subscription-switch {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* each half fills evenly */
-.custom-subscription-switch__option {
-  width: 100% !important;
-  min-width: 0 !important;
-  box-sizing: border-box !important;
-}
-.custom-subscription-helper {
-  display: none;
-}
-
-.custom-subscription-picker:has(
-  .custom-subscription-switch__option[data-custom-skio-option="sub"].is-active
-) .custom-subscription-helper {
-  display: block;
-}
 {% endstyle %}
+
 <div class="custom-subscription-picker" data-custom-skio-picker>
   <div class="custom-subscription-switch">
     <button
       type="button"
-      class="custom-subscription-switch__option is-active"
+      class="custom-subscription-switch__option"
       data-custom-skio-option="sub"
-      aria-pressed="true"
+      aria-pressed="false"
     >
-      Subscribe &amp; Save 10%
+      <span class="option-inner">
+        <span class="check-sub" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="path-1-outside-1_2021_342_sub" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20" fill="black">
+              <rect fill="white" width="20" height="20"/>
+              <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1ZM8.60254 12.4492L6.73242 10.5791L5.31836 11.9932L7.88965 14.5645C8.2776 14.9524 8.90631 14.9546 9.29785 14.5703L15.8428 8.14258L15.1426 7.42871L14.4414 6.71484L8.60254 12.4492Z"/>
+            </mask>
+            <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1ZM8.60254 12.4492L6.73242 10.5791L5.31836 11.9932L7.88965 14.5645C8.2776 14.9524 8.90631 14.9546 9.29785 14.5703L15.8428 8.14258L15.1426 7.42871L14.4414 6.71484L8.60254 12.4492Z" fill="white"/>
+            <path d="M19 10H20H19ZM1 10H0H1ZM8.60254 12.4492L7.89543 13.1563L8.59618 13.8571L9.30323 13.1627L8.60254 12.4492ZM6.73242 10.5791L7.43953 9.87199L6.73242 9.16489L6.02532 9.87199L6.73242 10.5791ZM5.31836 11.9932L4.61125 11.2861L3.90415 11.9932L4.61125 12.7003L5.31836 11.9932ZM7.88965 14.5645L8.59677 13.8574L8.59676 13.8573L7.88965 14.5645ZM9.29785 14.5703L9.9983 15.284L9.99854 15.2838L9.29785 14.5703ZM15.8428 8.14258L16.5435 8.85604L17.2565 8.1558L16.5567 7.44234L15.8428 8.14258ZM15.1426 7.42871L15.8565 6.72847L15.856 6.72798L15.1426 7.42871ZM14.4414 6.71484L15.1548 6.01411L14.4541 5.30073L13.7407 6.00138L14.4414 6.71484ZM10 1V2C14.4183 2 18 5.58172 18 10H19H20C20 4.47715 15.5228 0 10 0V1ZM19 10H18C18 14.4183 14.4183 18 10 18V19V20C15.5228 20 20 15.5228 20 10H19ZM10 19V18C5.58172 18 2 14.4183 2 10H1H0C0 15.5228 4.47715 20 10 20V19ZM1 10H2C2 5.58172 5.58172 2 10 2V1V0C4.47715 0 0 4.47715 0 10H1ZM8.60254 12.4492L9.30965 11.7421L7.43953 9.87199L6.73242 10.5791L6.02532 11.2862L7.89543 13.1563L8.60254 12.4492ZM6.73242 10.5791L6.02532 9.87199L4.61125 11.2861L5.31836 11.9932L6.02547 12.7003L7.43953 11.2862L6.73242 10.5791ZM5.31836 11.9932L4.61125 12.7003L7.18254 15.2716L7.88965 14.5645L8.59676 13.8573L6.02547 11.2861L5.31836 11.9932ZM7.88965 14.5645L7.18253 15.2715C7.95942 16.0485 9.21621 16.0516 9.9983 15.284L9.29785 14.5703L8.5974 13.8566L8.59677 13.8574L7.88965 14.5645ZM9.29785 14.5703L9.99854 15.2838L16.5435 8.85604L15.8428 8.14258L15.1421 7.42911L8.59716 13.8568L9.29785 14.5703ZM15.8428 8.14258L16.5567 7.44234L15.8565 6.72847L15.1426 7.42871L14.4287 8.12895L15.1289 8.84282L15.8428 8.14258ZM15.1426 7.42871L15.856 6.72798L15.1548 6.01411L14.4414 6.71484L13.728 7.41558L14.4292 8.12945L15.1426 7.42871ZM14.4414 6.71484L13.7407 6.00138L7.90184 11.7358L8.60254 12.4492L9.30323 13.1627L15.1421 7.42831L14.4414 6.71484Z" fill="black" mask="url(#path-1-outside-1_2021_342_sub)"/>
+          </svg>
+        </span>
+        <span>Subscribe &amp; Save 10%</span>
+      </span>
     </button>
 
     <button
       type="button"
-      class="custom-subscription-switch__option"
+      class="custom-subscription-switch__option is-active"
       data-custom-skio-option="onetime"
-      aria-pressed="false"
+      aria-pressed="true"
     >
-      Single Purchase
+      <span class="option-inner">
+        <span class="check-sub" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="path-1-outside-1_2021_342_onetime" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20" fill="black">
+              <rect fill="white" width="20" height="20"/>
+              <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1ZM8.60254 12.4492L6.73242 10.5791L5.31836 11.9932L7.88965 14.5645C8.2776 14.9524 8.90631 14.9546 9.29785 14.5703L15.8428 8.14258L15.1426 7.42871L14.4414 6.71484L8.60254 12.4492Z"/>
+            </mask>
+            <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1ZM8.60254 12.4492L6.73242 10.5791L5.31836 11.9932L7.88965 14.5645C8.2776 14.9524 8.90631 14.9546 9.29785 14.5703L15.8428 8.14258L15.1426 7.42871L14.4414 6.71484L8.60254 12.4492Z" fill="white"/>
+            <path d="M19 10H20H19ZM1 10H0H1ZM8.60254 12.4492L7.89543 13.1563L8.59618 13.8571L9.30323 13.1627L8.60254 12.4492ZM6.73242 10.5791L7.43953 9.87199L6.73242 9.16489L6.02532 9.87199L6.73242 10.5791ZM5.31836 11.9932L4.61125 11.2861L3.90415 11.9932L4.61125 12.7003L5.31836 11.9932ZM7.88965 14.5645L8.59677 13.8574L8.59676 13.8573L7.88965 14.5645ZM9.29785 14.5703L9.9983 15.284L9.99854 15.2838L9.29785 14.5703ZM15.8428 8.14258L16.5435 8.85604L17.2565 8.1558L16.5567 7.44234L15.8428 8.14258ZM15.1426 7.42871L15.8565 6.72847L15.856 6.72798L15.1426 7.42871ZM14.4414 6.71484L15.1548 6.01411L14.4541 5.30073L13.7407 6.00138L14.4414 6.71484ZM10 1V2C14.4183 2 18 5.58172 18 10H19H20C20 4.47715 15.5228 0 10 0V1ZM19 10H18C18 14.4183 14.4183 18 10 18V19V20C15.5228 20 20 15.5228 20 10H19ZM10 19V18C5.58172 18 2 14.4183 2 10H1H0C0 15.5228 4.47715 20 10 20V19ZM1 10H2C2 5.58172 5.58172 2 10 2V1V0C4.47715 0 0 4.47715 0 10H1ZM8.60254 12.4492L9.30965 11.7421L7.43953 9.87199L6.73242 10.5791L6.02532 11.2862L7.89543 13.1563L8.60254 12.4492ZM6.73242 10.5791L6.02532 9.87199L4.61125 11.2861L5.31836 11.9932L6.02547 12.7003L7.43953 11.2862L6.73242 10.5791ZM5.31836 11.9932L4.61125 12.7003L7.18254 15.2716L7.88965 14.5645L8.59676 13.8573L6.02547 11.2861L5.31836 11.9932ZM7.88965 14.5645L7.18253 15.2715C7.95942 16.0485 9.21621 16.0516 9.9983 15.284L9.29785 14.5703L8.5974 13.8566L8.59677 13.8574L7.88965 14.5645ZM9.29785 14.5703L9.99854 15.2838L16.5435 8.85604L15.8428 8.14258L15.1421 7.42911L8.59716 13.8568L9.29785 14.5703ZM15.8428 8.14258L16.5567 7.44234L15.8565 6.72847L15.1426 7.42871L14.4287 8.12895L15.1289 8.84282L15.8428 8.14258ZM15.1426 7.42871L15.856 6.72798L15.1548 6.01411L14.4414 6.71484L13.728 7.41558L14.4292 8.12945L15.1426 7.42871ZM14.4414 6.71484L13.7407 6.00138L7.90184 11.7358L8.60254 12.4492L9.30323 13.1627L15.1421 7.42831L14.4414 6.71484Z" fill="black" mask="url(#path-1-outside-1_2021_342_onetime)"/>
+          </svg>
+        </span>
+        <span>Single Purchase</span>
+      </span>
     </button>
   </div>
 
@@ -187,6 +205,7 @@
     Save 10% • Ships Every Month • Free Shipping • Cancel Anytime
   </div>
 </div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     function initCustomSkioPicker() {
@@ -204,6 +223,9 @@
       const subPriceEl = customPicker.querySelector('[data-custom-skio-sub-price]');
       const oneTimePriceEl = customPicker.querySelector('[data-custom-skio-onetime-price]');
 
+      const atcPriceEl = document.querySelector('add-to-cart-component .price');
+      const atcCompareEl = document.querySelector('add-to-cart-component .compare-at-price');
+
       if (!subInput || !oneTimeInput || !subOption || !oneTimeOption) return;
 
       function triggerNativeChange(el) {
@@ -212,15 +234,94 @@
         el.click();
       }
 
+      function formatMoney(cents) {
+        if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
+          return window.Shopify.formatMoney(cents);
+        }
+
+        return '$' + (cents / 100).toFixed(2);
+      }
+
       function setActive(type) {
         const isSub = type === 'sub';
 
-            subOption.classList.toggle('is-active', isSub);
-            oneTimeOption.classList.toggle('is-active', !isSub);
+        subOption.classList.toggle('is-active', isSub);
+        oneTimeOption.classList.toggle('is-active', !isSub);
 
-            subOption.setAttribute('aria-pressed', isSub ? 'true' : 'false');
-            oneTimeOption.setAttribute('aria-pressed', isSub ? 'false' : 'true');
+        subOption.setAttribute('aria-pressed', isSub ? 'true' : 'false');
+        oneTimeOption.setAttribute('aria-pressed', isSub ? 'false' : 'true');
+      }
+
+      function updateAtcPrices() {
+        if (!atcPriceEl) return;
+
+        const liveSubPrice = skioFieldset.querySelector('[skio-subscription-price]');
+        const liveOneTimePrice = skioFieldset.querySelector('[skio-onetime-price]');
+        const liveComparePrice =
+          skioFieldset.querySelector('[skio-compare-at-price]') ||
+          skioFieldset.querySelector('[skio-regular-price]');
+
+        if (subInput.checked) {
+          if (liveSubPrice) {
+            atcPriceEl.textContent = liveSubPrice.textContent.trim();
+          }
+
+          if (atcCompareEl) {
+            if (liveOneTimePrice) {
+              atcCompareEl.textContent = liveOneTimePrice.textContent.trim();
+              atcCompareEl.style.display = '';
+            } else if (liveComparePrice) {
+              atcCompareEl.textContent = liveComparePrice.textContent.trim();
+              atcCompareEl.style.display = '';
+            } else {
+              atcCompareEl.textContent = '';
+              atcCompareEl.style.display = 'none';
+            }
+          }
+        } else {
+          if (liveOneTimePrice) {
+            atcPriceEl.textContent = liveOneTimePrice.textContent.trim();
+          }
+
+          if (atcCompareEl) {
+            if (liveComparePrice) {
+              atcCompareEl.textContent = liveComparePrice.textContent.trim();
+              atcCompareEl.style.display = '';
+            } else {
+              atcCompareEl.textContent = '';
+              atcCompareEl.style.display = 'none';
+            }
+          }
         }
+      }
+
+      function formatMoneyTrimmed(cents) {
+        return formatMoney(cents).replace(/\.00(?=\D|$)/, '');
+      }
+
+      function updateVariantOptionPrices() {
+        const optionLabels = document.querySelectorAll('[data-key="variant-option-text"]');
+
+        optionLabels.forEach(function (label) {
+          const basePriceCents = parseInt(label.getAttribute('data-price'), 10);
+          if (!basePriceCents) return;
+
+          const cansPerPack = parseInt(label.getAttribute('data-cans-per-pack'), 10) || 0;
+
+          const finalPriceCents = subInput.checked
+            ? Math.round(basePriceCents * 0.9)
+            : basePriceCents;
+
+          const totalEl = label.querySelector('[data-key="variant-option-total"]');
+          if (totalEl) totalEl.textContent = formatMoney(finalPriceCents);
+
+          const unitEl = label.querySelector('[data-key="variant-option-unit"]');
+          if (unitEl && cansPerPack > 0) {
+            const perCanCents = Math.round(finalPriceCents / cansPerPack);
+            unitEl.textContent = formatMoneyTrimmed(perCanCents) + '/ea';
+          }
+        });
+      }
 
       function syncFromSkio() {
         if (subInput.checked) {
@@ -239,6 +340,9 @@
         if (liveOneTimePrice && oneTimePriceEl) {
           oneTimePriceEl.textContent = liveOneTimePrice.textContent.trim();
         }
+
+        updateAtcPrices();
+        updateVariantOptionPrices();
       }
 
       subOption.addEventListener('click', function () {
@@ -248,6 +352,7 @@
           triggerNativeChange(subInput);
         }
         setActive('sub');
+        setTimeout(syncFromSkio, 50);
       });
 
       oneTimeOption.addEventListener('click', function () {
@@ -257,6 +362,7 @@
           triggerNativeChange(oneTimeInput);
         }
         setActive('onetime');
+        setTimeout(syncFromSkio, 50);
       });
 
       subInput.addEventListener('change', syncFromSkio);
@@ -291,13 +397,14 @@
     initCustomSkioPicker();
   });
 </script>
+
 {% schema %}
 {
-    "name": "Rogue Subscription UI",
-    "presets": [
-        {
-            "name": "Rogue Subscription UI"
-        }
-    ]
+  "name": "Rogue Subscription UI",
+  "presets": [
+    {
+      "name": "Rogue Subscription UI"
+    }
+  ]
 }
 {% endschema %}

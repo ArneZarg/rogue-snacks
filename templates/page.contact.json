@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "main-page",
@@ -82,6 +83,9 @@
         "contact_form_UwiCkQ": {
           "type": "contact-form",
           "settings": {
+            "success_image": "shopify://shop_images/Character-Checkmark_ab9c007b-e359-4817-aa71-f5b82315f462.png",
+            "success_headline": "Submission confirmed.",
+            "success_subheadline": "<p>Thanks for reaching out. Your inquiry has been successfully submitted and our team will respond shortly.</p>",
             "width": "custom",
             "custom_width": 50,
             "width_mobile": "custom",
@@ -93,22 +97,7 @@
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
-          "blocks": {
-            "submit-button": {
-              "type": "contact-form-submit-button",
-              "static": true,
-              "settings": {
-                "label": "Submit",
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
+          "blocks": {}
         }
       },
       "block_order": [

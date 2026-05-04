@@ -234,8 +234,8 @@
                   "type": "shopify://apps/skio-subscriptions-yc-s20/blocks/app-block/de50f7a4-0bb0-4d4c-84e2-c03dce83436d",
                   "settings": {
                     "form_id": "BuyButtons-ProductForm-{{ section.id }}",
-                    "start_onetime": "false",
-                    "onetime_first": "false",
+                    "start_onetime": "true",
+                    "onetime_first": "true",
                     "default_subscription": "",
                     "group_border_radius": 5,
                     "group_border_shadow": true,
@@ -473,7 +473,7 @@
         "variety_pack_HX74nb": {
           "type": "variety_pack",
           "settings": {
-            "product": "bundle-page",
+            "product": "varietypack",
             "title": "Rogue Multi-Variety Pack",
             "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
             "button_text": "Buy Now",
@@ -509,7 +509,7 @@
         "variety_pack_Rfnk86": {
           "type": "variety_pack",
           "settings": {
-            "product": "spicy-chicken-sandwich-copy",
+            "product": "chocolate-chip-cookie-pack",
             "title": "Rogue Chocolate Chip Cookie",
             "description": "",
             "button_text": "Buy Now",
@@ -586,7 +586,7 @@
         "product_J9w9YV": {
           "type": "product",
           "settings": {
-            "product": "bundle-page",
+            "product": "varietypack",
             "product_image": "shopify://shop_images/Combo-Image.png",
             "card_background": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
           }
@@ -602,7 +602,7 @@
         "product_qtxb7w": {
           "type": "product",
           "settings": {
-            "product": "spicy-chicken-sandwich-copy",
+            "product": "chocolate-chip-cookie-pack",
             "product_image": "shopify://shop_images/Cookies_0db020e8-639d-401e-922c-463aa5aec8d4.png",
             "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
           }

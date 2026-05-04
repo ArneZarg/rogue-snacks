@@ -15,28 +15,28 @@
         "badge_nDmKMh": {
           "type": "badge",
           "settings": {
-            "icon": "shopify://shop_images/Layer_1_af99ba29-ba12-40b7-8412-cdb998a127c8.png",
+            "icon": "shopify://shop_images/ActiveProbiotic-icon.svg",
             "label": "Badge"
           }
         },
         "badge_AmpJNc": {
           "type": "badge",
           "settings": {
-            "icon": "shopify://shop_images/Group_1_3896912f-3c26-467f-a74b-536efd99e858.png",
+            "icon": "shopify://shop_images/NoArtificial-icon.svg",
             "label": "Badge"
           }
         },
         "badge_zbhyUz": {
           "type": "badge",
           "settings": {
-            "icon": "shopify://shop_images/Layer_1_1_fdb1bb0b-affe-4dd0-9931-be73736dd381.png",
+            "icon": "shopify://shop_images/HighProtein-icon.svg",
             "label": "Badge"
           }
         },
         "badge_DeBR9y": {
           "type": "badge",
           "settings": {
-            "icon": "shopify://shop_images/Layer_1_2_780e1bba-ea87-42f7-81d2-7ddc78d0eb71.png",
+            "icon": "shopify://shop_images/NoSeedOils-icon.svg",
             "label": "Badge"
           }
         }
@@ -51,11 +51,11 @@
         "enable_sticky": false,
         "show_rating": true,
         "rating_value": "4.8",
-        "rating_text": "4.8 · Customer Rating",
+        "rating_text": "4.8 · Average Rating",
         "heading": "THE BEST TASTING PROTEIN SNACK.",
         "subtext": "High-protein chips that satisfy cravings and help you hit your macros.",
         "button_text": "GO ROGUE",
-        "button_link": "shopify://collections/all",
+        "button_link": "shopify://products/varietypack",
         "product_image": "shopify://shop_images/Hero-Filled.png",
         "content_bg_color": "#ffffff",
         "content_bg_color_end": "#faf2dd",
@@ -241,7 +241,7 @@
         "product_J9w9YV": {
           "type": "product",
           "settings": {
-            "product": "bundle-page",
+            "product": "varietypack",
             "product_image": "shopify://shop_images/Combo-Pack-lrg.png",
             "card_background": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
           }
@@ -257,7 +257,7 @@
         "product_qtxb7w": {
           "type": "product",
           "settings": {
-            "product": "spicy-chicken-sandwich-copy",
+            "product": "chocolate-chip-cookie-pack",
             "product_image": "shopify://shop_images/Cookies_0db020e8-639d-401e-922c-463aa5aec8d4.png",
             "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
           }
@@ -373,7 +373,7 @@
         "button_txt": "Shop All Flavors",
         "button_link": "shopify://collections/all",
         "col_1_heading": "ROGUE",
-        "col_1_heading_image": "shopify://shop_images/Rogue_Protein_Snacks_1_1.png",
+        "col_1_heading_image": "shopify://shop_images/Rogue-lrg-logo.png",
         "col_2_heading": "\"PROTEIN SNACK BRANDS\"",
         "col_3_heading": "COMMON SNACK BRANDS",
         "top_left_image": "shopify://shop_images/AK_Rogue_Characters_Working-18.png"
@@ -463,7 +463,7 @@
         "subtext": "Thousands have already ditched boring protein snacks.",
         "show_rating": true,
         "rating_value": "4.8",
-        "rating_text": "4.8 • Customer Rating",
+        "rating_text": "4.8 • Average Rating",
         "bg_color": "#ffffff",
         "heading_color": "#1d1d1d",
         "text_color": "#555555",
@@ -479,7 +479,7 @@
         "variety_pack_HX74nb": {
           "type": "variety_pack",
           "settings": {
-            "product": "bundle-page",
+            "product": "varietypack",
             "title": "Rogue Multi-Variety Pack",
             "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
             "button_text": "Buy Now",
@@ -515,7 +515,7 @@
         "variety_pack_Rfnk86": {
           "type": "variety_pack",
           "settings": {
-            "product": "spicy-chicken-sandwich-copy",
+            "product": "chocolate-chip-cookie-pack",
             "title": "Rogue Chocolate Chip Cookie",
             "description": "",
             "button_text": "Buy Now",
