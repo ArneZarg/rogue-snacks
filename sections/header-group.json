@@ -18,7 +18,7 @@
           "type": "_announcement",
           "settings": {
             "text": "Get 10% Off all subscriptions - Shop Now",
-            "link": "shopify://products/bundle-page",
+            "link": "shopify://products/varietypack",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
             "weight": "",
