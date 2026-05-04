@@ -465,7 +465,7 @@
         "variety_pack_HX74nb": {
           "type": "variety_pack",
           "settings": {
-            "product": "bundle-page",
+            "product": "varietypack",
             "title": "Rogue Multi-Variety Pack",
             "description": "Airy puffs with a satisfying crunch and a dusting of cinnamon sweetness.",
             "button_text": "Buy Now",
@@ -573,7 +573,7 @@
         "product_J9w9YV": {
           "type": "product",
           "settings": {
-            "product": "bundle-page",
+            "product": "varietypack",
             "product_image": "shopify://shop_images/Group_1538232871.png",
             "card_background": "linear-gradient(340deg, #6E00FF 0.97%, #07F 100%)"
           }
