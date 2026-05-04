@@ -509,7 +509,7 @@
         "variety_pack_Rfnk86": {
           "type": "variety_pack",
           "settings": {
-            "product": "spicy-chicken-sandwich-copy",
+            "product": "chocolate-chip-cookie-pack",
             "title": "Rogue Chocolate Chip Cookie",
             "description": "",
             "button_text": "Buy Now",
@@ -602,7 +602,7 @@
         "product_qtxb7w": {
           "type": "product",
           "settings": {
-            "product": "spicy-chicken-sandwich-copy",
+            "product": "chocolate-chip-cookie-pack",
             "product_image": "shopify://shop_images/Cookies_0db020e8-639d-401e-922c-463aa5aec8d4.png",
             "card_background": "linear-gradient(120deg, #0081C3 31.76%, #5FC9FF 97.25%)"
           }
