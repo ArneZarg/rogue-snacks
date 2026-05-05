@@ -429,6 +429,42 @@
         "padding_y": 12
       }
     },
+    "chip_section_ndbHPF": {
+      "type": "chip-section",
+      "blocks": {
+        "highlight_xf4VDD": {
+          "type": "highlight",
+          "settings": {
+            "title": "Build the Base",
+            "text": "Acid Casein , Whey Protein Isolate and Tapioca Starch"
+          }
+        },
+        "highlight_YxH4yc": {
+          "type": "highlight",
+          "settings": {
+            "title": "Bind it Together",
+            "text": "Avocado oil"
+          }
+        },
+        "highlight_6WMATF": {
+          "type": "highlight",
+          "settings": {
+            "title": "Finish the Flavor",
+            "text": "Spices & Probiotics. No artificial flavors. Ever."
+          }
+        }
+      },
+      "block_order": [
+        "highlight_xf4VDD",
+        "highlight_YxH4yc",
+        "highlight_6WMATF"
+      ],
+      "name": "Chip Section",
+      "settings": {
+        "title": "WHAT'S INSIDE",
+        "subtitle": "Protein-first ingredients, clean binding, and real seasoning—no artificial shortcuts."
+      }
+    },
     "real_people_hVkRrz": {
       "type": "real-people",
       "blocks": {
@@ -653,6 +689,7 @@
   "order": [
     "main",
     "homepage_marquee_main",
+    "chip_section_ndbHPF",
     "real_people_hVkRrz",
     "homepage_multi_variety_pack_6MbyCU",
     "product_slider_4RV6cc",
