@@ -37,6 +37,27 @@
     {% endif %}
 
     {{ content_for_header }}
+    <!-- Relay attribution tracker -->                                                                                                                
+      <script src="https://mjonesone.com/t.js?site=relay-rogue" async></script>
+      <script>
+      (function(){
+        var params = new URLSearchParams(window.location.search);
+        var cid = params.get('relay_cid');
+        if (cid) {
+          document.cookie = 'relay_cid=' + cid + ';path=/;max-age=' + (30*86400);
+        } else {
+          var m = document.cookie.match(/relay_cid=([^;]+)/);
+          if (m) cid = m[1];
+        }
+        if (cid) {
+          fetch('/cart/update.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ note: 'relay_cid=' + cid })
+          });
+        }
+      })();
+      </script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
