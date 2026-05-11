@@ -262,7 +262,7 @@
 
   {% unless block_settings.aspect_ratio == 'adapt' and block_settings.constrain_to_viewport %}
     .media-fit-cover {
-      --product-media-fit: cover;
+      --product-media-fit: contain;
     }
 
     /* Media fit for all media elements - default to cover */
