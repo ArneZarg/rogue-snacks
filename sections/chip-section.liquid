@@ -73,6 +73,17 @@
     #{{ section.id }} .highlight-3{
         align-self:start;
     }
+    #{{ section.id }} .highlight-1 .line-circle,
+    #{{ section.id }} .highlight-3 .line-circle{
+        position:absolute;
+        left:300px;
+        
+    }
+    #{{ section.id }} .highlight-2 .line-circle{
+        position:absolute;
+        right:300px;
+        transform: rotate(180deg);
+    }
     #{{ section.id }} .highlight-2{
         align-self:end;
     }
@@ -209,6 +220,9 @@
                         </div>
                         <div class="highlight-txt">
                             {{ block.settings.text }}
+                        </div>
+                        <div class="line-circle">
+                            {% render 'linecircle' %}
                         </div>
                     </div>
                 {% endfor %}
