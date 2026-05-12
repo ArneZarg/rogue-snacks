@@ -50,6 +50,8 @@
         display:flex;
         flex-direction:column;
         width:100%;
+        top:50%;
+        transform:translateY(-50%);
     }
     #{{ section.id }} .highlight-title{
         color: #FFF;
@@ -98,12 +100,67 @@
         letter-spacing: -0.17px;
     }
     .scene{
-        position:relative;
+position:relative;
     }
     /* canvas */
     #riveCanvas{
         width:100%;
+        height:100vh;
         display:block;
+        object-fit: contain;
+        margin:0 auto;
+        border:1px solid transparent;
+    }
+    @media(max-width:1024px){
+        #{{ section.id }} .canvas-container{
+            display:flex;
+            align-items:center;
+        }
+        #{{ section.id }} .highlights-container{
+            position:unset;
+            transform:translateY(0);
+            gap:30px;
+        }
+        #{{ section.id }} .line-circle{
+            position:right:-50%;
+        }
+        #{{ section.id }} .h{
+            position:relative;
+        }
+        #{{ section.id }} .highlight-2{
+        align-self:start;
+        }
+        #{{ section.id }} .highlight-2 .line-circle,
+        #{{ section.id }} .highlight-1 .line-circle,
+        #{{ section.id }} .highlight-3 .line-circle{
+            display:none;
+        }
+        #riveCanvas{
+            max-width:50%;
+        }
+    }
+    @media(max-width:425px){
+        #{{ section.id }}{
+            padding-inline:0;
+        }
+        #{{ section.id }} .h{
+            width:unset;
+            align-self:center;
+        }
+        #{{ section.id }} .highlight-title{
+            font-size:20px;
+        }
+        #{{ section.id }} .highlight-txt{
+            font-size:14px;
+        }
+        #{{ section.id }} .highlight-num{
+            width:34px;
+            height:34px;
+            font-size:19px;
+        }
+        #riveCanvas{
+            max-height:70vh;
+        }
     }
 {% endstyle %}
 <!-- GSAP -->
@@ -112,6 +169,40 @@
 
 <!-- Rive -->
 <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
+
+<section style="background:{{ product.metafields.custom.custom_styles.value.background_gradient }}" id="{{ section.id }}" class="scene">
+    <div class="page-container">
+        <h2>
+            {{ section.settings.title }}
+        </h2>
+        <div class="anim-sub">
+            {{ section.settings.subtitle }}
+        </div>
+        <div class="rogue-flex rogue-col">
+            <div class="canvas-container">
+                <div class="highlights-container">
+                {% for block in section.blocks %}
+                    <div class="h highlight-{{ forloop.index }}">
+                        <div class="highlight-num">
+                            {{ forloop.index }}
+                        </div>
+                        <div class="highlight-title">
+                            {{ block.settings.title }}
+                        </div>
+                        <div class="highlight-txt">
+                            {{ block.settings.text }}
+                        </div>
+                        <div class="line-circle">
+                            {% render 'linecircle' %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            <canvas id="riveCanvas" width="300" height="300"></canvas>
+        </div>
+        </div>
+    </div>
+</section>
 <script>
     const { Rive, Layout, Fit, Alignment } = rive;
 
@@ -141,8 +232,11 @@
     }
 
     riveInstance = new Rive({
-
-    src: "chipanimation.riv",
+        {% assign src = product.metafields.custom.rive_file_ource %}
+        {% if src == nil or src == "" %}
+            {% assign src = "https://cdn.shopify.com/s/files/1/0972/8933/9200/files/chipanimation_comp.riv?v=1778541363" %}
+        {% endif %}
+    src: "{{ src }}",
 
     canvas: canvas,
 
@@ -198,40 +292,6 @@
 
     });
 </script>
-<section style="background:{{ product.metafields.custom.custom_styles.value.background_gradient }}" id="{{ section.id }}" class="scene">
-    
-    <div class="page-container">
-        <h2>
-            {{ section.settings.title }}
-        </h2>
-        <div class="anim-sub">
-            {{ section.settings.subtitle }}
-        </div>
-        <div class="rogue-flex rogue-col">
-            <div class="canvas-container">
-                <div class="highlights-container">
-                {% for block in section.blocks %}
-                    <div class="h highlight-{{ forloop.index }}">
-                        <div class="highlight-num">
-                            {{ forloop.index }}
-                        </div>
-                        <div class="highlight-title">
-                            {{ block.settings.title }}
-                        </div>
-                        <div class="highlight-txt">
-                            {{ block.settings.text }}
-                        </div>
-                        <div class="line-circle">
-                            {% render 'linecircle' %}
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-                <canvas id="riveCanvas"></canvas>
-            </div>
-        </div>
-    </div>
-</section>
 {% schema %}
 {
     "presets": [
