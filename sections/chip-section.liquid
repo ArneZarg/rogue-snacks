@@ -1,3 +1,4 @@
+{% if product.id == 10074147356992 %}
 {% style %}
     #{{ section.id }}{
         padding:50px;
@@ -139,9 +140,6 @@ position:relative;
         #{{ section.id }} .highlight-3 .line-circle{
             display:none;
         }
-        #riveCanvas{
-            
-        }
     }
     @media(max-width:425px){
         #{{ section.id }}{
@@ -159,14 +157,12 @@ position:relative;
         }
         #{{ section.id }} .highlight-txt{
             font-size:14px;
+            line-height:20px;
         }
         #{{ section.id }} .highlight-num{
             width:34px;
             height:34px;
             font-size:19px;
-        }
-        #riveCanvas{
-            
         }
     }
 {% endstyle %}
@@ -302,6 +298,7 @@ position:relative;
 
     });
 </script>
+{% endif %}
 {% schema %}
 {
     "presets": [
