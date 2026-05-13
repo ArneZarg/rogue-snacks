@@ -139,7 +139,7 @@ position:relative;
             display:none;
         }
         #riveCanvas{
-            max-width:50%;
+            
         }
     }
     @media(max-width:425px){
@@ -152,6 +152,8 @@ position:relative;
         }
         #{{ section.id }} .highlight-title{
             font-size:20px;
+            line-height:25px;
+            margin-top:20px;
         }
         #{{ section.id }} .highlight-txt{
             font-size:14px;
@@ -202,7 +204,7 @@ position:relative;
                 {% endfor %}
                 </div>
             <div style="height:600px;width:600px;margin:0 auto;">
-            <canvas id="riveCanvas" width="300" height="600"></canvas>
+                <canvas id="riveCanvas" width="300" height="600"></canvas>
             </div>
         </div>
         </div>
