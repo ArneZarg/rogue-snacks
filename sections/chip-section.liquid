@@ -143,6 +143,9 @@ position:relative;
     }
     @media(max-width:425px){
         #{{ section.id }}{
+            display:none;
+        }
+        #{{ section.id }}{
             padding-inline:0;
             padding-bottom:100px;
         }
@@ -223,28 +226,28 @@ position:relative;
     /* Fix blurry canvas */
     function resizeCanvas() {
 
-    const dpr = window.devicePixelRatio || 1;
+        const dpr = window.devicePixelRatio || 1;
         console.log('dpr',dpr)
-    const rect = canvas.getBoundingClientRect();
-    console.log(rect.width,rect.height);
+        const rect = canvas.getBoundingClientRect();
+        console.log(rect.width,rect.height);
 
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
 
-    canvas.style.width = rect.width + "px";
-    canvas.style.height = rect.height + "px";
+        canvas.style.width = rect.width + "px";
+        canvas.style.height = rect.height + "px";
 
-    if(riveInstance){
-    riveInstance.resizeDrawingSurfaceToCanvas();
-    }
+        if(riveInstance){
+            riveInstance.resizeDrawingSurfaceToCanvas();
+        }
 
     }
 
     riveInstance = new Rive({
-        {% assign src = product.metafields.custom.rive_file_ource %}
-        {% if src == nil or src == "" %}
-            {% assign src = "https://cdn.shopify.com/s/files/1/0972/8933/9200/files/chipanimation_comp.riv?v=1778541363" %}
-        {% endif %}
+    {% assign src = product.metafields.custom.rive_file_ource %}
+    {% if src == nil or src == "" %}
+        {% assign src = "https://cdn.shopify.com/s/files/1/0972/8933/9200/files/chipanimation_comp.riv?v=1778541363" %}
+    {% endif %}
     src: "{{ src }}",
 
     canvas: canvas,
