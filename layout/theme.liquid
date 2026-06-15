@@ -6,6 +6,29 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    <!-- Relay attribution: captures relay_cid from ad clicks and attaches it to the order -->
+    <script>
+    (function () {
+      var KEY = 'relay_cid';
+      var TTL = 30 * 24 * 60 * 60 * 1000; // 30-day attribution window
+      try {
+        var cid = new URLSearchParams(location.search).get(KEY);
+        if (cid) localStorage.setItem(KEY, JSON.stringify({ v: cid, t: Date.now() }));
+      } catch (e) {}
+      var saved = null;
+      try {
+        var rec = JSON.parse(localStorage.getItem(KEY) || 'null');
+        if (rec && (Date.now() - rec.t) < TTL) saved = rec.v;
+      } catch (e) {}
+      if (saved) {
+        fetch('/cart/update.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ attributes: { relay_cid: saved } })
+        }).catch(function () {});
+      }
+    })();
+    </script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
