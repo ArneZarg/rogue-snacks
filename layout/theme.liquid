@@ -6,6 +6,35 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    <!-- Relay attribution (part 2): covers express checkout (Shop Pay / PayPal / Venmo) on product pages -->
+    <script>
+    (function () {
+      var KEY = 'relay_cid', TTL = 30 * 24 * 60 * 60 * 1000;
+      var cid = null;
+      try {
+        var u = new URLSearchParams(location.search).get(KEY);
+        if (u) localStorage.setItem(KEY, JSON.stringify({ v: u, t: Date.now() }));
+          var rec = JSON.parse(localStorage.getItem(KEY) || 'null');
+        if (rec && (Date.now() - rec.t) < TTL) cid = rec.v;
+      } catch (e) {}
+      if (!cid) return;
+
+      function stamp() {
+      var forms = document.querySelectorAll('form[action*="/cart/add"]');
+        for (var i = 0; i < forms.length; i++) {
+          if (forms[i].querySelector('input[name="properties[_relay_cid]"]')) continue;
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'properties[_relay_cid]';
+            input.value = 'relay_cid=' + cid;
+            forms[i].appendChild(input);
+        }
+      }
+      stamp();
+      document.addEventListener('DOMContentLoaded', stamp);
+      setTimeout(stamp, 1500); // re-stamp if the theme swaps the buy form in dynamically
+    })();
+    </script>
     <!-- Relay attribution: captures relay_cid from ad clicks and attaches it to the order -->
     <script>
     (function () {
