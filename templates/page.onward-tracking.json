@@ -1,0 +1,35 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "onward-tracking": {
+      "type": "apps",
+      "blocks": {
+        "onward-tracking-block": {
+          "type": "shopify://apps/onward/blocks/onward-tracking/b53f9cdb-2bd0-4ef4-be64-bb0b8b7f7dff",
+          "settings": {
+            "buttonColor": "#000000",
+            "buttonTextColor": "#ffffff",
+            "textColor": "#151515",
+            "horizontalAlignment": "middle",
+            "additionalCSS": ""
+          }
+        }
+      },
+      "block_order": [
+        "onward-tracking-block"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "onward-tracking"
+  ]
+}
