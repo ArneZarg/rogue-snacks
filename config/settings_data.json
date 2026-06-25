@@ -108,6 +108,11 @@
         "type": "shopify://apps/hotjar-install/blocks/global/2903e4ea-7615-463e-8b60-582f487dac4f",
         "disabled": false,
         "settings": {}
+      },
+      "17868163051899494078": {
+        "type": "shopify://apps/onward/blocks/onward-protection-embed/b53f9cdb-2bd0-4ef4-be64-bb0b8b7f7dff",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
