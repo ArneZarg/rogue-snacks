@@ -41,8 +41,18 @@
       var KEY = 'relay_cid';
       var TTL = 30 * 24 * 60 * 60 * 1000; // 30-day attribution window
       try {
-        var cid = new URLSearchParams(location.search).get(KEY);
-        if (cid) localStorage.setItem(KEY, JSON.stringify({ v: cid, t: Date.now() }));
+        var q = new URLSearchParams(location.search);
+        var cid = q.get(KEY);
+        if (!cid && q.get('c')) {
+          var b = new Uint8Array(12); crypto.getRandomValues(b);
+          cid = Array.prototype.map.call(b, function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+          fetch('https://mjonesone.com/relay/api/lander-click', {
+            method: 'POST', keepalive: true, credentials: 'omit',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ click_id: cid, c: q.get('c'), fbclid: q.get('fbclid') || null, url: location.href })
+        }).catch(function () {});
+    }
+    if (cid) localStorage.setItem(KEY, JSON.stringify({ v: cid, t: Date.now() }));
       } catch (e) {}
       var saved = null;
       try {
