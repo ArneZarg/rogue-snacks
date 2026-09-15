@@ -418,13 +418,7 @@
                                     </div>
                                 {% else %}
                                     <div class="mvp-actions">
-                                        {% render 'rogue-component-btn',
-                                            tag: 'a',
-                                            text: block.settings.button_text | default: 'Buy Now',
-                                            color: 'yellow',
-                                            additional_styles: 'width:100%;font-size:20px;font-weight:bold;box-shadow:-3px 4px 0 0 #000;text-transform:uppercase;',
-                                            url: block.settings.button_link
-                                        %}
+                                        {% render 'rogue-component-btn', tag: 'a', text: block.settings.button_text, default: 'Buy Now', color: 'yellow', additional_styles: 'width:100%;font-size:20px;font-weight:bold;box-shadow:-3px 4px 0 0 #000;text-transform:uppercase;', url: block.settings.button_link %}
                                     </div>
                                 {% endif %}
 
@@ -688,3 +682,22 @@
     ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'rogue-component-btn',
+                                                tag: 'a',
+                                                text: block.settings.button_text | default: 'Buy Now',
+                                                color: 'yellow',
+                                                additional_styles: 'width:100%;font-size:20px;font-weight:bold;box-shadow:-3px 4px 0 0 #000;text-transform:uppercase;',
+                                                url: block.settings.button_link
+                                            %}
+  to: "{% render 'rogue-component-btn', tag: 'a', text: block.settings.button_text,
+    default: 'Buy Now', color: 'yellow', additional_styles: 'width:100%;font-size:20px;font-weight:bold;box-shadow:-3px
+    4px 0 0 #000;text-transform:uppercase;', url: block.settings.button_link %}"
+  position: 15181..15449
+{% endcomment %}
